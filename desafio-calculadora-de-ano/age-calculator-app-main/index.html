@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="stylecalc.css">
+  <script src="pgprincipal.js"></script>
+  <title>Age calculator</title>
+  <style>
+    p{
+      padding-top: 15px;
+      padding-left: 20px;
+      font-size: 50px;
+      font-weight: 800;
+      font-style: italic;
+    }
+    strong{
+      color: var(--roxo);
+    }
+    p.erro{
+      font-size: 12px;
+      padding-left: 5px;
+      padding-top: 2px;
+      color: rgba(250, 30, 30, 0.815);
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+      <main>
+          <form action="">
+            <fieldset>
+              <legend>DAY</legend>
+              <input type="number" name="dia" id="dia" required>
+              <p class="erro"></p>
+            </fieldset>
+
+            <fieldset>
+              <legend>MONTH</legend>
+              <input type="number" name="mes" id="mes" required>
+              <p class="erro"></p>
+            </fieldset>
+
+            <fieldset>
+              <legend>YEAR</legend>
+              <input type="number" name="ano" id="ano">
+              <p class="erro"></p>
+            </fieldset>
+          </form>
+          <div id="estilo">
+  
+            <img src="images/icon-arrow.svg" alt="submit" onclick="clicar()">
+  
+          </div>
+
+          <p><strong>- -</strong> years</p>
+          <p><strong>- -</strong> months</p>
+          <p><strong>- -</strong> days</p>
+
+          <script>
+          var mes_input = document.getElementById('mes')
+          var dia_input = document.getElementById('dia')
+          var ano_input = document.getElementById('ano')
+
+          var data_atual = new Date()
+          var mes_atual = data_atual.getMonth() + 1
+          var dia_atual = data_atual.getDate()
+          var ano_atual = data_atual.getFullYear()
+
+          var erro_preenchimento1 = document.getElementsByTagName('p')[0]
+          var erro_preenchimento2 = document.getElementsByTagName('p')[1]
+          var erro_preenchimento3 = document.getElementsByTagName('p')[2]
+          var input_error1 = document.getElementsByTagName('input')[0]
+          var input_error2 = document.getElementsByTagName('input')[1]
+          var input_error3 = document.getElementsByTagName('input')[2]
+
+          var anos = document.getElementsByTagName('strong')[0]
+          var meses = document.getElementsByTagName('strong')[1]
+          var dias = document.getElementsByTagName('strong')[2]
+
+          function clicar(){
+
+
+            // calculo
+
+            var anos_final = ano_atual - ano_input.value
+            var meses_final = mes_atual - mes_input.value
+            var dias_final = dia_atual - dia_input.value
+          
+            // erros
+            if (mes_input.value == 0 || ano_input.value == 0 || dia_input.value ==0){
+            erro_preenchimento1.innerHTML = 'this field is required'
+            erro_preenchimento2.innerHTML = 'this field is required'
+            erro_preenchimento3.innerHTML = 'this field is required'
+            input_error1.style.border = '2px solid red'
+            input_error2.style.border = '2px solid red'
+            input_error3.style.border = '2px solid red'
+            }
+            switch(true){
+              case dia_input.value > 31:
+                erro_preenchimento1.innerHTML = 'erro'
+              default:
+            }
+          }
+
+          </script>
+      </main>
+</body>
+</html>
