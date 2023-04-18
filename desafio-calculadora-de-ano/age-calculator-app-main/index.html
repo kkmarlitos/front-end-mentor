@@ -8,23 +8,7 @@
   <script src="pgprincipal.js"></script>
   <title>Age calculator</title>
   <style>
-    p{
-      padding-top: 15px;
-      padding-left: 20px;
-      font-size: 50px;
-      font-weight: 800;
-      font-style: italic;
-    }
-    strong{
-      color: var(--roxo);
-    }
-    p.erro{
-      font-size: 12px;
-      padding-left: 5px;
-      padding-top: 2px;
-      color: rgba(250, 30, 30, 0.815);
-      font-style: italic;
-    }
+    
   </style>
 </head>
 <body>
@@ -84,46 +68,58 @@
 
             // calculo
 
-            var anos_final = ano_atual - ano_input.value
-            var meses_final = mes_atual - mes_input.value
-            var dias_final = dia_atual - dia_input.value
-          
-            // erros
-         /*    if (mes_input.value == 0 || ano_input.value == 0 || dia_input.value ==0){
-            erro_preenchimento1.innerHTML = 'this field is required'
-            erro_preenchimento2.innerHTML = 'this field is required'
-            erro_preenchimento3.innerHTML = 'this field is required'
-            input_error1.style.border = '2px solid red'
-            input_error2.style.border = '2px solid red'
-            input_error3.style.border = '2px solid red'
-            }else if(dia_input.value > 31){
-              erro_preenchimento1.innerHTML = 'Must be a valid day'
-              input_error1.style.border = '2px solid red'
-            } else if(mes_input.value > 12){
-              erro_preenchimento2.innerText = 'Must be a valid month'
-              input_error2.style.border = '2px solid red'
-            } else if(ano_input.value > ano_atual){
-              erro_preenchimento3.innerText = 'Must be in the past'
-              input_error3.style.border = '2px solid red'
-            } */ 
+            
 
+          if (dia_input.value == 0 || dia_input.value > 31 || mes_input.value == 0 || mes_input.value > 12 || ano_input.value == 0 || ano_input.value > ano_atual){
           //erro dia
             switch(true){
               case dia_input.value == 0: 
                 erro_preenchimento1.innerHTML = 'this field is required'
+                input_error1.style.border = '2px solid red'
                break
               case dia_input.value > 31: 
                 erro_preenchimento1.innerHTML = 'Must be a valid day'
+                input_error1.style.border = '2px solid red'
                break
-              
               default:
             }
 
           //erro mes
             switch(true){
               case mes_input.value == 0: 
-                
+               erro_preenchimento2.innerText = 'this field is required'
+               input_error2.style.border = '2px solid red'
+               break
+              case mes_input.value > 12: 
+               erro_preenchimento2.innerText = 'Must be a valid month'
+               input_error2.style.border = '2px solid red'
+               break
+              default:
             }
+
+          //erro ano
+          switch(true){
+            case ano_input.value == 0: 
+              erro_preenchimento3.innerText = 'this field is required'
+              input_error3.style.border = '2px solid red'
+             break 
+            case ano_input.value > ano_atual: 
+              erro_preenchimento3.innerText = 'Must be in the past'
+              input_error3.style.border = '2px solid red'
+             break
+            default:
+          }
+          }else{
+            erro_preenchimento1.innerText = ''
+            erro_preenchimento2.innerText = ''
+            erro_preenchimento3.innerText = ''
+            input_error1.style.border = '2px solid black'
+            input_error2.style.border = '2px solid black'
+            input_error3.style.border = '2px solid black'
+            dias.innerHTML = ''
+            meses.innerHTML = ''
+            anos.innerHTML = ''
+          }
           } 
 
           </script>
