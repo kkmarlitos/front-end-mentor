@@ -89,20 +89,42 @@
             var dias_final = dia_atual - dia_input.value
           
             // erros
-            if (mes_input.value == 0 || ano_input.value == 0 || dia_input.value ==0){
+         /*    if (mes_input.value == 0 || ano_input.value == 0 || dia_input.value ==0){
             erro_preenchimento1.innerHTML = 'this field is required'
             erro_preenchimento2.innerHTML = 'this field is required'
             erro_preenchimento3.innerHTML = 'this field is required'
             input_error1.style.border = '2px solid red'
             input_error2.style.border = '2px solid red'
             input_error3.style.border = '2px solid red'
-            }
+            }else if(dia_input.value > 31){
+              erro_preenchimento1.innerHTML = 'Must be a valid day'
+              input_error1.style.border = '2px solid red'
+            } else if(mes_input.value > 12){
+              erro_preenchimento2.innerText = 'Must be a valid month'
+              input_error2.style.border = '2px solid red'
+            } else if(ano_input.value > ano_atual){
+              erro_preenchimento3.innerText = 'Must be in the past'
+              input_error3.style.border = '2px solid red'
+            } */ 
+
+          //erro dia
             switch(true){
-              case dia_input.value > 31:
-                erro_preenchimento1.innerHTML = 'erro'
+              case dia_input.value == 0: 
+                erro_preenchimento1.innerHTML = 'this field is required'
+               break
+              case dia_input.value > 31: 
+                erro_preenchimento1.innerHTML = 'Must be a valid day'
+               break
+              
               default:
             }
-          }
+
+          //erro mes
+            switch(true){
+              case mes_input.value == 0: 
+                
+            }
+          } 
 
           </script>
       </main>
