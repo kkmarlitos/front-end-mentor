@@ -7,9 +7,13 @@
   <title>Resultando de Sumario</title>
 </head>
 <style>
+  @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;700;800&display=swap');
+
   *{
     margin: 0px;
     padding: 0px;
+    font-family: 'Hanken Grotesk', sans-serif;
+
   }
   :root{
     --vermelho: hsl(0, 100%, 67%);
@@ -24,7 +28,7 @@
     --azul_circulo: hsla(241, 72%, 46%, 0);
   }
 
-  section#resultado{
+  div#resultado{
     background-image: linear-gradient(var(--azul_background), var(--azul_claro_background));
     padding: 20px;
     border-radius: 0px 0px 25px 25px;
@@ -46,12 +50,12 @@
     color: white;
     text-align: center;
     padding-top: 20px;
-    font-size: 50px;
+    font-size: 40px;
   }
  p.total{
   text-align: center;
   color: rgba(255, 255, 255, 0.575);
-  padding-top: 2px;
+  
  }
  h3{
   color: white;
@@ -65,28 +69,59 @@
   width: 280px;
   margin: auto;
  }
- p{
+ p.para{
   color: rgba(255, 255, 255, 0.726);
   text-align: center;
   font-size: 17px;
  }
- span.total{
-  color: rgba(0, 0, 0, 0.562);
+ h4{
+  font-size: 20px;
+  padding: 15px;
  }
- li{
-  background-color: red;
-  padding: 7px;
+ section{
+  padding: 12px 10px 12px 10px;
+  border-radius: 10px;
+  position: relative;
   width: 90vw;
-  border-radius: 5px;
   margin: auto;
  }
-#reacao{
-  margin-bottom:5px ;
+ section.reacao{
+  margin-bottom: 5px;
+  color: var(--vermelho);
+  background-color: hsla(0, 100%, 67%, 0.103);
+ }
+ section.memoria{
+  margin-bottom: 5px;
+  color: var(--laranja);
+  background-color: hsla(39, 100%, 56%, 0.103);
+ }
+ section.verbal{
+  margin-bottom: 5px;
+  color: var(--verde);
+  background-color: hsla(166, 100%, 37%, 0.103);
+ }
+ section.visual{
+  margin-bottom: 5px;
+  color: var(--blue);
+  background-color: hsl(234, 85%, 45%, 0.103);
+ }
+p.sumario{
+display: inline-block;
 }
+ span{
+  position: absolute;
+  right: 5px;
+  top: 2.2vh;
+ }
+ img{
+  padding-left: 2px;
+  padding-right: 5px;
+ }
 </style>
 <body>
+ 
     <main>
-      <section id="resultado">
+      <div id="resultado">
         <h1>Your Result</h1>
         <div id="circulo">
           <h2 id="acerto">76</h2>
@@ -94,21 +129,36 @@
         </div>
         <div id="paragrafo">
           <h3>Great</h3>
-          <p>You scored higher than 65% of the people who have taken these tests.</p>
+          <p class="para">You scored higher than 65% of the people who have taken these tests.</p>
         </div>
-      </section>
+      </div>
 
-      <section id="sumario">
+      <div id="sumario">
         <h4>Summary</h4>
-        <ul>
-          <li id="reacao"><img src="images/icon-reaction.svg" alt="reacao"> Reaction <strong>80 </strong>  <span class="total">/ 100</span> </li>
-          <li id="memory"><img src="images/icon-memory.svg" alt="memory">Memory <strong>92 </strong> <span class="total"> / 100</span></li>
-          <li id="verbal"><img src="images/icon-verbal.svg" alt="verbal">Verbal <strong>61 </strong> <span class="total"> / 100</span></li>
-          <li id="visual"><img src="images/icon-visual.svg" alt="visual">Visual <strong>72</strong> <span class="total"> / 100</span></li>
+        <section class="reacao">
+          <img src="images/icon-reaction.svg" alt="reacao">
+          <p class="sumario">Reaction</p>
+          <span><strong>92</strong> / 100</span>
+        </section>
 
-        </ul>
-        
-      </section>
+        <section class="memoria">
+          <img src="images/icon-memory.svg" alt="memoria">
+          <p class="sumario">Memory</p>
+          <span><strong>70</strong> / 100</span>
+        </section>
+
+        <section class="verbal">
+          <img src="images/icon-verbal.svg" alt="verbal">
+          <p class="sumario">Verbal</p>
+          <span><strong class="arrumarpadd">82</strong> / 100</span>
+        </section>
+
+        <section class="visual">
+          <img src="images/icon-visual.svg" alt="visual">
+          <p class="sumario">Visual</p>
+          <span><strong class="arrumarpadd2">60</strong> / 100</span>
+        </section>
+      </div>
     </main>
 </body>
 </html>
