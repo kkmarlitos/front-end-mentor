@@ -1,47 +1,114 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Results summary component</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resultando de Sumario</title>
 </head>
+<style>
+  *{
+    margin: 0px;
+    padding: 0px;
+  }
+  :root{
+    --vermelho: hsl(0, 100%, 67%);
+    --laranja: hsl(39, 100%, 56%);
+    --verde: hsl(166, 100%, 37%);
+    --blue: hsl(234, 85%, 45%);
+    
+    --azul_background: hsl(252, 100%, 67%);
+    --azul_claro_background: hsl(241, 81%, 54%);
+
+    --roxo_circulo: hsla(256, 72%, 46%, 1);
+    --azul_circulo: hsla(241, 72%, 46%, 0);
+  }
+
+  section#resultado{
+    background-image: linear-gradient(var(--azul_background), var(--azul_claro_background));
+    padding: 20px;
+    border-radius: 0px 0px 25px 25px;
+  }
+  h1{
+    text-align: center;
+    color: rgba(255, 255, 255, 0.822);
+    padding-bottom: 20px;
+  }
+  div#circulo{
+    width: 30vw;
+    height: 20vh;
+    border-radius: 50%;
+    background-image:linear-gradient(var(--roxo_circulo), var(--azul_circulo)) ;
+    margin: auto;
+    
+  }
+  #acerto{
+    color: white;
+    text-align: center;
+    padding-top: 20px;
+    font-size: 50px;
+  }
+ p.total{
+  text-align: center;
+  color: rgba(255, 255, 255, 0.575);
+  padding-top: 2px;
+ }
+ h3{
+  color: white;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 25px;
+  padding-bottom: 10px;
+ }
+ div#paragrafo{
+  border-radius: 0px;
+  width: 280px;
+  margin: auto;
+ }
+ p{
+  color: rgba(255, 255, 255, 0.726);
+  text-align: center;
+  font-size: 17px;
+ }
+ span.total{
+  color: rgba(0, 0, 0, 0.562);
+ }
+ li{
+  background-color: red;
+  padding: 7px;
+  width: 90vw;
+  border-radius: 5px;
+  margin: auto;
+ }
+#reacao{
+  margin-bottom:5px ;
+}
+</style>
 <body>
+    <main>
+      <section id="resultado">
+        <h1>Your Result</h1>
+        <div id="circulo">
+          <h2 id="acerto">76</h2>
+          <p class="total">of 100</p>
+        </div>
+        <div id="paragrafo">
+          <h3>Great</h3>
+          <p>You scored higher than 65% of the people who have taken these tests.</p>
+        </div>
+      </section>
 
-  Your Result
-  76
-  of 100
+      <section id="sumario">
+        <h4>Summary</h4>
+        <ul>
+          <li id="reacao"><img src="images/icon-reaction.svg" alt="reacao"> Reaction <strong>80 </strong>  <span class="total">/ 100</span> </li>
+          <li id="memory"><img src="images/icon-memory.svg" alt="memory">Memory <strong>92 </strong> <span class="total"> / 100</span></li>
+          <li id="verbal"><img src="images/icon-verbal.svg" alt="verbal">Verbal <strong>61 </strong> <span class="total"> / 100</span></li>
+          <li id="visual"><img src="images/icon-visual.svg" alt="visual">Visual <strong>72</strong> <span class="total"> / 100</span></li>
 
-  Great
-  You scored higher than 65% of the people who have taken these tests.
-  
-  Summary
-
-  Reaction
-  80 / 100
-
-  Memory
-  92 / 100
-
-  Verbal
-  61 / 100
-
-  Visual
-  72 / 100
-
-  Continue
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+        </ul>
+        
+      </section>
+    </main>
 </body>
 </html>
