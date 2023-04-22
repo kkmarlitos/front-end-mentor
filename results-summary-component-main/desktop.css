@@ -46,4 +46,9 @@ body{
     display: block;
     width: 5vw;
     margin: auto;}
- 
+    @media (min-width:1380px){
+      div#circulo{
+        width: 11vw;
+        height: 15vh;
+      }
+    }
