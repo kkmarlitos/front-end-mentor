@@ -48,7 +48,7 @@ body{
     margin: auto;}
     @media (min-width:1380px){
       div#circulo{
-        width: 11vw;
+        width: 10vw;
         height: 15vh;
       }
     }
