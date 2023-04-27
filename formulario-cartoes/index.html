@@ -19,9 +19,89 @@
             --linear2:hsl(278, 94%, 30%);
             --erro: hsl(0, 100%, 66%);
         }
+        header{
+            background-image: url(images/bg-main-mobile.png);
+            height: 20vh;
+            display: grid;
+            grid-template-rows: 98px 85px 45px;
+            padding-top: 30px;
+            padding-bottom: 60px;
+        }
+        img{
+            width: 70vw;
+        }
+        #back{
+            padding-left: 25vw;
+        }
+        #front{
+            padding-left: 10vw;
+        }
+        div{
+            display: grid;
+            grid-template-columns: 180px 10px;
+            color: rgba(255, 255, 255, 0.849);
+        }
+        #num_cartao{
+            color: white;
+            padding-left: 14vw;
+            letter-spacing: 3px;
+            font-size: 20px;
+        }
+        .span_cartao{
+            padding-left: 16vw;
+            font-size: 13px;
+        }
+        main{
+            padding-top: 120px;
+        }
+        input{
+            width: 70vw;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid rgba(0, 0, 0, 0.459);
+            display: block;
+        }
+       .label{
+        color: black;
+       }
+       .inp{
+        display: grid;
+        grid-template-columns: 70px 50px 50px;
+       }
+       .inp input{
+        width: 10vw;
+       }
     </style>
 </head>
 <body>
-    
+    <header>
+        <img src="images/bg-card-back.png" alt="cartão" id="back">
+        <img src="images/bg-card-front-foda.png" alt="cartão"id="front">
+        <p id="num_cartao">0000 0000 0000 0000</p>
+            <div class="span_cartao">
+                    <span>JANE APPLESEED</span>
+                    <span>00/00</span>
+            </div>
+    </header>
+    <main>
+        <form>
+            
+                <label for="card_name">CARDHOLDER NAME</label>
+                <input type="text" name="name-card" id="card_name">
+                <label for="card_number">CARD NUMBER</label>
+                <input type="number" name="number-card" id="card_number">
+                    <div class="label">
+                        <label for="mes_ano">EXP. DATE (MM/YY)</label>
+                        <label for="cvc">CVC</label>
+                    </div>
+                    <br>
+                  <div class="inp">
+                          <input type="number" name="mes-ano" id="mes_ano">
+                          <input type="number" name="mes-ano" id="mes_ano">
+                          <input type="number" name="cvc" id="cvc">
+                  </div>
+        </form>
+    </main>
 </body>
 </html>
