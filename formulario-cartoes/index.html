@@ -5,104 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
-        *{
-            margin: 0px;
-            font-family: 'Space Grotesk', sans-serif;
-        }
-        body{
-            height: 100vh;
-            width: 100vw;
-        }
-        :root{
-            --roxo_claro: hsl(270, 3%, 87%);
-            --roxo_escuro: hsl(279, 12%, 38%);
-            --roxo_escurao: hsl(278, 68%, 11%);
-            --linear1:hsl(249, 99%, 64%);
-            --linear2:hsl(278, 94%, 30%);
-            --erro: hsl(0, 100%, 66%);
-        }
-        header{
-            background-image: url(images/bg-main-mobile.png);
-            height: 20vh;
-            display: grid;
-            grid-template-rows: 11vh 3vh 11vh 40px;
-            padding-top: 30px;
-            padding-bottom: 60px;
-        }
-        .span_000{
-            padding-left:75vw;
-            color: white;
-            font-size: 3vw;
-        }
-        img{
-            width: 70vw;
-        }
-        #back{
-            padding-left: 25vw;
-        }
-        #front{
-            padding-left: 10vw;
-        }
-        div{
-            display: grid;
-            grid-template-columns: 170px 10px;
-            color: rgba(255, 255, 255, 0.849);
-        }
-        #num_cartao{
-            color: white;
-            padding-left: 14vw;
-            letter-spacing: 3px;
-            font-size: 4.2vw;
-        }
-        .span_cartao{
-            padding-left: 16vw;
-            font-size: 3vw;
-        }
-        main{
-            padding-top: 120px;
-            letter-spacing: 1px;
-            font-size: 14px;
-            font-weight: bold;
-        }
-        form{
-            padding-left: 40px;
-        }
-        input{
-            width: 70vw;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            border: 1px solid rgba(0, 0, 0, 0.459);
-            display: block;
-            font-size: 16px;
-            
-        }
-       .label{
-        color: black;
-        display: grid;
-        grid-template-columns: 180px 20px;
-        grid-template-rows: 8px;
+       h1.main_script{
+        font-size: 40px;
+        color: var(--roxo_escurao);
+        letter-spacing: 8px;
+        font-weight: 500;
+        text-align: center;
        }
-       .inp{
-        display: grid;
-        grid-template-columns: 20vw 25vw 50px;
-       }
-       .inp input{
-        width: 10vw;
-       }
-       #cvc{
-        width: 25vw;
-       }
-       #confirmar{
-        background-color: var(--roxo_escurao);
-        color: white;
-        width: 75vw;
-       }
-       #confirmar:hover{
-        padding: 10px;
-        background-color: var(--roxo_escuro);
+       p.main_script{
+        font-size: 20px;
+        color: rgba(0, 0, 0, 0.356);
+        text-align: center;
+        letter-spacing: normal;
        }
     </style>
 </head>
@@ -125,17 +41,41 @@
                 <label for="card_number">CARD NUMBER</label>
                 <input type="number" name="number-card" id="card_number" required placeholder="e.g.1234 5678 8123 0000">
                     <div class="label">
-                        <label for="mes_ano">EXP. DATE (MM/YY)</label>
+                        <label for="mes">EXP. DATE (MM/YY)</label>
                         <label for="cvc">CVC</label>
                     </div>
                     <br>
                   <div class="inp">
-                          <input type="number" name="mes-ano" id="mes_ano" required placeholder="MM">
-                          <input type="number" name="mes-ano" id="mes_ano" required placeholder="YY">
+                          <input type="number" name="mes" id="mes" required placeholder="MM">
+                          <input type="number" name="ano" id="ano" required placeholder="YY">
                           <input type="number" name="cvc" id="cvc" required placeholder="e.g.123">
                   </div>
-                  <input type="button" value="Confirm" id="confirmar">
+                  <input type="button" value="Confirm" id="confirmar" onclick="clicar()">
         </form>
     </main>
+
+    <script>
+        const main = document.getElementsByTagName('main')[0]
+        const span_cvcCard = document.getElementsByTagName('span')[0]
+        const numCard = document.getElementById('num_cartao')
+        const span_name = document.getElementsByTagName('span')[1]
+        const span_date = document.getElementsByTagName('span')[2]
+        
+        let name_cartao = document.getElementById('card_name')
+        let num_cartao = document.getElementById('card_number')
+        let mes_cartao = document.getElementById('mes')
+        let ano_cartao = document.getElementById('ano')
+        let cvc_cartao = document.getElementById('cvc')
+
+        function clicar(){
+            const name = name_cartao.value
+            const num = num_cartao.value
+            const mes = mes_cartao.value
+            const ano = ano_cartao.value
+            const cvc = cvc_cartao.value
+
+            
+        }
+    </script>
 </body>
 </html>
