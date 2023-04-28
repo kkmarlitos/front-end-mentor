@@ -23,9 +23,13 @@
             background-image: url(images/bg-main-mobile.png);
             height: 20vh;
             display: grid;
-            grid-template-rows: 98px 85px 45px;
+            grid-template-rows: 74px 24px 80px 50px;
             padding-top: 30px;
             padding-bottom: 60px;
+        }
+        .span_000{
+            padding-left: 80vw;
+            color: white;
         }
         img{
             width: 70vw;
@@ -53,6 +57,12 @@
         }
         main{
             padding-top: 120px;
+            letter-spacing: 1px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        form{
+            padding-left: 50px;
         }
         input{
             width: 70vw;
@@ -61,22 +71,40 @@
             border-radius: 5px;
             border: 1px solid rgba(0, 0, 0, 0.459);
             display: block;
+            font-size: 16px;
+            
         }
        .label{
         color: black;
+        display: grid;
+        grid-template-columns: 200px 20px;
+        grid-template-rows: 8px;
        }
        .inp{
         display: grid;
-        grid-template-columns: 70px 50px 50px;
+        grid-template-columns: 80px 120px 50px;
        }
        .inp input{
         width: 10vw;
+       }
+       #cvc{
+        width: 25vw;
+       }
+       #confirmar{
+        background-color: var(--roxo_escurao);
+        color: white;
+        width: 75vw;
+       }
+       #confirmar:hover{
+        padding: 10px;
+        background-color: var(--roxo_escuro);
        }
     </style>
 </head>
 <body>
     <header>
         <img src="images/bg-card-back.png" alt="cartão" id="back">
+        <span class="span_000">000</span>
         <img src="images/bg-card-front-foda.png" alt="cartão"id="front">
         <p id="num_cartao">0000 0000 0000 0000</p>
             <div class="span_cartao">
@@ -85,22 +113,23 @@
             </div>
     </header>
     <main>
-        <form>
+        <form method="post" autocomplete="off">
             
                 <label for="card_name">CARDHOLDER NAME</label>
-                <input type="text" name="name-card" id="card_name">
+                <input type="text" name="name-card" id="card_name" required placeholder="e.g.Jane Appleseed">
                 <label for="card_number">CARD NUMBER</label>
-                <input type="number" name="number-card" id="card_number">
+                <input type="number" name="number-card" id="card_number" required placeholder="e.g.1234 5678 8123 0000">
                     <div class="label">
                         <label for="mes_ano">EXP. DATE (MM/YY)</label>
                         <label for="cvc">CVC</label>
                     </div>
                     <br>
                   <div class="inp">
-                          <input type="number" name="mes-ano" id="mes_ano">
-                          <input type="number" name="mes-ano" id="mes_ano">
-                          <input type="number" name="cvc" id="cvc">
+                          <input type="number" name="mes-ano" id="mes_ano" required placeholder="MM">
+                          <input type="number" name="mes-ano" id="mes_ano" required placeholder="YY">
+                          <input type="number" name="cvc" id="cvc" required placeholder="e.g.123">
                   </div>
+                  <input type="button" value="Confirm" id="confirmar">
         </form>
     </main>
 </body>
