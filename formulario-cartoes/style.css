@@ -21,7 +21,7 @@
             background-image: url(images/bg-main-mobile.png);
             height: 20vh;
             display: grid;
-            grid-template-rows: 11vh 3vh 11vh 40px;
+            grid-template-rows: 17vw 5vw 17vw 40px;
             padding-top: 30px;
             padding-bottom: 60px;
         }
@@ -66,7 +66,6 @@
         input{
             width: 70vw;
             padding: 10px;
-            margin-bottom: 10px;
             border-radius: 5px;
             border: 1px solid rgba(0, 0, 0, 0.459);
             display: block;

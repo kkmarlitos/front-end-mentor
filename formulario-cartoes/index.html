@@ -20,6 +20,10 @@
         text-align: center;
         letter-spacing: normal;
        }
+       .erro{
+        color: var(--erro);
+        padding-bottom: 5px;
+       }
     </style>
 </head>
 <body>
@@ -38,17 +42,23 @@
             
                 <label for="card_name">CARDHOLDER NAME</label>
                 <input type="text" name="name-card" id="card_name" required placeholder="e.g.Jane Appleseed">
+                <p class="erro"></p>
                 <label for="card_number">CARD NUMBER</label>
                 <input type="number" name="number-card" id="card_number" required placeholder="e.g.1234 5678 8123 0000">
+                <p class="erro"></p>
                     <div class="label">
                         <label for="mes">EXP. DATE (MM/YY)</label>
                         <label for="cvc">CVC</label>
                     </div>
                     <br>
                   <div class="inp">
-                          <input type="number" name="mes" id="mes" required placeholder="MM">
+                          <input type="number" name="mes" id="mes" required placeholder="MM" max="2">
                           <input type="number" name="ano" id="ano" required placeholder="YY">
                           <input type="number" name="cvc" id="cvc" required placeholder="e.g.123">
+                  </div>
+                  <div class="erro">
+                      <p></p>
+                      <p></p>
                   </div>
                   <input type="button" value="Confirm" id="confirmar" onclick="clicar()">
         </form>
@@ -60,7 +70,10 @@
         const numCard = document.getElementById('num_cartao')
         const span_name = document.getElementsByTagName('span')[1]
         const span_date = document.getElementsByTagName('span')[2]
+        const p_erro = document.getElementsByTagName('p')
+        //os p de erro vão de 1 a 4
         
+
         let name_cartao = document.getElementById('card_name')
         let num_cartao = document.getElementById('card_number')
         let mes_cartao = document.getElementById('mes')
@@ -73,8 +86,67 @@
             const mes = mes_cartao.value
             const ano = ano_cartao.value
             const cvc = cvc_cartao.value
+            p_erro[1].innerText = ''
+            p_erro[2].innerText = ''
+            p_erro[3].innerText = ''
+            p_erro[4].innerText = ''
+            name_cartao.style.border = '1px solid black'
+            num_cartao.style.border = '1px solid black'
+            cvc_cartao.style.border = '1px solid black'
+            mes_cartao.style.border = '1px solid black'
+            ano_cartao.style.border = '1px solid black'
 
-            
+            if (name == 0 || num == 0 || mes == 0 || ano == 0 || cvc == 0){
+                
+                switch(true){ //erro do nome
+                    case name == 0:
+                        p_erro[1].innerText = 'this area is required'
+                        name_cartao.style.border = '2px solid red'
+                        break
+                    case name.lenght > 25:
+                        p_erro[1].innerText = 'please shorten the name'
+                        name_cartao.style.border = '2px solid red'
+                        default:
+                }
+
+                switch(true){ //erro numero do cartao
+                    case num == 0:
+                        p_erro[2].innerText = 'Wrong format, numbers only'
+                        num_cartao.style.border = '2px solid red'
+                        break
+                    case num > 16: 
+                        p_erro[2].innerText = 'Wrong, only 16 numbers are accepted'
+                    default:
+                }
+                switch(true){ //mes
+                    case mes == 0:
+                        p_erro[3].innerText = "Cant't be blank"
+                        mes_cartao.style.border = '2px solid red'
+                        break
+                    case mes > 12: 
+                        p_erro[3].innerText = 'Please put a valid mounth'
+                        mes_cartao.style.border = '2px solid red'
+                        break
+                    default:
+                }
+                switch(true){
+                    case ano == 0:
+                         p_erro[3].innerText = "Cant't be blank"
+                         ano_cartao.style.border = '2px solid red'
+                        break
+                    default:
+                }
+                switch(true){
+                    case cvc == 0: 
+                        p_erro[4].innerText = "Cant't be blank"
+                        cvc_cartao.style.border = '2px solid red'
+                     break
+                     case cvc > 3: 
+                     p_erro[4].innerText = "Invalid"
+                        cvc_cartao.style.border = '2px solid red'
+                }
+
+            }
         }
     </script>
 </body>
