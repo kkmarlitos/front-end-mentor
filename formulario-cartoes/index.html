@@ -129,14 +129,14 @@
                         break
                     default:
                 }
-                switch(true){
+                switch(true){ //ano
                     case ano == 0:
                          p_erro[3].innerText = "Cant't be blank"
                          ano_cartao.style.border = '2px solid red'
                         break
                     default:
                 }
-                switch(true){
+                switch(true){ //cvc
                     case cvc == 0: 
                         p_erro[4].innerText = "Cant't be blank"
                         cvc_cartao.style.border = '2px solid red'
@@ -145,7 +145,13 @@
                      p_erro[4].innerText = "Invalid"
                         cvc_cartao.style.border = '2px solid red'
                 }
+            } else{
+                span_cvcCard.innerText = cvc
+                numCard.innerText = num
+                span_name.innerText = name
+                span_date.innerText = `${mes}/${ano}`
 
+            main.innerHTML = '<h1 class="main_script">Thank You! <p class="main_script" style="padding-bottom:40px">We have added your card detail<p> <input type="button" value="Continue" id="confirmar" style="margin: auto;">'
             }
         }
     </script>
