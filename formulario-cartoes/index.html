@@ -5,26 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-       h1.main_script{
-        font-size: 40px;
-        color: var(--roxo_escurao);
-        letter-spacing: 8px;
-        font-weight: 500;
-        text-align: center;
-       }
-       p.main_script{
-        font-size: 20px;
-        color: rgba(0, 0, 0, 0.356);
-        text-align: center;
-        letter-spacing: normal;
-       }
-       .erro{
-        color: var(--erro);
-        padding-bottom: 5px;
-       }
-    </style>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link rel="stylesheet" href="pc.css" media="screen and (min-width: 1300px)">
 </head>
 <body>
     <header>
@@ -96,14 +78,14 @@
             mes_cartao.style.border = '1px solid black'
             ano_cartao.style.border = '1px solid black'
 
-            if (name == 0 || num == 0 || mes == 0 || ano == 0 || cvc == 0){
+            if (name == 0 || num == 0 || mes == 0 || ano == 0 || cvc == 0 || name.length > 25 || num.length > 16 || num.length < 16 || mes > 12 || cvc.length > 3 || cvc.length < 3){
                 
                 switch(true){ //erro do nome
                     case name == 0:
                         p_erro[1].innerText = 'this area is required'
                         name_cartao.style.border = '2px solid red'
                         break
-                    case name.lenght > 25:
+                    case name.length > 25:
                         p_erro[1].innerText = 'please shorten the name'
                         name_cartao.style.border = '2px solid red'
                         default:
@@ -114,8 +96,14 @@
                         p_erro[2].innerText = 'Wrong format, numbers only'
                         num_cartao.style.border = '2px solid red'
                         break
-                    case num > 16: 
+                    case num.length > 16: 
                         p_erro[2].innerText = 'Wrong, only 16 numbers are accepted'
+                        num_cartao.style.border = '2px solid red'
+                        break
+                    case num.length < 16:
+                       p_erro[2].innerText = 'Wrong'
+                       num_cartao.style.border = '2px solid red'
+                       break
                     default:
                 }
                 switch(true){ //mes
@@ -141,8 +129,12 @@
                         p_erro[4].innerText = "Cant't be blank"
                         cvc_cartao.style.border = '2px solid red'
                      break
-                     case cvc > 3: 
-                     p_erro[4].innerText = "Invalid"
+                     case cvc.length > 3: 
+                        p_erro[4].innerText = "Invalid"
+                        cvc_cartao.style.border = '2px solid red'
+                        break
+                    case cvc.length < 3: 
+                         p_erro[4].innerText = "Invalid"
                         cvc_cartao.style.border = '2px solid red'
                 }
             } else{

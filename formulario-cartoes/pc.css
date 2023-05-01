@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500&display=swap');
+        *{
+            margin: 0px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        body{
+            height: 100vh;
+            width: 100vw;
+            display: flex;
+        }
+        :root{
+            --roxo_claro: hsl(270, 3%, 87%);
+            --roxo_escuro: hsl(279, 12%, 38%);
+            --roxo_escurao: hsl(278, 68%, 11%);
+            --linear1:hsl(249, 99%, 64%);
+            --linear2:hsl(278, 94%, 30%);
+            --erro: hsl(0, 100%, 66%);
+        }
+        header{
+         background-image: url(images/bg-main-desktop.png);   
+         width: 35vw;
+         display: grid;
+         grid-template-rows: 7vw 4vw 8vw 6vw;
+         padding-top: 10vw;
+        }
+        img{
+            width: 25vw;
+            padding-left: 15vw;
+        }
+        #fron{
+            order:1
+        }
+        #back{
+            padding-left: 20vw;
+            order: 3;
+        }
+        .span_000{
+            padding-left: 38vw;
+            color: white;
+            order: 4;
+        }
+        .span_cartao{
+            display: grid;
+            grid-template-columns: 15vw 1px;
+            order: 2;
+            padding-left: 18vw;
+            color: white;
+            font-size: 12px;
+        }
+        #num_cartao{
+            color: white;
+            padding-left: 17vw;
+            letter-spacing: 3px;
+            font-size: 20px;
+        }
+        main{
+            position: relative;
+        }
+        form{
+            width: 40vw;
+            background-color: red;
+            position: absolute;
+            left: 15vw;
+            top: 15vw;
+        }
+        
