@@ -21,7 +21,7 @@
         }
         header{
          background-image: url(images/bg-main-desktop.png);   
-         width: 35vw;
+         width: 32vw;
          height: 86vh;
          display: grid;
          grid-template-rows: 1vw 18vw 5vw 6vw;
@@ -68,6 +68,7 @@
             position: absolute;
             left: 55vw;
             top: 4vw;
+            font-weight: 600;
         }
         label{
             display: block;
