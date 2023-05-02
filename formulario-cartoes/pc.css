@@ -9,6 +9,7 @@
             height: 100vh;
             width: 100vw;
             display: flex;
+            position: relative;
         }
         :root{
             --roxo_claro: hsl(270, 3%, 87%);
@@ -21,54 +22,59 @@
         header{
          background-image: url(images/bg-main-desktop.png);   
          width: 35vw;
-         height: 70vh;
+         height: 86vh;
          display: grid;
-         grid-template-rows: 8vw 4vw 8vw 6vw;
+         grid-template-rows: 1vw 18vw 5vw 6vw;
          
          
         }
         img{
-            width: 30vw;
+            width: 25vw;
             padding-left: 0px;
         }
         #front{
             order:1;
-            padding-left: 5vw;
+            padding-left: 17vw;
+            padding-top: 8vw;
         }
         #back{
-            order: 3;
-            padding-left: 20vw;
+            order: 4;
+            padding-left: 22vw;
         }
         .span_000{
-            padding-left: 32px;
+            padding-left: 41vw;
             color: white;
-            order: 4;
+            order: 5;
+            font-size: 16px;
         }
         .span_cartao{
             display: grid;
             grid-template-columns: 15vw 1px;
-            order: 2;
-            padding-left: 0px;
+            order: 3;
+            padding-left: 20vw;
             color: white;
             font-size: 12px;
         }
         #num_cartao{
+            padding-top: 14vw;
             color: white;
-            padding-left: 0px;
+            padding-left: 19vw;
             letter-spacing: 3px;
             font-size: 20px;
+            order: 2;
         }
         main{
-            position: relative;
-        }
-        form{
             width: 40vw;
             position: absolute;
-            left: 20vw;
-            top: 15vw;
+            left: 55vw;
+            top: 4vw;
+        }
+        label{
+            display: block;
+            padding-top: 8px;
+            padding-bottom: 5px;
         }
         input{
-            display: block;
             width: 25vw;
             padding: 8px;
             border-radius: 4px;
@@ -85,11 +91,23 @@
         }
         .label{
             display: grid;
-            grid-template-columns: 20vw 10vw;
+            grid-template-columns: 14vw 10vw;
+            padding-bottom: 8px;
         }
         #cvc{
             width: 11vw;
         }
         #confirmar{
             width: 26vw;
+            margin-top: 30px;
+            padding: 12px;
         }
+        .erro, .erro p{
+            width: 220px;
+        }
+        .img_complete{
+            width: 10vw;
+            display: block;
+            margin: auto;
+            padding-bottom: 10px;
+           }

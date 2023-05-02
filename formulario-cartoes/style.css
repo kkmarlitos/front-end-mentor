@@ -114,3 +114,8 @@
         color: var(--erro);
         padding-bottom: 5px;
        }
+       .img_complete{
+        width: 20vw;
+        display: block;
+        margin: auto;
+       }
