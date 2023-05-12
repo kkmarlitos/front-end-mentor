@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        display: grid;
+        grid-template-areas: 
+        'header header sidebar'
+        'main main sidebar'
+        'footer footer sidebar'
+        ;
+        grid-template-columns:300px 1px 20px;
+    }
+    .sidebar{
+        background-color: blue;
+        grid-area: sidebar;
+        grid-column-start: 2;
+        border: 2px solid black;
+    }
+    header{
+        background-color: aqua;
+        grid-area: header;
+        border: 2px solid black;
+    }
+    main{
+        background-color: brown;
+        grid-area: main;
+        border: 2px solid black;
+    }
+    footer{
+        background-color: cadetblue;
+        grid-area: footer;
+        border: 2px solid black;
+    }
+</style>
+<body>
+
+    <header>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti dolorem expedita eligendi quam. Ab officiis debitis ipsum deserunt praesentium pariatur voluptates iure rem, dolor suscipit quae nostrum, accusantium distinctio ipsam.</p>
+        <article>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime quia aliquid possimus repellendus, ducimus quos sapiente quibusdam cum minima fugit! Facilis dolorum, itaque eveniet iusto repellendus quo ea sit quidem.</p>
+        </article>
+    </header>
+
+    <main>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur veritatis doloremque sequi maiores natus id sed odio reiciendis, quam modi laboriosam aliquid accusantium minus blanditiis debitis dolorum soluta illo fugit!</p>
+        <img src="assets/images/favicon-32x32.png" alt="">
+    </main>
+
+    <footer>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo at quisquam eligendi excepturi voluptas, optio consequuntur rem consequatur? Quos omnis qui sed fugit alias magnam cumque architecto dolore nulla blanditiis.</p>
+    </footer>
+    <aside class="sidebar">
+        <p>aaaaa</p>
+    </aside>
+</body>
+</html>

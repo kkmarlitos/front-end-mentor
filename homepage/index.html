@@ -16,7 +16,14 @@
             --azul_escuro: hsl(236, 13%, 42%);
             --azul_escurao: hsl(240, 100%, 5%);
         }
-        
+        body{
+            display: grid;
+            grid-template-areas: 
+            'header header header header sidebar'
+            'main main main main sidebar'
+            'footer footer footer footer sidebar'
+            ;
+        }
         *{
             font-family: 'Inter', sans-serif;
             margin: 0px;
@@ -26,14 +33,19 @@
             padding-bottom: 1.5vw;
         }
         header{
+            margin: auto;
+            width: 77vw;
             padding-top: 20px;
             padding-bottom: 20px;
+            grid-area: header;
         }
         img.padding{
             width: 11vw;
             padding-right: 55vw;
-            padding-left: 10vw;
             padding-bottom: 0px;
+        }
+        main{
+            grid-area: main;
         }
         section{
             width: 77vw;
@@ -92,6 +104,9 @@
         p.border{
             border-bottom: 1px solid rgba(255, 255, 255, 0.582);
         }
+        footer{
+            grid-area: footer;
+        }
         aside{
             width: 85vw;
             margin: auto;
@@ -124,10 +139,16 @@
             color: gray;
             font-size: 13px;
         }
+        #sidebar{
+            background-color: blue;
+            grid-area: sidebar;
+            width: 45vw;
+            grid-column-start: 3;
+            
+        }
     </style>
 </head>
 <body>
-    <div id="pc-main">
 
         <header>
             <nav>
@@ -135,7 +156,7 @@
                 <img src="assets/images/icon-menu.svg" alt="burguer-menu">
             </nav>
         </header>
-
+    
         <main>
             <section>
                 <img src="assets/images/image-web-3-mobile.jpg" alt="wtfisthis">
@@ -170,7 +191,7 @@
                             <div>
                                 <h4>02</h4>
                                 <h5>Top 10 Laptops of 2022</h5>
-                                <p>Our best picks for various needs and budgets</p>
+                                <p>Our best picks for various needs and budget</p>
                             </div>
                         </a>
                         <a href="#" class="de_fora">
@@ -183,7 +204,6 @@
                         </a>
                     </aside>
         </footer>
-
-    </div>
+        <div id="sidebar"></div>
 </body>
 </html>
