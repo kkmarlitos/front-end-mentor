@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+header{
+    margin: auto;
+    width: 10vw;
+    display: grid;
+    order: 1;
+}
+img.padding{
+    width: 4vw;
+    padding-right: 55vw;
+    padding-bottom: 0px;
+    display: inline-block;
+}
+nav img{
+    width: 9vw;
+    padding-bottom: 1.5vw;
+    display: none;
+}
+main{
+    display: flex;
+}
+section{
+    width: 20vw;
+    margin: auto;
+    padding-bottom: 50px;
+}
+section img{
+    width: 20vw;
+    text-align: center;
+}
+h1{
+    font-size: 30px;
+    font-weight: 800;
+    padding-bottom: 5px;
+}
+section p{
+    color: rgba(0, 0, 0, 0.452);
+    font-weight: 700;
+    font-size: 13px;
+    padding-bottom: 25px ;
+    text-align: justify;
+}
+section a{
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.719);
+    background-color: var(--vermelho_claro);
+    padding: 12px 22px 12px 22px;
+}
+article{
+    background-color: var(--azul_escurao);
+    width: 40vw;
+    margin: auto;
+    padding: 20px;
+}
+h2{
+    color: var(--laranja_claro);
+    padding-bottom: 5px;
+}
+h3{
+    color: white;
+    font-size: 17px;
+    padding-top: 25px;
+    padding-bottom: 5px;
+}
+article p{
+    color: rgba(255, 255, 255, 0.582);
+    font-size: 13px;
+    padding-bottom: 25px;
+}
+h3.border{
+    border-top: 1px solid rgba(255, 255, 255, 0.582);
+}
+p.border{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.582);
+}
+footer{
+    
+}
+aside{
+    display: flex;
+    width: 30vw;
+    margin: auto;
+    padding-top: 50px;
+}
+aside a{
+    display: flex;
+    text-decoration: none;
+    padding: 0px 10px 20px 10px;
+}
+aside a img{
+    width: 25vw;
+    padding-right: 7px;
+}
+aside a div{
+    padding-left: 5vw;
+}
+h4{
+    color: gray;
+    font-size: 30px;
+}
+h5{
+    color: var(--azul_escurao);
+    padding-top: 5px;
+    padding-bottom: 8px;
+    font-weight: 800;
+    font-size: 15px;
+}
+aside a p{
+    color: gray;
+    font-size: 13px;
+}
+#sidebar{
+    width: 35vw;
+    height: 50px;
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 80px 80px 80px 80px 10px;
+    order: 2;
+    
+}
+#sidebar img{
+    display: none;
+}
+#sidebar a{
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+}
