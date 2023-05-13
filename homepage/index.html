@@ -140,11 +140,22 @@
             font-size: 13px;
         }
         #sidebar{
-            background-color: blue;
+            background-color: white;
             grid-area: sidebar;
-            width: 45vw;
-            grid-column-start: 3;
+            width: 78vw;
+            grid-column-start: 2;
+            display: none;
             
+        }
+        #sidebar img{
+            padding-left: 62vw;
+            padding-top: 7vw;
+            padding-bottom: 20vw;
+        }
+        #sidebar p{
+            font-size: 18px;
+            padding-bottom: 30px;
+            padding-left: 30px;
         }
     </style>
 </head>
@@ -153,7 +164,7 @@
         <header>
             <nav>
                 <img src="assets/images/logo.svg" alt="logo" class="padding">
-                <img src="assets/images/icon-menu.svg" alt="burguer-menu">
+                <img src="assets/images/icon-menu.svg" alt="burguer-menu" onclick="abrir_menu()">
             </nav>
         </header>
     
@@ -204,6 +215,39 @@
                         </a>
                     </aside>
         </footer>
-        <div id="sidebar"></div>
+        <div id="sidebar">
+            <img src="assets/images/icon-menu-close.svg" alt="close_menu" onclick="fechar_menu()">
+            <p>Home</p>
+            <p>New</p>
+            <p>Popular</p>
+            <p>Trending</p>
+            <p>Categories</p>
+        </div>
+        
+        <script>
+            const sidebar = document.getElementById('sidebar')
+            const header = document.querySelector('header')
+            const main = document.querySelector('main')
+            const footer = document.querySelector('footer')
+            const article = document.querySelector('article')
+
+            function abrir_menu(){
+                sidebar.style.display = 'block' 
+                sidebar.style.filter = 'blur(0px)'
+                header.style.filter = 'blur(1px)'
+                main.style.filter = 'blur(1px)'
+                footer.style.display = 'none' 
+                article.style.display = 'none' 
+            }
+
+            function fechar_menu(){
+                sidebar.style.display = 'none'
+                header.style.filter = 'blur(0px)'
+                main.style.filter = 'blur(0px)'
+                footer.style.display = 'block' 
+                article.style.display = 'block' 
+            }
+
+        </script>
 </body>
 </html>
