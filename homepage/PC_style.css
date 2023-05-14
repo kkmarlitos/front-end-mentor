@@ -1,10 +1,16 @@
 @charset "UTF-8";
 
-header{
-    margin: auto;
-    width: 10vw;
+body{
     display: grid;
-    order: 1;
+    grid-template-areas:
+    'header sidebar'
+    'main main'
+    'footer footer'
+    ;
+}
+
+header{
+    width: 20vw;
 }
 img.padding{
     width: 4vw;
@@ -17,16 +23,35 @@ nav img{
     padding-bottom: 1.5vw;
     display: none;
 }
+#sidebar{
+    width: 35vw;
+    padding-top: 20px;
+    padding-left: 15vw;
+    background-color: transparent;
+    display: grid;
+    grid-template-columns: 80px 80px 80px 80px 10px;
+}
+#sidebar img{
+    display: none;
+}
+#sidebar a{
+    display: block;
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+}
 main{
     display: flex;
 }
 section{
-    width: 20vw;
+    width: 30vw;
     margin: auto;
     padding-bottom: 50px;
 }
 section img{
-    width: 20vw;
+    width: 30vw;
     text-align: center;
 }
 h1{
@@ -112,24 +137,4 @@ h5{
 aside a p{
     color: gray;
     font-size: 13px;
-}
-#sidebar{
-    width: 35vw;
-    height: 50px;
-    background-color: transparent;
-    display: grid;
-    grid-template-columns: 80px 80px 80px 80px 10px;
-    order: 2;
-    
-}
-#sidebar img{
-    display: none;
-}
-#sidebar a{
-    display: block;
-    text-decoration: none;
-    color: black;
-    font-size: 18px;
-    padding-bottom: 30px;
-    padding-left: 30px;
 }
