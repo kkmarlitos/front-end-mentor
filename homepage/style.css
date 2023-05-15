@@ -46,9 +46,11 @@ section{
     margin: auto;
     padding-bottom: 50px;
 }
-section img{
+section .img{
     width: 77vw;
-    text-align: center;
+    height: 40vh;
+    background: url('assets/images/image-web-3-mobile.jpg') center no-repeat;
+    background-size: 45vh 77vw;
 }
 h1{
     font-size: 30px;
@@ -149,8 +151,11 @@ aside a p{
 #sidebar a{
     display: block;
     text-decoration: none;
-    color: black;
     font-size: 18px;
+    color: black;
     padding-bottom: 30px;
     padding-left: 30px;
+}
+.hover2:hover{
+    color: var(--vermelho_claro);
 }
