@@ -2,50 +2,93 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Notifications page</title>
-
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Notifications</title>
+  <link rel="shortcut icon" href="assets/images/favicon-32x32.png" type="image/x-icon">
   <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
+
+  @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;800&display=swap');
+
+    :root{
+      --bolinha_notific: hsl(1, 90%, 64%);
+      --total_notific: hsl(219, 85%, 26%);
+      --fundo: hsl(210, 60%, 98%);
+      --fundo_nao_vista: hsl(211, 68%, 94%);
+      --marcar_todas: hsl(219, 12%, 42%);
+
+    }
+    *{
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0px;
+      padding: 0px;
+    }
+    section{
+      width: 70vw;
+      margin: auto;
+      background-color: var(--fundo);
+    }
+    header h1{
+      display: inline;
+      font-size: 20px;
+    }
+    .quantidade_notific{
+      display: inline;
+      background-color: var(--total_notific);
+      color: white;
+      padding: 4px 10px 4px 10px;
+      border-radius: 7px;
+
+    }
+    .marcar_todas{
+      display: inline;
+      font-size: 13px;
+      padding-left: 5vw;
+      color: var(--marcar_todas);
+    }
   </style>
 </head>
 <body>
+        <section>
+          <header>
+              <h1>Notification</h1>
+              <div class="quantidade_notific">0</div>
+              <p class="marcar_todas">Mark all as read</p>
+          </header>
+          <main>
+            <div class="notificacoes_reacoes">
+              <img src="assets/images/avatar-mark-webber.webp" alt="">
+              <p><strong>Mark Webber</strong> reacted to your recent post <b class="primeiro_torneio">My first tournament today!</b></p>
+              <div class="bolinha_notific">bolinha</div>
+            </div>
 
-  Notifications 3
+            <div class="novo_seguidor">
+              <img src="assets/images/avatar-angela-gray.webp" alt="">
+              <p><strong>Angela Gray</strong> followed you</p>
+              <div class="bolinha_notific">bolinha</div>
+            </div>
 
-  Mark all as read
+            <div class="entrou_grupo">
+              <img src="assets/images/avatar-jacob-thompson.webp" alt="">
+              <p><strong>Jacob Thompson</strong> has joined your group <b class="chess_group">Chess Club</b></p>
+              <div class="bolinha_notific">bolinha</div>
+            </div>
 
-  Mark Webber reacted to your recent post My first tournament today!
-  1m ago
+            <div class="mensagem_privada">
+              <img src="assets/images/avatar-rizky-hasanuddin.webp" alt="">
+              <p><strong>Rizky Hasanuddin</strong> sent you a private mensage</p>
+              <p class="mensagem_privada">Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, suscipit aperiam aliquam illo repellendus deserunt officiis quaerat totam libero quas odit animi! Beatae, voluptatum. Et dignissimos ad dicta eos labore?</p>
+            </div>
 
-  Angela Gray followed you
-  5m ago
+            <div class="comentario">
+              <img src="assets/images/avatar-kimberly-smith.webp" alt="">
+              <p><strong>kimberly Smith</strong> commented on your picture</p>
+            </div>
 
-  Jacob Thompson has joined your group Chess Club
-  1 day ago
-
-  Rizky Hasanuddin sent you a private message
-  5 days ago
-  Hello, thanks for setting up the Chess Club. I've been a member for a few weeks now and 
-  I'm already having lots of fun and improving my game.
-
-  Kimberly Smith commented on your picture
-  1 week ago
-
-  Nathan Peterson reacted to your recent post 5 end-game strategies to increase your win rate
-  2 weeks ago
-
-  Anna Kim left the group Chess Club
-  2 weeks ago
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+            <div class="saiu_grupo">
+              <img src="assets/images/avatar-anna-kim.webp" alt="">
+              <p><strong>Anna Kim</strong> left the group <b>Chess Club</b></p>
+            </div>
+          </main>
+        </section>
 </body>
 </html>
