@@ -22,11 +22,16 @@
       margin: 0px;
       padding: 0px;
     }
+
     section{
       width: 75vw;
-      margin: auto;
-      background-color: var(--fundo);
+      background-color: var(--fundo_nao_vista);
       padding: 10px;
+      margin: auto;
+      position: fixed;
+      top: 0;
+      transform: translateX(100vw);
+      transition: transform 0.5s;
     }
     header{
       padding-bottom: 20px;
@@ -50,7 +55,7 @@
       padding-left: 5vw;
       color: var(--marcar_todas);
     }
-    main div{
+    section main div{
       width: 70vw;
       padding: 10px;
       margin-bottom: 5px;
@@ -58,23 +63,28 @@
       align-items: center;
       border-radius: 8px;
     }
-    main div img{
+    section main div img{
       width: 9vw;
       padding-right: 15px;
     }
-    main div p{
+    section  main div p{
       font-size: 12px;
       padding-right: 15px;
       padding-bottom: 5px;
     }
-    .bolinha_notific{
+    b{
+      color: var(--total_notific);
+    }
+    .primeiro_torneio{
+      color: rgba(0, 0, 0, 0.486);
+    }
+    .bolinha_notific{ 
       background-color: var(--bolinha_notific);
       width: 0.1vw;
       margin-left: auto;
       border-radius: 50%;
     }
-
-
+  
     .mensagens_privada{
       display: grid;
       grid-template-columns: 12vw 20vw /* só quando nao for visto 38vw*/;  
@@ -90,52 +100,140 @@
         font-size: 12px;
         font-weight: 800;
       }
+
+      .marcar_todas:hover{
+        color: var(--total_notific);
+      }
+
+      /* BODY  */
+
+      .header{
+        display: flex;
+        padding: 10px;
+        background-color: var(--total_notific);
+    }
+    .header img{
+        width: 10vw;
+        padding-right: 20px;
+        padding-top: 20px;
+    }
+    #p-estilo{
+        font-style: italic;
+        width: 40vw;
+        font-size: 15px;
+        margin: auto;
+        padding-top: 8px;
+        padding-bottom: 10px;
+    }
   </style>
 </head>
 <body>
-        <section>
-          <header>
-              <h1>Notifications</h1>
-              <div class="quantidade_notific">0</div>
-              <p class="marcar_todas">Mark all as read</p>
-          </header>
-          <main>
-            <div class="notificacoes_reacoes">
-              <img src="assets/images/avatar-mark-webber.webp" alt="">
-              <p><strong class="nome">Mark Webber</strong> reacted to your recent post <b class="primeiro_torneio">My first tournament today!</b></p>
-              <div class="bolinha_notific"></div>
-            </div>
 
-            <div class="novo_seguidor">
-              <img src="assets/images/avatar-angela-gray.webp" alt="">
-              <p><strong class="nome">Angela Gray</strong> followed you</p>
-              <div class="bolinha_notific"></div>
-            </div>
+      <div class="header">
+            
+        <h1>Creating Notifications</h1>
+        <a href="#">
+            <img src="assets/images/notifications_FILL0_wght400_GRAD0_opsz48.svg" alt="bell_notification" id="notificacao" onclick="abrir_notific()">
+        </a>
 
-            <div class="entrou_grupo">
-              <img src="assets/images/avatar-jacob-thompson.webp" alt="">
-              <p><strong class="nome">Jacob Thompson</strong> has joined your group <b class="chess_group">Chess Club</b></p>
-              <div class="bolinha_notific"></div>
-            </div>
+    </div>
+    <p id="p-estilo">A small idea together with a "front-end-mentor" project</p>
+    <div class="main" onclick="fechar_notific()">
 
-            <div class="mensagens_privada">
-              <img src="assets/images/avatar-rizky-hasanuddin.webp" alt="">
-              <p><strong class="nome">Rizky Hasanuddin</strong> sent you a private mensage</p>
-              
-              
-              <div class="mensagem_privada">Haha eu comi a sua mae parabens pela pontuacao</div>
-            </div>
+        <h2>Escolha seu nome e o tipo de notificação dísponivel</h2>
+        <form autocomplete="off">
 
-            <div class="comentario">
-              <img src="assets/images/avatar-kimberly-smith.webp" alt="">
-              <p><strong class="nome">kimberly Smith</strong> commented on your picture</p>
-            </div>
+            <label for="nome">Nome do usuário: </label>
+            <input type="text" name="nome" id="nome">
+                <br>
+            <label for="notific_reacoes">Reações</label>
+            <input type="radio" name="escolha_de_notific" id="notific_reacoes" value="notific_reacoes">
+                <br>
+            <label for="novo_seguidor">Novo seguidor</label>
+            <input type="radio" name="escolha_de_notific" id="novo_seguidor" value="novo_seguidor">
+                <br>
+            <label for="entrou_grupo">Entrou no grupo</label>
+            <input type="radio" name="escolha_de_notific" id="entrou_grupo" value="entrou_grupo">
+                <br>
+            <label for="comentario">Comentario</label>
+            <input type="radio" name="escolha_de_notific" id="comentario" value="comentario">
+                <br>
+            <label for="mensagem_privada">Mensagem privada</label>
+            <input type="radio" name="escolha_de_notific" id="mensagem_privada" value="mensagem_privada">
+                <br>
+            <label for="saiu_grupo">Saiu do grupo</label>
+            <input type="radio" name="escolha_de_notific" id="saiu_grupo" value="saiu_grupo">
+        </form>
+    </div>
 
-            <div class="saiu_grupo">
-              <img src="assets/images/avatar-anna-kim.webp" alt="">
-              <p><strong>Anna Kim</strong> left the group <b>Chess Club</b></p>
-            </div>
+
+        <section> 
+              <header>
+  
+                <h1>Notifications</h1>
+                <div class="quantidade_notific">0</div>
+                <p class="marcar_todas" onclick="visualizado()">Mark all as read</p>
+
+              </header>
+
+          
+
+               <main>
+            
+                <div class="notific_reacoes" onmouseleave="visualizado()">
+                  <img src="assets/images/avatar-mark-webber.webp" alt="">
+                  <p><strong class="nome">Mark Webber</strong> reacted to your recent post <b class="primeiro_torneio">My first tournament today!</b></p>
+                  <div class="bolinha_notific"></div>
+                </div>
+                <div class="novo_seguidor">
+                  <img src="assets/images/avatar-angela-gray.webp" alt="">
+                  <p><strong class="nome">Angela Gray</strong> followed you</p>
+                  <div class="bolinha_notific"></div>
+                </div>
+                <div class="entrou_grupo">
+                  <img src="assets/images/avatar-jacob-thompson.webp" alt="">
+                  <p><strong class="nome">Jacob Thompson</strong> has joined your group <b class="chess_group">Chess Club</b></p>
+                  <div class="bolinha_notific"></div>
+                </div>
+                <div class="mensagens_privada">
+                  <img src="assets/images/avatar-rizky-hasanuddin.webp" alt="">
+                  <p><strong class="nome">Rizky Hasanuddin</strong> sent you a private mensage</p>
+            
+            
+                  <div class="mensagem_privada">Haha eu comi a sua mae parabens pela pontuacao</div>
+                </div>
+                <div class="comentario">
+                  <img src="assets/images/avatar-kimberly-smith.webp" alt="">
+                  <p><strong class="nome">kimberly Smith</strong> commented on your picture</p>
+                  <img src="assets/images/image-chess.webp" alt="">
+                </div>
+                <div class="saiu_grupo">
+                  <img src="assets/images/avatar-anna-kim.webp" alt="">
+                  <p><strong>Anna Kim</strong> left the group <b>Chess Club</b></p>
+                </div>
+
           </main>
+        
         </section>
+
+
+        <script>
+          const reacao = document.querySelector('.notific_reacoes')
+          const bolinha = document.querySelector('div.bolinha_notific')
+          const notificacoes = document.querySelector('section')
+
+          function visualizado(){
+            reacao.style.backgroundColor = 'var(--fundo)'
+            bolinha.style.display = 'none'
+          }
+
+          function abrir_notific(){
+            notificacoes.style.transform = 'translateX(20vw)'
+          }
+          
+          function fechar_notific(){
+            notificacoes.style.transform = 'translateX(100vw)'
+          }
+        </script>
 </body>
 </html>
