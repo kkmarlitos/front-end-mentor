@@ -64,9 +64,6 @@
             <label for="mark_webber">Mark Webber</label>
             <input type="radio" name="foto_perfil" id="mark_webber" value="mark">
               <br>
-            <label for="nathan_peterson">Nathan Peterson</label>
-            <input type="radio" name="foto_perfil" id="nathan_peterson" value="nathan">
-              <br>
             <label for="rizky_hasanuddin">Rizky Hasanuddin</label>
             <input type="radio" name="foto_perfil" id="rizky_hasanuddin" value="rizky">
               <br>
@@ -129,57 +126,16 @@
           const notificacoes = document.querySelector('section')
           const main_notific = document.querySelector('main')
           const p = document.getElementById('p-estilo')
+          const div_notific_estilo = document.querySelectorAll('section main div')
+          const bolinha_notific = document.querySelectorAll('bolinha_notific')
+          let img_perfil
+
+          //funções
 
           function confirmar(){
-            criar_notific_div()
             criar_foto_perfil()
+            criar_notific_div()
           }
-
-          function criar_foto_perfil(){
-            const img_perfil = document.createElement('img')
-
-            let escolha_foto_perfil = document.getElementsByName('foto_perfil')
-            let valor_foto = ''
-              //validando radio
-            for(i = 0; i < escolha_foto_perfil.length; i ++){ 
-              if (escolha_foto_perfil[i].checked){
-                valor_foto = escolha_foto_perfil[i].value
-              }
-            }
-              //escolhendo foto
-            if (valor_foto == 'angela'){ 
-              img_perfil.src = 'assets/images/avatar-angela-gray.webp'
-              main_notific.appendChild(img_perfil)
-
-             } else if(valor_foto == 'anna'){
-               img_perfil.src = 'assets/images/avatar-anna-kim.webp'
-               main_notific.appendChild(img_perfil)
-
-            }else if (valor_foto == 'jacob'){
-            img_perfil.src = 'assets/images/avatar-jacob-thompson.webp'
-            main_notific.appendChild(img_perfil)
-
-           } else if (valor_foto == 'kimberly'){
-               img_perfil.src = 'assets/images/avatar-kimberly-smith.webp'
-               main_notific.appendChild(img_perfil)
-
-           }else if (valor_foto == 'mark'){
-               img_perfil.src = 'assets/images/avatar-mark-webber.webp'
-               main_notific.appendChild(img_perfil)
-
-           }else if (valor_foto == 'nathan'){
-             img_perfil.src = 'assets/images/avatar-angela-gray.webp'
-             main_notific.appendChild(img_perfil) 
-
-            }else if (valor_foto == 'rizky'){
-              img_perfil.src = 'assets/images/avatar-rizky-hasanuddin.webp'
-              main_notific.appendChild(img_perfil)
-
-           }else{
-           window.alert('Escolhe um ai')
-          }
-          }
-
 
           function criar_notific_div(){
           const div_notific = document.createElement('div')
@@ -196,35 +152,92 @@
           if (valor_notific == 'notific_reacoes'){ //escolhendo tipo de notific
           div_notific.classList.add('notific_reacoes')
           main_notific.appendChild(div_notific)
+          div_notific.appendChild(img_perfil)
+          div_notific.innerHTML += ` <p><strong class="nome">Mark Webber</strong> reacted to your recent post <b class="primeiro_torneio">My first tournament today!</b></p>
+          <div class="bolinha_notific"></div>`
 
           } else if (valor_notific == 'novo_seguidor'){
              div_notific.classList.add('novo_seguidor')
              main_notific.appendChild(div_notific)
+             div_notific.appendChild(img_perfil)
+             div_notific.innerHTML += `<p><strong class="nome">Angela Gray</strong> followed you</p>
+             <div class="bolinha_notific"></div>`
 
            } else if (valor_notific == 'entrou_grupo'){
              div_notific.classList.add('entrou_grupo')
              main_notific.appendChild(div_notific)
+             div_notific.appendChild(img_perfil)
+             div_notific.innerHTML +=  `<p><strong class="nome">Jacob Thompson</strong> has joined your group <b class="chess_group">Chess Club</b></p>
+             <div class="bolinha_notific"></div>`
 
            } else if (valor_notific == 'comentario'){
              div_notific.classList.add('comentario')
              main_notific.appendChild(div_notific)
+             div_notific.appendChild(img_perfil)
+             div_notific.innerHTML += `<p><strong class="nome">kimberly Smith</strong>commented on your picture</p>
+            <img src="assets/images/image-chess.webp" alt="">
+            <div class="bolinha_notific"></div>`
 
            } else if (valor_notific == 'mensagem_privada'){
              div_notific.classList.add('mensagens_privada')
              main_notific.appendChild(div_notific)
+             div_notific.appendChild(img_perfil)
+             div_notific.innerHTML += `<p><strong class="nome">Rizky Hasanuddin</strong> sent you a private mensage</p>
+            
+            
+            <div class="mensagem_privada">Haha eu comi a sua mae parabens pela pontuacao</div>
+            <div class="bolinha_notific"></div>`
 
            }else if (valor_notific == 'saiu_grupo'){
              div_notific.classList.add('saiu_grupo')
              main_notific.appendChild(div_notific)
+             div_notific.appendChild(img_perfil)
+             div_notific.innerHTML += ` <p><strong>Anna Kim</strong> left the group <b>Chess Club</b></p>
+             <div class="bolinha_notific"></div>`
              
            } else{
             window.alert('Escolhe um ai')
            }
           }
 
+          function criar_foto_perfil(){
+            img_perfil = document.createElement('img')
+
+            let escolha_foto_perfil = document.getElementsByName('foto_perfil')
+            let valor_foto = ''
+              //validando radio
+            for(i = 0; i < escolha_foto_perfil.length; i ++){ 
+              if (escolha_foto_perfil[i].checked){
+                valor_foto = escolha_foto_perfil[i].value
+              }
+            }
+              //escolhendo foto
+            if (valor_foto == 'angela'){ 
+              img_perfil.src = 'assets/images/avatar-angela-gray.webp'
+              
+             } else if(valor_foto == 'anna'){
+               img_perfil.src = 'assets/images/avatar-anna-kim.webp'
+              
+            }else if (valor_foto == 'jacob'){
+            img_perfil.src = 'assets/images/avatar-jacob-thompson.webp'
+            
+           } else if (valor_foto == 'kimberly'){
+               img_perfil.src = 'assets/images/avatar-kimberly-smith.webp'
+               
+           }else if (valor_foto == 'mark'){
+               img_perfil.src = 'assets/images/avatar-mark-webber.webp'
+               
+           }else if (valor_foto == 'rizky'){
+              img_perfil.src = 'assets/images/avatar-rizky-hasanuddin.webp'
+    
+           }else{
+           window.alert('Escolhe um ai')
+          }
+          }
+
           function visualizado(){
-            reacao.style.backgroundColor = 'var(--fundo)'
-            bolinha.style.display = 'none'
+            div_notific_estilo.style.backgroundColor = 'var(--fundo)'
+            bolinha_notific.style.display = 'none'
           }
 
           function abrir_notific(){
