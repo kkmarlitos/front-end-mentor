@@ -21,8 +21,8 @@
         </a>
 
     </div>
-    <p id="p-estilo">A small idea together with a "front-end-mentor" project</p>
-    <div class="main" onclick="fechar_notific()">
+    <p id="fechar" onclick="fechar_notific()">X</p>
+    <div class="main">
 
         <h2>Escolha seu nome e o tipo de notificação dísponivel</h2>
         <form autocomplete="off">
@@ -78,46 +78,14 @@
                 <h1>Notifications</h1>
                 <div class="quantidade_notific">0</div>
                 <p class="marcar_todas" onclick="visualizado()">Mark all as read</p>
-
+                
               </header>
 
           
 
-               <main>
-            
-                <div class="notific_reacoes" onmouseleave="visualizado()">
-                  <img src="assets/images/avatar-mark-webber.webp" alt="">
-                  <p><strong class="nome">Mark Webber</strong> reacted to your recent post <b class="primeiro_torneio">My first tournament today!</b></p>
-                  <div class="bolinha_notific"></div>
-                </div>
-                <div class="novo_seguidor">
-                  <img src="assets/images/avatar-angela-gray.webp" alt="">
-                  <p><strong class="nome">Angela Gray</strong> followed you</p>
-                  <div class="bolinha_notific"></div>
-                </div>
-                <div class="entrou_grupo">
-                  <img src="assets/images/avatar-jacob-thompson.webp" alt="">
-                  <p><strong class="nome">Jacob Thompson</strong> has joined your group <b class="chess_group">Chess Club</b></p>
-                  <div class="bolinha_notific"></div>
-                </div>
-                <div class="mensagens_privada">
-                  <img src="assets/images/avatar-rizky-hasanuddin.webp" alt="">
-                  <p><strong class="nome">Rizky Hasanuddin</strong> sent you a private mensage</p>
-            
-            
-                  <div class="mensagem_privada">Haha eu comi a sua mae parabens pela pontuacao</div>
-                </div>
-                <div class="comentario">
-                  <img src="assets/images/avatar-kimberly-smith.webp" alt="">
-                  <p><strong class="nome">kimberly Smith</strong> commented on your picture</p>
-                  <img src="assets/images/image-chess.webp" alt="">
-                </div>
-                <div class="saiu_grupo">
-                  <img src="assets/images/avatar-anna-kim.webp" alt="">
-                  <p><strong>Anna Kim</strong> left the group <b>Chess Club</b></p>
-                </div>
+               <main> 
 
-          </main>
+              </main>
         
         </section>
 
@@ -125,20 +93,36 @@
         <script>
           const notificacoes = document.querySelector('section')
           const main_notific = document.querySelector('main')
-          const p = document.getElementById('p-estilo')
-          const div_notific_estilo = document.querySelectorAll('section main div')
-          const bolinha_notific = document.querySelectorAll('bolinha_notific')
+          const nome_usuario = document.getElementById('nome')
+          const fechar = document.querySelector('#fechar')
+          const total = document.querySelector('div.quantidade_notific')
+          let limpar_notific_array = []
+          let limpar_bolinha_array = []
+          let total_divs = 0
+
           let img_perfil
+          let div_notific
+
 
           //funções
 
+       
           function confirmar(){
-            criar_foto_perfil()
-            criar_notific_div()
-          }
+            if (nome_usuario.value.length == 0 || nome_usuario.value.length > 30){//validando nome de usuário
+              window.alert('Ajeita esse nome ae')
+            }else{
+              criar_foto_perfil()
+              criar_notific_div()
+              limpar_notific_array.push(div_notific)
+              total_divs ++
+              total.innerHTML = total_divs
+            }
+            if (total_divs == 7){
+              window.alert('esse é o maximo de notificações disponivel, por favor, de refresh na página para criar mais')
+            }}
 
           function criar_notific_div(){
-          const div_notific = document.createElement('div')
+          div_notific = document.createElement('div')
 
           let escolha_notific = document.getElementsByName('escolha_de_notific')
           let valor_notific = '' 
@@ -153,48 +137,46 @@
           div_notific.classList.add('notific_reacoes')
           main_notific.appendChild(div_notific)
           div_notific.appendChild(img_perfil)
-          div_notific.innerHTML += ` <p><strong class="nome">Mark Webber</strong> reacted to your recent post <b class="primeiro_torneio">My first tournament today!</b></p>
-          <div class="bolinha_notific"></div>`
+          div_notific.innerHTML += ` <p><strong class="nome">${nome_usuario.value}</strong> reacted to your recent post <b class="primeiro_torneio">My first tournament today!</b></p>`
+          
 
           } else if (valor_notific == 'novo_seguidor'){
              div_notific.classList.add('novo_seguidor')
              main_notific.appendChild(div_notific)
              div_notific.appendChild(img_perfil)
-             div_notific.innerHTML += `<p><strong class="nome">Angela Gray</strong> followed you</p>
-             <div class="bolinha_notific"></div>`
+             div_notific.innerHTML += `<p><strong class="nome">${nome_usuario.value}</strong> followed you</p>`
 
            } else if (valor_notific == 'entrou_grupo'){
              div_notific.classList.add('entrou_grupo')
              main_notific.appendChild(div_notific)
              div_notific.appendChild(img_perfil)
-             div_notific.innerHTML +=  `<p><strong class="nome">Jacob Thompson</strong> has joined your group <b class="chess_group">Chess Club</b></p>
-             <div class="bolinha_notific"></div>`
+             div_notific.innerHTML +=  `<p><strong class="nome">${nome_usuario.value}</strong> has joined your group <b class="chess_group">Chess Club</b></p>`
 
            } else if (valor_notific == 'comentario'){
              div_notific.classList.add('comentario')
              main_notific.appendChild(div_notific)
              div_notific.appendChild(img_perfil)
-             div_notific.innerHTML += `<p><strong class="nome">kimberly Smith</strong>commented on your picture</p>
-            <img src="assets/images/image-chess.webp" alt="">
-            <div class="bolinha_notific"></div>`
+             div_notific.innerHTML += `<p><strong class="nome">${nome_usuario.value}</strong>commented on your picture</p>
+            <img src="assets/images/image-chess.webp" alt="">`
 
            } else if (valor_notific == 'mensagem_privada'){
              div_notific.classList.add('mensagens_privada')
+             let mensagem_priv = window.prompt('Digite aqui sua mensagem')
+              if (mensagem_priv.length == 0){
+                while (mensagem_priv.length == 0){
+                mensagem_priv = window.prompt('Digite uma mensagem')}
+              }
              main_notific.appendChild(div_notific)
              div_notific.appendChild(img_perfil)
-             div_notific.innerHTML += `<p><strong class="nome">Rizky Hasanuddin</strong> sent you a private mensage</p>
+             div_notific.innerHTML += `<p><strong class="nome">${nome_usuario.value}</strong> sent you a private mensage</p>
+            <div class="mensagem_privada">${mensagem_priv}</div>`
             
-            
-            <div class="mensagem_privada">Haha eu comi a sua mae parabens pela pontuacao</div>
-            <div class="bolinha_notific"></div>`
-
-           }else if (valor_notific == 'saiu_grupo'){
+            }else if (valor_notific == 'saiu_grupo'){
              div_notific.classList.add('saiu_grupo')
              main_notific.appendChild(div_notific)
              div_notific.appendChild(img_perfil)
-             div_notific.innerHTML += ` <p><strong>Anna Kim</strong> left the group <b>Chess Club</b></p>
-             <div class="bolinha_notific"></div>`
-             
+             div_notific.innerHTML += ` <p><strong>${nome_usuario.value}</strong> left the group <b>Chess Club</b></p>`
+
            } else{
             window.alert('Escolhe um ai')
            }
@@ -236,16 +218,22 @@
           }
 
           function visualizado(){
-            div_notific_estilo.style.backgroundColor = 'var(--fundo)'
-            bolinha_notific.style.display = 'none'
+            for(let c = 0;c < limpar_notific_array.length; c++ ){
+              limpar_notific_array[c].style.backgroundColor = 'var(--fundo)'
+            }
+            for(let c = 0;c < limpar_bolinha_array.length; c++ ){
+              bolinha[c].style.display = 'none'
+            }
           }
 
           function abrir_notific(){
             notificacoes.style.transform = 'translateX(20vw)'
+            fechar.style.display = 'block'
           }
           
           function fechar_notific(){
             notificacoes.style.transform = 'translateX(100vw)'
+            fechar.style.display = 'none'
           }
         </script>
 </body>
