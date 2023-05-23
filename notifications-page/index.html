@@ -80,12 +80,10 @@
                 <p class="marcar_todas" onclick="visualizado()">Mark all as read</p>
                 
               </header>
-
           
-
                <main> 
-
-              </main>
+              
+               </main>
         
         </section>
 
@@ -95,14 +93,12 @@
           const main_notific = document.querySelector('main')
           const nome_usuario = document.getElementById('nome')
           const fechar = document.querySelector('#fechar')
-          const total = document.querySelector('div.quantidade_notific')
+          const total_notific_p = document.querySelector('div.quantidade_notific')  
           let limpar_notific_array = []
-          let limpar_bolinha_array = []
-          let total_divs = 0
 
           let img_perfil
           let div_notific
-
+          
 
           //funções
 
@@ -114,11 +110,8 @@
               criar_foto_perfil()
               criar_notific_div()
               limpar_notific_array.push(div_notific)
-              total_divs ++
-              total.innerHTML = total_divs
-            }
-            if (total_divs == 7){
-              window.alert('esse é o maximo de notificações disponivel, por favor, de refresh na página para criar mais')
+              let total_notific = limpar_notific_array.length
+              total_notific_p.innerHTML = total_notific
             }}
 
           function criar_notific_div(){
@@ -138,7 +131,7 @@
           main_notific.appendChild(div_notific)
           div_notific.appendChild(img_perfil)
           div_notific.innerHTML += ` <p><strong class="nome">${nome_usuario.value}</strong> reacted to your recent post <b class="primeiro_torneio">My first tournament today!</b></p>`
-          
+        
 
           } else if (valor_notific == 'novo_seguidor'){
              div_notific.classList.add('novo_seguidor')
@@ -151,7 +144,7 @@
              main_notific.appendChild(div_notific)
              div_notific.appendChild(img_perfil)
              div_notific.innerHTML +=  `<p><strong class="nome">${nome_usuario.value}</strong> has joined your group <b class="chess_group">Chess Club</b></p>`
-
+ 
            } else if (valor_notific == 'comentario'){
              div_notific.classList.add('comentario')
              main_notific.appendChild(div_notific)
@@ -221,9 +214,9 @@
             for(let c = 0;c < limpar_notific_array.length; c++ ){
               limpar_notific_array[c].style.backgroundColor = 'var(--fundo)'
             }
-            for(let c = 0;c < limpar_bolinha_array.length; c++ ){
-              bolinha[c].style.display = 'none'
-            }
+            limpar_notific_array.length = 0
+            total_notific_p.innerHTML = limpar_notific_array.length
+
           }
 
           function abrir_notific(){
