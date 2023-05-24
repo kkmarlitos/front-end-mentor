@@ -83,7 +83,7 @@
   
     .mensagens_privada{
       display: grid;
-      grid-template-columns: 12vw 20vw /* só quando nao for visto 38vw*/;  
+      grid-template-columns: 12vw 20vw;  
     }
     .mensagens_privada p{
       width: 40vw;

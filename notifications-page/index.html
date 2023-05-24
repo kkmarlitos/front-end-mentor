@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">    <title>Notifications</title>
   <link rel="shortcut icon" href="assets/images/favicon-32x32.png" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="PC_style.css" media="screen and (min-width: 1300px)">
   <style>
 
   
@@ -13,63 +14,65 @@
 </head>
 <body>
 
-      <div class="header">
-            
-        <h1>Creating Notifications</h1>
-        <a href="#">
-            <img src="assets/images/notifications_FILL0_wght400_GRAD0_opsz48.svg" alt="bell_notification" id="notificacao" onclick="abrir_notific()">
-        </a>
-
-    </div>
-    <p id="fechar" onclick="fechar_notific()">X</p>
-    <div class="main">
-
-        <h2>Escolha seu nome e o tipo de notificação dísponivel</h2>
-        <form autocomplete="off">
-
-            <label for="nome">Nome do usuário: </label>
-            <input type="text" name="nome" id="nome">
+<div id="container_index">
+        <div class="header">
+  
+          <h1>Creating Notifications</h1>
+          <a href="#">
+              <img src="assets/images/notifications_FILL0_wght400_GRAD0_opsz48.svg" alt="bell_notification" id="notificacao" onclick="abrir_notific()">
+          </a>
+  
+      </div>
+      <p id="fechar" onclick="fechar_notific()">X</p>
+      <div class="main">
+  
+          <h2>Escolha seu nome e o tipo de notificação dísponivel</h2>
+          <form autocomplete="off">
+  
+              <label for="nome">Nome do usuário: </label>
+              <input type="text" name="nome" id="nome">
+                  <br>
+              <label for="notific_reacoes">Reações</label>
+              <input type="radio" name="escolha_de_notific" id="notific_reacoes" value="notific_reacoes">
+                  <br>
+              <label for="novo_seguidor">Novo seguidor</label>
+              <input type="radio" name="escolha_de_notific" id="novo_seguidor" value="novo_seguidor">
+                  <br>
+              <label for="entrou_grupo">Entrou no grupo</label>
+              <input type="radio" name="escolha_de_notific" id="entrou_grupo" value="entrou_grupo">
+                  <br>
+              <label for="comentario">Comentario</label>
+              <input type="radio" name="escolha_de_notific" id="comentario" value="comentario">
+                  <br>
+              <label for="mensagem_privada">Mensagem privada</label>
+              <input type="radio" name="escolha_de_notific" id="mensagem_privada" value="mensagem_privada">
+                  <br>
+              <label for="saiu_grupo">Saiu do grupo</label>
+              <input type="radio" name="escolha_de_notific" id="saiu_grupo" value="saiu_grupo">
                 <br>
-            <label for="notific_reacoes">Reações</label>
-            <input type="radio" name="escolha_de_notific" id="notific_reacoes" value="notific_reacoes">
+                <h3>Fotos</h3>
+              <label for="angela_gray">Angela Gray</label>
+              <input type="radio" name="foto_perfil" id="angela_gray" value="angela">
                 <br>
-            <label for="novo_seguidor">Novo seguidor</label>
-            <input type="radio" name="escolha_de_notific" id="novo_seguidor" value="novo_seguidor">
+              <label for="anna_kim">Anna Kim</label>
+              <input type="radio" name="foto_perfil" id="anna_kim" value="anna">
                 <br>
-            <label for="entrou_grupo">Entrou no grupo</label>
-            <input type="radio" name="escolha_de_notific" id="entrou_grupo" value="entrou_grupo">
+              <label for="jacob_thompson">Jacob Thompson</label>
+              <input type="radio" name="foto_perfil" id="jacob_thompson" value="jacob">
                 <br>
-            <label for="comentario">Comentario</label>
-            <input type="radio" name="escolha_de_notific" id="comentario" value="comentario">
+              <label for="kimberly_smith">kimberly Smith</label>
+              <input type="radio" name="foto_perfil" id="kimberly_smith" value="kimberly">
                 <br>
-            <label for="mensagem_privada">Mensagem privada</label>
-            <input type="radio" name="escolha_de_notific" id="mensagem_privada" value="mensagem_privada">
+              <label for="mark_webber">Mark Webber</label>
+              <input type="radio" name="foto_perfil" id="mark_webber" value="mark">
                 <br>
-            <label for="saiu_grupo">Saiu do grupo</label>
-            <input type="radio" name="escolha_de_notific" id="saiu_grupo" value="saiu_grupo">
-              <br>
-              <h3>Fotos</h3>
-            <label for="angela_gray">Angela Gray</label>
-            <input type="radio" name="foto_perfil" id="angela_gray" value="angela">
-              <br>
-            <label for="anna_kim">Anna Kim</label>
-            <input type="radio" name="foto_perfil" id="anna_kim" value="anna">
-              <br>
-            <label for="jacob_thompson">Jacob Thompson</label>
-            <input type="radio" name="foto_perfil" id="jacob_thompson" value="jacob">
-              <br>
-            <label for="kimberly_smith">kimberly Smith</label>
-            <input type="radio" name="foto_perfil" id="kimberly_smith" value="kimberly">
-              <br>
-            <label for="mark_webber">Mark Webber</label>
-            <input type="radio" name="foto_perfil" id="mark_webber" value="mark">
-              <br>
-            <label for="rizky_hasanuddin">Rizky Hasanuddin</label>
-            <input type="radio" name="foto_perfil" id="rizky_hasanuddin" value="rizky">
-              <br>
-            <input type="button" value="Confirmar" onclick="confirmar()">
-        </form>
-    </div>
+              <label for="rizky_hasanuddin">Rizky Hasanuddin</label>
+              <input type="radio" name="foto_perfil" id="rizky_hasanuddin" value="rizky">
+                <br>
+              <input type="button" value="Confirmar" class="confirmar" onclick="confirmar()">
+          </form>
+      </div>
+</div>
 
 
         <section> 
