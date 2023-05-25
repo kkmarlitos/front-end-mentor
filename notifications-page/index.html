@@ -223,15 +223,23 @@
 
           }
 
-          function abrir_notific(){
-            notificacoes.style.transform = 'translateX(20vw)'
-            fechar.style.display = 'block'
+           function abrir_notific(){
+            if(window.innerWidth <= 1300){
+             notificacoes.style.transform = 'translateX(20vw)'}
+             else{
+              notificacoes.style.display = 'block'
+             }
+             fechar.style.display = 'block'
           }
           
-          function fechar_notific(){
-            notificacoes.style.transform = 'translateX(100vw)'
-            fechar.style.display = 'none'
-          }
+           function fechar_notific(){
+            if(window.innerWidth <= 1300){
+             notificacoes.style.transform = 'translateX(100vw)'}
+             else{
+              notificacoes.style.display = 'none'
+             }
+             fechar.style.display = 'none'
+           }
         </script>
 </body>
 </html>

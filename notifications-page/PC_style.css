@@ -36,7 +36,7 @@
 section{
     width: 20vw;
     height: 59vh;
-    display: block;
+    display: none;
     position: absolute;
     left: 49vw;
     top: 10vw;
