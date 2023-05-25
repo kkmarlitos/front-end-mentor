@@ -59,6 +59,9 @@ section main div img{
 .mensagens_privada p{
     width: 10vw;
   }
+  section main div strong{
+    font-size: 13px;
+  }
   
   .mensagens_privada{
     grid-template-columns: 5vw 20vw;  
