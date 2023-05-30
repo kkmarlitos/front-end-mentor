@@ -21,14 +21,26 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      padding: 30px 10px 10px 10px;
+      padding: 30px 10px 30px 10px;
       font-family: 'Rubik', sans-serif;
     }
-    .comentario, .resposta{
+    .comentario{
       background-color: white;
+      border-radius: 10px;
       width: 85vw;
       padding: 15px;
       margin-bottom: 15px;
+    }
+    .resposta{
+      border-radius: 10px;
+      background-color: white;
+      width: 75vw;
+      padding: 15px;
+      margin-left: 20px;
+      margin-bottom: 15px;
+    }
+    .todas_respostas{
+      border-left: 2px solid rgba(0, 0, 0, 0.212);
     }
     .header_coment{
       padding-bottom: 15px;
@@ -48,6 +60,18 @@
     }
     .header_coment span{
       color: rgba(0, 0, 0, 0.616);
+    }
+    .header_coment .you{
+      background-color: var(--azul);
+      color: white;
+      font-size: 12px;
+      padding: 2px 3px 2px 3px;
+      margin-right: 8vw;
+      margin-left: 2vw;
+    }
+    .header_coment .you_name{
+      padding-right: 0px;
+      
     }
     .main_coment{
       color: rgba(0, 0, 0, 0.616);
@@ -93,6 +117,45 @@
     .like_and_reply p{
       color: rgba(5, 5, 207, 0.726);
       font-weight: 500;
+    }
+    .delete{
+      color: var(--vermelho);
+      font-weight: 500;
+    }
+    .edit{
+      color: var(--azul);
+      font-weight: 500;
+    }
+    #sua_mensagem{
+      background-color: white;
+      border-radius: 10px;
+      width: 85vw;
+      padding: 10px;
+      margin-top: 10px;
+      display: grid;
+      grid-template-columns: 60vw 1px;
+    }
+    #mensage{
+      width: 75vw;
+      border: 1px solid rgba(0, 0, 0, 0.171);
+      border-radius: 7px;
+      padding: 10px 10px 12vw 10px;
+      margin-bottom: 15px;
+    }
+    #sua_mensagem img{
+      grid-column: 1;
+      width: 10vw;
+    }
+    #enviar_mensagem{
+      grid-column: 2;
+      color: white;
+      font-weight: 700;
+      border-radius: 7px;
+      background-color: var(--azul);
+      border: 1px solid rgba(0, 0, 0, 0.301);
+      padding: 2px;
+      width: 20vw;
+      height: 10vw;
     }
   </style>
 </head>
@@ -143,48 +206,59 @@
           </div>
         </div>
 
-        <div class="resposta">
-          <div class="header_coment">
-            <img src="images/avatars/image-ramsesmiron.webp" alt="avatar">
-            <a href="#">ramsesmiron</a>
-            <span>1 week ago</span>
+        <div class="todas_respostas">
+          <div class="resposta">
+            <div class="header_coment">
+              <img src="images/avatars/image-ramsesmiron.webp" alt="avatar">
+              <a href="#">ramsesmiron</a>
+              <span>1 week ago</span>
+            </div>
+            <div class="main_coment">
+              <p><b>@maxblagun</b> If you're still new, i'd recommend focusing on the fundamentals of HTML, CSS and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.</p>
+            </div>
+            <div class="like_and_reply">
+              <div class="likes">
+                  <div class="like">+</div>
+                  <p class="numbers_like">12</p>
+                  <div class="dislike">-</div>
+                </div>
+                <p href="#" class="responder">
+                  <img src="images/icon-reply.svg" alt="reply">
+                  reply
+                </p>
+            </div>
           </div>
-          <div class="main_coment">
-            <p><b>@maxblagun</b> If you're still new, i'd recommend focusing on the fundamentals of HTML, CSS and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.</p>
-          </div>
-          <div class="like_and_reply">
-            <div class="likes">
-                <div class="like">+</div>
-                <p class="numbers_like">12</p>
-                <div class="dislike">-</div>
-              </div>
-              <p href="#" class="responder">
-                <img src="images/icon-reply.svg" alt="reply">
-                reply
-              </p>
+          <div class="resposta">
+            <div class="header_coment">
+              <img src="images/avatars/image-juliusomo.webp" alt="avatar">
+              <a href="#" class="you_name">juliusomo</a>
+              <span class="you">You</span>
+              <span>2 days ago</span>
+            </div>
+            <div class="main_coment">
+              <p><b>@ramsesmiron</b> I couldn't agree more with this. Everything moves so fast and it always seems like ereveryone knows the newest library/framework. But the fundamentals are what stay constant.</p>
+            </div>
+            <div class="like_and_reply">
+              <div class="likes">
+                  <div class="like">+</div>
+                  <p class="numbers_like">12</p>
+                  <div class="dislike">-</div>
+                </div>
+                <div>
+                  <img src="images/icon-delete.svg" alt="delete">
+                  <span class="delete">Delete</span>
+                </div>
+                <div>
+                  <img src="images/icon-edit.svg" alt="edit">
+                  <span class="edit">Edit</span>
+                </div>
+            </div>
           </div>
         </div>
-
-        <div class="resposta">
-          <div class="header_coment">
-            <img src="images/avatars/image-juliusomo.webp" alt="avatar">
-            <a href="#">juliusomo</a>
-            <span>2 days ago</span>
-          </div>
-          <div class="main_coment">
-            <p><b>@ramsesmiron</b> I couldn't agree more with this. Everything moves so fast and it always seems like ereveryone knows the newest library/framework. But the fundamentals are what stay constant.</p>
-          </div>
-          <div class="like_and_reply">
-            <div class="likes">
-                <div class="like">+</div>
-                <p class="numbers_like">12</p>
-                <div class="dislike">-</div>
-              </div>
-              <p href="#" class="responder">
-                <img src="images/icon-reply.svg" alt="reply">
-                reply
-              </p>
-          </div>
+        <div id="sua_mensagem">
+          <input type="text" name="mensage" id="mensage" placeholder="add a coment...">
+          <img src="images/avatars/image-juliusomo.webp" alt="image-juliusomo">
+          <input type="button" value="SEND" id="enviar_mensagem">
         </div>
     </section>
 </body>
