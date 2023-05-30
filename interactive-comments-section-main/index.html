@@ -5,6 +5,96 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive comments</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
+    *{
+      margin: 0px;
+    }
+    :root{
+      --azul: hsl(238, 40%, 52%);
+      --vermelho: hsl(358, 79%, 66%);
+      --azul_claro: hsl(239, 57%, 85%);
+      --vermelho_claro: hsl(357, 100%, 86%);
+    }
+    section{
+      background-color: hsl(228, 33%, 97%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 10px 10px 10px;
+      font-family: 'Rubik', sans-serif;
+    }
+    .comentario, .resposta{
+      background-color: white;
+      width: 85vw;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+    .header_coment{
+      padding-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+    .header_coment img{
+      width: 10vw;
+      
+    }
+    .header_coment a{
+      padding-left: 5vw;
+      padding-right: 7vw;
+      text-decoration: none;
+      font-weight: 500;
+      color: black;
+    }
+    .header_coment span{
+      color: rgba(0, 0, 0, 0.616);
+    }
+    .main_coment{
+      color: rgba(0, 0, 0, 0.616);
+      text-align: justify;
+      padding-bottom: 10px;
+    }
+    .main_coment b{
+      color: var(--azul);
+    }
+    .like_and_reply{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .likes{
+      background-color: hsl(0, 0%, 93%);
+      display: flex;
+      width: 17vw;
+      padding: 8px 13px 8px 13px;
+      border-radius: 8px;
+      justify-content: center;
+    }
+    .like{
+      border-right: 1px solid black;
+      padding-right: 5px;
+      color: rgba(0, 0, 0, 0.521);
+      font-weight: 700;
+      font-size: 6vw;
+    }
+    .dislike{
+      border-left: 1px solid black;
+      padding-left: 5px;
+      color: rgba(0, 0, 0, 0.521);
+      font-weight: 700;
+      font-size: 6vw;
+    }
+    .numbers_like{
+      padding: 0px 5px 0px 5px;
+      color: var(--azul);
+      font-size: 5vw;
+      padding-top: 0.7vw;
+    }
+    .like_and_reply p{
+      color: rgba(5, 5, 207, 0.726);
+      font-weight: 500;
+    }
+  </style>
 </head>
 <body>
     <section>
@@ -17,6 +107,17 @@
             <div class="main_coment">
               <p>Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well</p>
             </div>
+              <div class="like_and_reply">
+                <div class="likes">
+                  <div class="like">+</div>
+                  <p class="numbers_like">12</p>
+                  <div class="dislike">-</div>
+                </div>
+                <p href="#" class="responder">
+                  <img src="images/icon-reply.svg" alt="reply">
+                  reply
+                </p>
+              </div>
         </div>
 
         <div class="comentario">
@@ -29,6 +130,17 @@
             <p>Woah, your project look awesome! How long have you been coding for? I'm still new, but think i want to dive into React as well soon. Perhaps you can give me an insight on where i can learn React?
             Thanks!</p>
           </div>
+          <div class="like_and_reply">
+            <div class="likes">
+                <div class="like">+</div>
+                <p class="numbers_like">12</p>
+                <div class="dislike">-</div>
+              </div>
+              <p href="#" class="responder">
+                <img src="images/icon-reply.svg" alt="reply">
+                reply
+              </p>
+          </div>
         </div>
 
         <div class="resposta">
@@ -40,6 +152,17 @@
           <div class="main_coment">
             <p><b>@maxblagun</b> If you're still new, i'd recommend focusing on the fundamentals of HTML, CSS and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.</p>
           </div>
+          <div class="like_and_reply">
+            <div class="likes">
+                <div class="like">+</div>
+                <p class="numbers_like">12</p>
+                <div class="dislike">-</div>
+              </div>
+              <p href="#" class="responder">
+                <img src="images/icon-reply.svg" alt="reply">
+                reply
+              </p>
+          </div>
         </div>
 
         <div class="resposta">
@@ -49,7 +172,18 @@
             <span>2 days ago</span>
           </div>
           <div class="main_coment">
-            <p></p>
+            <p><b>@ramsesmiron</b> I couldn't agree more with this. Everything moves so fast and it always seems like ereveryone knows the newest library/framework. But the fundamentals are what stay constant.</p>
+          </div>
+          <div class="like_and_reply">
+            <div class="likes">
+                <div class="like">+</div>
+                <p class="numbers_like">12</p>
+                <div class="dislike">-</div>
+              </div>
+              <p href="#" class="responder">
+                <img src="images/icon-reply.svg" alt="reply">
+                reply
+              </p>
           </div>
         </div>
     </section>
