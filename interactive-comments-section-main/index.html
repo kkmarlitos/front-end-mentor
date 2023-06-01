@@ -39,7 +39,7 @@
       margin-left: 20px;
       margin-bottom: 15px;
     }
-    .todas_respostas{
+    #todas_respostas{
       border-left: 2px solid rgba(0, 0, 0, 0.212);
     }
     .header_coment{
@@ -89,20 +89,20 @@
     .likes{
       background-color: hsl(0, 0%, 93%);
       display: flex;
-      width: 17vw;
+      width: 18vw;
       padding: 8px 13px 8px 13px;
       border-radius: 8px;
       justify-content: center;
     }
     .like{
-      border-right: 1px solid black;
+      border-right: 2px solid rgba(0, 0, 0, 0.521);
       padding-right: 5px;
       color: rgba(0, 0, 0, 0.521);
       font-weight: 700;
       font-size: 6vw;
     }
     .dislike{
-      border-left: 1px solid black;
+      border-left: 2px solid rgba(0, 0, 0, 0.521);
       padding-left: 5px;
       color: rgba(0, 0, 0, 0.521);
       font-weight: 700;
@@ -111,7 +111,7 @@
     .numbers_like{
       padding: 0px 5px 0px 5px;
       color: var(--azul);
-      font-size: 5vw;
+      font-size: 17px;
       padding-top: 0.7vw;
     }
     .like_and_reply p{
@@ -127,6 +127,8 @@
       font-weight: 500;
     }
     #sua_mensagem{
+      position: sticky;
+      bottom: 1px;
       background-color: white;
       border-radius: 10px;
       width: 85vw;
@@ -143,10 +145,12 @@
       margin-bottom: 15px;
     }
     #sua_mensagem img{
+      position: sticky;
       grid-column: 1;
       width: 10vw;
     }
     #enviar_mensagem{
+      position: sticky;
       grid-column: 2;
       color: white;
       font-weight: 700;
@@ -161,105 +165,195 @@
 </head>
 <body>
     <section>
-        <div class="comentario">
+        <div id="embrulho_section">
+          <div class="comentario">
+              <div class="header_coment">
+                <img src="images/avatars/image-amyrobson.webp" alt="avatar">
+                <a href="#">amyrobson</a>
+                <span>1 month ago</span>
+              </div>
+              <div class="main_coment">
+                <p>Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well</p>
+              </div>
+                <div class="like_and_reply">
+                  <div class="likes">
+                    <div class="like">+</div>
+                    <p class="numbers_like">12</p>
+                    <div class="dislike">-</div>
+                  </div>
+                  <p class="responder">
+                    <img src="images/icon-reply.svg" alt="reply">
+                    reply
+                  </p>
+                </div>
+          </div>
+          <div class="comentario">
             <div class="header_coment">
-              <img src="images/avatars/image-amyrobson.webp" alt="avatar">
-              <a href="#">amyrobson</a>
-              <span>1 month ago</span>
+              <img src="images/avatars/image-maxblagun.webp" alt="avatar">
+              <a href="#">maxblagun</a>
+              <span>2 week ago</span>
             </div>
             <div class="main_coment">
-              <p>Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the responsiveness at various breakpoints works really well</p>
+              <p>Woah, your project look awesome! How long have you been coding for? I'm still new, but think i want to dive into React as well soon. Perhaps you can give me an insight on where i can learn React?
+              Thanks!</p>
             </div>
+            <div class="like_and_reply">
+              <div class="likes">
+                  <div class="like">+</div>
+                  <p class="numbers_like">5</p>
+                  <div class="dislike">-</div>
+                </div>
+                <p href="#" class="responder">
+                  <img src="images/icon-reply.svg" alt="reply">
+                  reply
+                </p>
+            </div>
+          </div>
+          <div id="todas_respostas">
+            <div class="resposta">
+              <div class="header_coment">
+                <img src="images/avatars/image-ramsesmiron.webp" alt="avatar">
+                <a href="#">ramsesmiron</a>
+                <span>1 week ago</span>
+              </div>
+              <div class="main_coment">
+                <p><b>@maxblagun</b> If you're still new, i'd recommend focusing on the fundamentals of HTML, CSS and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.</p>
+              </div>
               <div class="like_and_reply">
                 <div class="likes">
-                  <div class="like">+</div>
-                  <p class="numbers_like">12</p>
-                  <div class="dislike">-</div>
-                </div>
-                <p href="#" class="responder">
-                  <img src="images/icon-reply.svg" alt="reply">
-                  reply
-                </p>
+                    <div class="like">+</div>
+                    <p class="numbers_like">4</p>
+                    <div class="dislike">-</div>
+                  </div>
+                  <p href="#" class="responder">
+                    <img src="images/icon-reply.svg" alt="reply">
+                    reply
+                  </p>
               </div>
-        </div>
-
-        <div class="comentario">
-          <div class="header_coment">
-            <img src="images/avatars/image-maxblagun.webp" alt="avatar">
-            <a href="#">maxblagun</a>
-            <span>2 week ago</span>
-          </div>
-          <div class="main_coment">
-            <p>Woah, your project look awesome! How long have you been coding for? I'm still new, but think i want to dive into React as well soon. Perhaps you can give me an insight on where i can learn React?
-            Thanks!</p>
-          </div>
-          <div class="like_and_reply">
-            <div class="likes">
-                <div class="like">+</div>
-                <p class="numbers_like">12</p>
-                <div class="dislike">-</div>
+            </div>
+            <div class="resposta">
+              <div class="header_coment">
+                <img src="images/avatars/image-juliusomo.webp" alt="avatar">
+                <a href="#" class="you_name">juliusomo</a>
+                <span class="you">You</span>
+                <span>2 days ago</span>
               </div>
-              <p href="#" class="responder">
-                <img src="images/icon-reply.svg" alt="reply">
-                reply
-              </p>
-          </div>
-        </div>
-
-        <div class="todas_respostas">
-          <div class="resposta">
-            <div class="header_coment">
-              <img src="images/avatars/image-ramsesmiron.webp" alt="avatar">
-              <a href="#">ramsesmiron</a>
-              <span>1 week ago</span>
-            </div>
-            <div class="main_coment">
-              <p><b>@maxblagun</b> If you're still new, i'd recommend focusing on the fundamentals of HTML, CSS and JS before considering React. It's very tempting to jump ahead but lay a solid foundation first.</p>
-            </div>
-            <div class="like_and_reply">
-              <div class="likes">
-                  <div class="like">+</div>
-                  <p class="numbers_like">12</p>
-                  <div class="dislike">-</div>
-                </div>
-                <p href="#" class="responder">
-                  <img src="images/icon-reply.svg" alt="reply">
-                  reply
-                </p>
-            </div>
-          </div>
-          <div class="resposta">
-            <div class="header_coment">
-              <img src="images/avatars/image-juliusomo.webp" alt="avatar">
-              <a href="#" class="you_name">juliusomo</a>
-              <span class="you">You</span>
-              <span>2 days ago</span>
-            </div>
-            <div class="main_coment">
-              <p><b>@ramsesmiron</b> I couldn't agree more with this. Everything moves so fast and it always seems like ereveryone knows the newest library/framework. But the fundamentals are what stay constant.</p>
-            </div>
-            <div class="like_and_reply">
-              <div class="likes">
-                  <div class="like">+</div>
-                  <p class="numbers_like">12</p>
-                  <div class="dislike">-</div>
-                </div>
-                <div>
-                  <img src="images/icon-delete.svg" alt="delete">
-                  <span class="delete">Delete</span>
-                </div>
-                <div>
-                  <img src="images/icon-edit.svg" alt="edit">
-                  <span class="edit">Edit</span>
-                </div>
+              <div class="main_coment">
+                <p><b>@ramsesmiron</b> I couldn't agree more with this. Everything moves so fast and it always seems like ereveryone knows the newest library/framework. But the fundamentals are what stay constant.</p>
+              </div>
+              <div class="like_and_reply">
+                <div class="likes">
+                    <div class="like">+</div>
+                    <p class="numbers_like">2</p>
+                    <div class="dislike">-</div>
+                  </div>
+                  <div>
+                    <img src="images/icon-delete.svg" alt="delete">
+                    <span class="delete">Delete</span>
+                  </div>
+                  <div>
+                    <img src="images/icon-edit.svg" alt="edit">
+                    <span class="edit">Edit</span>
+                  </div>
+              </div>
             </div>
           </div>
         </div>
         <div id="sua_mensagem">
           <input type="text" name="mensage" id="mensage" placeholder="add a coment...">
           <img src="images/avatars/image-juliusomo.webp" alt="image-juliusomo">
-          <input type="button" value="SEND" id="enviar_mensagem">
+          <input type="button" value="SEND" id="enviar_mensagem" onclick="submetendo()">
         </div>
     </section>
+    
+
+    <script>
+      const submit = document.getElementById('enviar_mensagem')
+      const section_comentario = document.getElementById('embrulho_section')
+
+      let p_reply = document.getElementsByClassName('responder')
+      
+      
+
+      let mensagem = document.getElementById('mensage')
+
+      const criando_comentarios = {
+          criar_div_comentario: function(){
+            const div_comentario = document.createElement('div')
+          div_comentario.classList.add('comentario')
+          div_comentario.innerHTML = `<div class="header_coment">
+                  <img src="images/avatars/image-juliusomo.webp" alt="avatar">
+                  <a href="#" class="you_name">juliusomo</a>
+                  <span class="you">You</span>
+                  <span>2 days ago</span>
+                </div>
+                <div class="main_coment">
+                  <p>${mensagem.value}</p>
+                </div>
+                <div class="like_and_reply">
+                  <div class="likes">
+                      <div class="like">+</div>
+                      <p class="numbers_like">2</p>
+                      <div class="dislike">-</div>
+                    </div>
+                    <div>
+                      <img src="images/icon-delete.svg" alt="delete">
+                      <span class="delete">Delete</span>
+                    </div>
+                    <div>
+                      <img src="images/icon-edit.svg" alt="edit">
+                      <span class="edit">Edit</span>
+                    </div>`
+                    section_comentario.appendChild(div_comentario)
+        },
+          criar_div_resposta: function(){
+            const todas_respostas = document.getElementById('todas_respostas')
+            const div_resposta = document.createElement('div')
+            div_resposta.classList.add('resposta')
+            div_resposta.innerHTML = ` <div class="header_coment">
+                <img src="images/avatars/image-juliusomo.webp" alt="avatar">
+                <a href="#" class="you_name">juliusomo</a>
+                <span class="you">You</span>
+                <span>2 days ago</span>
+              </div>
+              <div class="main_coment">
+                <p><b>@ramsesmiron</b> ${mensagem.value}.</p>
+              </div>
+              <div class="like_and_reply">
+                <div class="likes">
+                    <div class="like">+</div>
+                    <p class="numbers_like">2</p>
+                    <div class="dislike">-</div>
+                  </div>
+                  <div>
+                    <img src="images/icon-delete.svg" alt="delete">
+                    <span class="delete">Delete</span>
+                  </div>
+                  <div>
+                    <img src="images/icon-edit.svg" alt="edit">
+                    <span class="edit">Edit</span>
+                  </div>
+              </div>`
+              todas_respostas.appendChild(div_resposta)
+          },
+          responder_coment: function(){
+            for(let c = 0; c < p_reply.length; c++){
+               p_reply[c].addEventListener('click', function(){
+                
+              })
+              }
+              } 
+      }
+
+      criando_comentarios.responder_coment()
+
+        function submetendo(){
+        criando_comentarios.criar_div_resposta()
+      }
+      
+
+      
+    </script>
+
 </body>
 </html>
