@@ -270,9 +270,6 @@
     <script>
       const submit = document.getElementById('enviar_mensagem')
       const section_comentario = document.getElementById('embrulho_section')
-
-      let p_reply = document.getElementsByClassName('responder')
-      
       
 
       let mensagem = document.getElementById('mensage')
@@ -335,17 +332,9 @@
                   </div>
               </div>`
               todas_respostas.appendChild(div_resposta)
-          },
-          responder_coment: function(){
-            for(let c = 0; c < p_reply.length; c++){
-               p_reply[c].addEventListener('click', function(){
-                
-              })
-              }
-              } 
+          }
       }
 
-      criando_comentarios.responder_coment()
 
         function submetendo(){
         criando_comentarios.criar_div_resposta()
