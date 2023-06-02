@@ -178,7 +178,7 @@
                 <div class="like_and_reply">
                   <div class="likes">
                     <div class="like">+</div>
-                    <p class="numbers_like">12</p>
+                    <p class="numbers_like"></p>
                     <div class="dislike">-</div>
                   </div>
                   <p class="responder">
@@ -200,7 +200,7 @@
             <div class="like_and_reply">
               <div class="likes">
                   <div class="like">+</div>
-                  <p class="numbers_like">5</p>
+                  <p class="numbers_like"></p>
                   <div class="dislike">-</div>
                 </div>
                 <p href="#" class="responder">
@@ -222,7 +222,7 @@
               <div class="like_and_reply">
                 <div class="likes">
                     <div class="like">+</div>
-                    <p class="numbers_like">4</p>
+                    <p class="numbers_like"></p>
                     <div class="dislike">-</div>
                   </div>
                   <p href="#" class="responder">
@@ -244,7 +244,7 @@
               <div class="like_and_reply">
                 <div class="likes">
                     <div class="like">+</div>
-                    <p class="numbers_like">2</p>
+                    <p class="numbers_like"></p>
                     <div class="dislike">-</div>
                   </div>
                   <div>
@@ -275,6 +275,28 @@
       let mensagem = document.getElementById('mensage')
 
       const criando_comentarios = {
+          like: Array.from(document.getElementsByClassName('like')),
+
+          numbers_like: Array.from(document.getElementsByClassName('numbers_like')),
+          primeiros_numeros_like: [12, 5, 4, 2],
+
+          likes: function(){
+             for(let c = 0; c < this.primeiros_numeros_like.length; c++){ //add os numeros no documento (que ja existem)
+               this.numbers_like[c].innerHTML = this.primeiros_numeros_like[c]
+             }
+             for(let c = 0; c < this.like.length; c++){ //deu like
+              let contador_deu_like = 0
+              this.like[c].addEventListener('click', function(){
+                contador_deu_like++
+                if(contador_deu_like % 2 != 0){
+                  criando_comentarios.numbers_like[c].innerHTML ++
+                }else{criando_comentarios.numbers_like[c].innerHTML --}
+            })}
+            
+          },
+
+          dislike: Array.from(document.getElementsByClassName('dislike')),
+
           criar_div_comentario: function(){
             const div_comentario = document.createElement('div')
           div_comentario.classList.add('comentario')
@@ -333,8 +355,9 @@
               </div>`
               todas_respostas.appendChild(div_resposta)
           }
-      }
 
+      }
+      criando_comentarios.likes()
 
         function submetendo(){
         criando_comentarios.criar_div_resposta()
