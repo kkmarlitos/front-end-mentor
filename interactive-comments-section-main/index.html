@@ -208,6 +208,9 @@
                   reply
                 </p>
             </div>
+            <div class="respondendo">
+
+            </div>
           </div>
           <div id="todas_respostas">
             <div class="resposta">
@@ -230,6 +233,9 @@
                     reply
                   </p>
               </div>
+              <div class="respondendo">
+
+              </div>
             </div>
             <div class="resposta">
               <div class="header_coment">
@@ -246,6 +252,9 @@
                     <div class="like">+</div>
                     <p class="numbers_like"></p>
                     <div class="dislike">-</div>
+                  </div>
+                  <div class="respondendo">
+
                   </div>
                   <div>
                     <img src="images/icon-delete.svg" alt="delete">
@@ -270,32 +279,39 @@
     <script>
       const submit = document.getElementById('enviar_mensagem')
       const section_comentario = document.getElementById('embrulho_section')
-      
-
       let mensagem = document.getElementById('mensage')
 
       const criando_comentarios = {
+          
           like: Array.from(document.getElementsByClassName('like')),
-
+          dislike: Array.from(document.getElementsByClassName('dislike')),
           numbers_like: Array.from(document.getElementsByClassName('numbers_like')),
+
+          responder: Array.from(document.getElementsByClassName('responder')),
+          respondendo_div: Array.from(document.getElementsByClassName('respondendo')) ,
+
           primeiros_numeros_like: [12, 5, 4, 2],
 
           likes: function(){
              for(let c = 0; c < this.primeiros_numeros_like.length; c++){ //add os numeros no documento (que ja existem)
                this.numbers_like[c].innerHTML = this.primeiros_numeros_like[c]
              }
-             for(let c = 0; c < this.like.length; c++){ //deu like
-              let contador_deu_like = 0
+             for(let c = 0; c < this.like.length; c++){
+              let contador_like = 0
               this.like[c].addEventListener('click', function(){
-                contador_deu_like++
-                if(contador_deu_like % 2 != 0){
-                  criando_comentarios.numbers_like[c].innerHTML ++
-                }else{criando_comentarios.numbers_like[c].innerHTML --}
-            })}
-            
+                if (contador_like < 1){
+                contador_like ++
+                criando_comentarios.numbers_like[c].innerHTML ++}
+              })
+              this.dislike[c].addEventListener('click', function(){
+                if (contador_like === 1){
+                  contador_like --
+                  criando_comentarios.numbers_like[c].innerHTML --
+                }
+              })
+             } 
           },
 
-          dislike: Array.from(document.getElementsByClassName('dislike')),
 
           criar_div_comentario: function(){
             const div_comentario = document.createElement('div')
@@ -312,7 +328,7 @@
                 <div class="like_and_reply">
                   <div class="likes">
                       <div class="like">+</div>
-                      <p class="numbers_like">2</p>
+                      <p class="numbers_like"> 0 </p>
                       <div class="dislike">-</div>
                     </div>
                     <div>
@@ -324,8 +340,38 @@
                       <span class="edit">Edit</span>
                     </div>`
                     section_comentario.appendChild(div_comentario)
+
+                    let like_dinamico = Array.from(div_comentario.getElementsByClassName('like'))
+                    let dislike_dinamico = Array.from(div_comentario.getElementsByClassName('dislike'))
+                    let numbers_like_dinamico = Array.from(div_comentario.getElementsByClassName('numbers_like'))
+
+                    for(let c = 0; c < like_dinamico.length; c++){
+                      let contador_like = 0
+                      like_dinamico[c].addEventListener('click', function(){
+                        if (contador_like < 1){
+                          contador_like ++
+                          numbers_like_dinamico[c].innerHTML ++
+                        }
+                      dislike_dinamico[c].addEventListener('click', function(){
+                        if (contador_like === 1){
+                          contador_like --
+                          numbers_like_dinamico[c].innerHTML --
+                        }})
+                      })
+                      mensagem.value = ' '
+                    }
         },
+
+        respondendo_click: function(){
+          for(let c = 0; c < this.responder.length; c++){
+            this.responder[c].addEventListener('click', function(){
+             
+            })
+          }
+        },
+
           criar_div_resposta: function(){
+            
             const todas_respostas = document.getElementById('todas_respostas')
             const div_resposta = document.createElement('div')
             div_resposta.classList.add('resposta')
@@ -341,7 +387,7 @@
               <div class="like_and_reply">
                 <div class="likes">
                     <div class="like">+</div>
-                    <p class="numbers_like">2</p>
+                    <p class="numbers_like"> </p>
                     <div class="dislike">-</div>
                   </div>
                   <div>
@@ -353,11 +399,16 @@
                     <span class="edit">Edit</span>
                   </div>
               </div>`
-              todas_respostas.appendChild(div_resposta)
+              for (c = 0; c < this.respondendo_div.length; c ++){
+                this.respondendo_div[c].appendChild(div_resposta)
+              }
+
+              mensagem.value = ' '
           }
 
       }
       criando_comentarios.likes()
+       
 
         function submetendo(){
         criando_comentarios.criar_div_resposta()
