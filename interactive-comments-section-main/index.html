@@ -58,10 +58,6 @@
           </div>
 
           <div class="todas_respostas">
-
-          </div>
-
-          <div class="todas_respostas">
             <div class="resposta">
               <div class="header_coment">
                 <img src="images/avatars/image-ramsesmiron.webp" alt="avatar">
@@ -83,7 +79,9 @@
                   </p>
               </div>
             </div>
+            <div class="todas_respostas">
 
+            </div>
             <div class="resposta">
               <div class="header_coment">
                 <img src="images/avatars/image-juliusomo.webp" alt="avatar">
@@ -124,12 +122,14 @@
       const submit = document.getElementById('enviar_mensagem')
       const section_comentario = document.getElementById('embrulho_section')
       let mensagem = document.getElementById('mensage')
+      
 
       const criando_comentarios = {
           
           like: Array.from(document.getElementsByClassName('like')),
           dislike: Array.from(document.getElementsByClassName('dislike')),
           numbers_like: Array.from(document.getElementsByClassName('numbers_like')),
+
 
           responder: Array.from(document.getElementsByClassName('responder')),
           respondendo_div: Array.from(document.getElementsByClassName('todas_respostas')) ,
@@ -193,7 +193,7 @@
                     for(let c = 0; c < like_dinamico.length; c++){
                       let contador_like = 0
                       like_dinamico[c].addEventListener('click', function(){
-                        if (contador_like < 1){
+                        if (contador_like === 0){
                           contador_like ++
                           numbers_like_dinamico[c].innerHTML ++
                         }
@@ -206,13 +206,15 @@
                       mensagem.value = ' '
                     }
         },
-              //TENTAR IDEIA DO CONTADOR PARA RESPONDER PERGUNTAS
+
           criar_div_resposta: function(){
             
             for(let c = 0; c < this.responder.length; c ++){
               this.responder[c].addEventListener('click', function(){
-
-                const div_resposta = document.createElement('div') 
+                
+                
+                
+              const div_resposta = document.createElement('div') 
                 div_resposta.classList.add('resposta')
 
                 div_resposta.innerHTML = ` <div class="header_coment">
@@ -227,7 +229,7 @@
                   <div class="like_and_reply">
                     <div class="likes">
                         <div class="like">+</div>
-                        <p class="numbers_like"> </p>
+                        <p class="numbers_like">0</p>
                         <div class="dislike">-</div>
                       </div>
                       <div>
@@ -240,9 +242,27 @@
                       </div>
                   </div>`              
                   
-                  criando_comentarios.respondendo_div[c].appendChild(div_resposta)
-                  
-              
+                criando_comentarios.respondendo_div[c].appendChild(div_resposta)
+
+                let like_dinamico = Array.from(div_resposta.getElementsByClassName('like'))
+                let dislike_dinamico = Array.from(div_resposta.getElementsByClassName('dislike'))
+                let numbers_like_dinamico = Array.from(div_resposta.getElementsByClassName('numbers_like'))
+
+                for(let c = 0; c < like_dinamico.length; c++){
+                      let contador_like = 0
+                      like_dinamico[c].addEventListener('click', function(){
+                        if (contador_like === 0){
+                          contador_like ++
+                          numbers_like_dinamico[c].innerHTML ++
+                        }
+                      dislike_dinamico[c].addEventListener('click', function(){
+                        if (contador_like === 1){
+                          contador_like --
+                          numbers_like_dinamico[c].innerHTML --
+                        }})
+                      })
+                      mensagem.value = ' '
+                    }
             })
             }
           }
@@ -251,6 +271,9 @@
       criando_comentarios.likes()
       criando_comentarios.criar_div_resposta()
 
+      function submetendo(){
+        criando_comentarios.criar_div_comentario()
+      }
       
     </script>
 
