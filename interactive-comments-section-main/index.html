@@ -5,163 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive comments</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap');
-    *{
-      margin: 0px;
-    }
-    :root{
-      --azul: hsl(238, 40%, 52%);
-      --vermelho: hsl(358, 79%, 66%);
-      --azul_claro: hsl(239, 57%, 85%);
-      --vermelho_claro: hsl(357, 100%, 86%);
-    }
-    section{
-      background-color: hsl(228, 33%, 97%);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 30px 10px 30px 10px;
-      font-family: 'Rubik', sans-serif;
-    }
-    .comentario{
-      background-color: white;
-      border-radius: 10px;
-      width: 85vw;
-      padding: 15px;
-      margin-bottom: 15px;
-    }
-    .resposta{
-      border-radius: 10px;
-      background-color: white;
-      width: 75vw;
-      padding: 15px;
-      margin-left: 20px;
-      margin-bottom: 15px;
-    }
-    #todas_respostas{
-      border-left: 2px solid rgba(0, 0, 0, 0.212);
-    }
-    .header_coment{
-      padding-bottom: 15px;
-      display: flex;
-      align-items: center;
-    }
-    .header_coment img{
-      width: 10vw;
-      
-    }
-    .header_coment a{
-      padding-left: 5vw;
-      padding-right: 7vw;
-      text-decoration: none;
-      font-weight: 500;
-      color: black;
-    }
-    .header_coment span{
-      color: rgba(0, 0, 0, 0.616);
-    }
-    .header_coment .you{
-      background-color: var(--azul);
-      color: white;
-      font-size: 12px;
-      padding: 2px 3px 2px 3px;
-      margin-right: 8vw;
-      margin-left: 2vw;
-    }
-    .header_coment .you_name{
-      padding-right: 0px;
-      
-    }
-    .main_coment{
-      color: rgba(0, 0, 0, 0.616);
-      text-align: justify;
-      padding-bottom: 10px;
-    }
-    .main_coment b{
-      color: var(--azul);
-    }
-    .like_and_reply{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .likes{
-      background-color: hsl(0, 0%, 93%);
-      display: flex;
-      width: 18vw;
-      padding: 8px 13px 8px 13px;
-      border-radius: 8px;
-      justify-content: center;
-    }
-    .like{
-      border-right: 2px solid rgba(0, 0, 0, 0.521);
-      padding-right: 5px;
-      color: rgba(0, 0, 0, 0.521);
-      font-weight: 700;
-      font-size: 6vw;
-    }
-    .dislike{
-      border-left: 2px solid rgba(0, 0, 0, 0.521);
-      padding-left: 5px;
-      color: rgba(0, 0, 0, 0.521);
-      font-weight: 700;
-      font-size: 6vw;
-    }
-    .numbers_like{
-      padding: 0px 5px 0px 5px;
-      color: var(--azul);
-      font-size: 17px;
-      padding-top: 0.7vw;
-    }
-    .like_and_reply p{
-      color: rgba(5, 5, 207, 0.726);
-      font-weight: 500;
-    }
-    .delete{
-      color: var(--vermelho);
-      font-weight: 500;
-    }
-    .edit{
-      color: var(--azul);
-      font-weight: 500;
-    }
-    #sua_mensagem{
-      position: sticky;
-      bottom: 1px;
-      background-color: white;
-      border-radius: 10px;
-      width: 85vw;
-      padding: 10px;
-      margin-top: 10px;
-      display: grid;
-      grid-template-columns: 60vw 1px;
-    }
-    #mensage{
-      width: 75vw;
-      border: 1px solid rgba(0, 0, 0, 0.171);
-      border-radius: 7px;
-      padding: 10px 10px 12vw 10px;
-      margin-bottom: 15px;
-    }
-    #sua_mensagem img{
-      position: sticky;
-      grid-column: 1;
-      width: 10vw;
-    }
-    #enviar_mensagem{
-      position: sticky;
-      grid-column: 2;
-      color: white;
-      font-weight: 700;
-      border-radius: 7px;
-      background-color: var(--azul);
-      border: 1px solid rgba(0, 0, 0, 0.301);
-      padding: 2px;
-      width: 20vw;
-      height: 10vw;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <section>
@@ -187,6 +31,9 @@
                   </p>
                 </div>
           </div>
+          <div class="todas_respostas">
+
+          </div>
           <div class="comentario">
             <div class="header_coment">
               <img src="images/avatars/image-maxblagun.webp" alt="avatar">
@@ -208,11 +55,13 @@
                   reply
                 </p>
             </div>
-            <div class="respondendo">
-
-            </div>
           </div>
-          <div id="todas_respostas">
+
+          <div class="todas_respostas">
+
+          </div>
+
+          <div class="todas_respostas">
             <div class="resposta">
               <div class="header_coment">
                 <img src="images/avatars/image-ramsesmiron.webp" alt="avatar">
@@ -233,10 +82,8 @@
                     reply
                   </p>
               </div>
-              <div class="respondendo">
-
-              </div>
             </div>
+
             <div class="resposta">
               <div class="header_coment">
                 <img src="images/avatars/image-juliusomo.webp" alt="avatar">
@@ -252,9 +99,6 @@
                     <div class="like">+</div>
                     <p class="numbers_like"></p>
                     <div class="dislike">-</div>
-                  </div>
-                  <div class="respondendo">
-
                   </div>
                   <div>
                     <img src="images/icon-delete.svg" alt="delete">
@@ -288,7 +132,8 @@
           numbers_like: Array.from(document.getElementsByClassName('numbers_like')),
 
           responder: Array.from(document.getElementsByClassName('responder')),
-          respondendo_div: Array.from(document.getElementsByClassName('respondendo')) ,
+          respondendo_div: Array.from(document.getElementsByClassName('todas_respostas')) ,
+          
 
           primeiros_numeros_like: [12, 5, 4, 2],
 
@@ -361,59 +206,50 @@
                       mensagem.value = ' '
                     }
         },
-
-        respondendo_click: function(){
-          for(let c = 0; c < this.responder.length; c++){
-            this.responder[c].addEventListener('click', function(){
-             
-            })
-          }
-        },
-
+              //TENTAR IDEIA DO CONTADOR PARA RESPONDER PERGUNTAS
           criar_div_resposta: function(){
             
-            const todas_respostas = document.getElementById('todas_respostas')
-            const div_resposta = document.createElement('div')
-            div_resposta.classList.add('resposta')
-            div_resposta.innerHTML = ` <div class="header_coment">
-                <img src="images/avatars/image-juliusomo.webp" alt="avatar">
-                <a href="#" class="you_name">juliusomo</a>
-                <span class="you">You</span>
-                <span>2 days ago</span>
-              </div>
-              <div class="main_coment">
-                <p><b>@ramsesmiron</b> ${mensagem.value}.</p>
-              </div>
-              <div class="like_and_reply">
-                <div class="likes">
-                    <div class="like">+</div>
-                    <p class="numbers_like"> </p>
-                    <div class="dislike">-</div>
-                  </div>
-                  <div>
-                    <img src="images/icon-delete.svg" alt="delete">
-                    <span class="delete">Delete</span>
-                  </div>
-                  <div>
-                    <img src="images/icon-edit.svg" alt="edit">
-                    <span class="edit">Edit</span>
-                  </div>
-              </div>`
-              for (c = 0; c < this.respondendo_div.length; c ++){
-                this.respondendo_div[c].appendChild(div_resposta)
-              }
+            for(let c = 0; c < this.responder.length; c ++){
+              this.responder[c].addEventListener('click', function(){
 
-              mensagem.value = ' '
+                const div_resposta = document.createElement('div') 
+                div_resposta.classList.add('resposta')
+
+                div_resposta.innerHTML = ` <div class="header_coment">
+                    <img src="images/avatars/image-juliusomo.webp" alt="avatar">
+                    <a href="#" class="you_name">juliusomo</a>
+                    <span class="you">You</span>
+                    <span>2 days ago</span>
+                  </div>
+                  <div class="main_coment">
+                    <p><b>@ramsesmiron</b> ${mensagem.value}</p>
+                  </div>
+                  <div class="like_and_reply">
+                    <div class="likes">
+                        <div class="like">+</div>
+                        <p class="numbers_like"> </p>
+                        <div class="dislike">-</div>
+                      </div>
+                      <div>
+                        <img src="images/icon-delete.svg" alt="delete">
+                        <span class="delete">Delete</span>
+                      </div>
+                      <div>
+                        <img src="images/icon-edit.svg" alt="edit">
+                        <span class="edit">Edit</span>
+                      </div>
+                  </div>`              
+                  
+                  criando_comentarios.respondendo_div[c].appendChild(div_resposta)
+                  
+              
+            })
+            }
           }
 
       }
       criando_comentarios.likes()
-       
-
-        function submetendo(){
-        criando_comentarios.criar_div_resposta()
-      }
-      
+      criando_comentarios.criar_div_resposta()
 
       
     </script>
