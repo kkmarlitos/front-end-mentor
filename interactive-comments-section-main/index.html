@@ -32,7 +32,7 @@
                 </div>
           </div>
           <div class="todas_respostas">
-
+            
           </div>
           <div class="comentario">
             <div class="header_coment">
@@ -109,6 +109,12 @@
               </div>
             </div>
           </div>
+        </div>
+        <div id="mensagem_deletar">
+          <h1>Delete comment</h1>
+          <p>Are you sure you want to delete this comment? This will remove the comment and can't be undone</p>
+          <p id="cancelar_delete">NO, CANCEL</p>
+          <p id="confimar_delete">YES, DELETE</p>
         </div>
         <div id="sua_mensagem">
           <input type="text" name="mensage" id="mensage" placeholder="add a coment...">
@@ -274,12 +280,21 @@
                       })
                       mensagem.value = ''
             }
+          },
 
+          deletar_coment: function(){
+            const deletar_botao = document.getElementsByClassName('delete')
+            for(let c = 0; c < deletar_botao.length; c ++){
+              deletar_botao[c].addEventListener('click', function(){
+                
+              })
+            }
           }
 
       }
       criando_comentarios.likes()
       criando_comentarios.clicou_responder()
+      criando_comentarios.deletar_coment()
 
       function submetendo(){
         if(mensagem.value.startsWith('@amyrobson') || mensagem.value.startsWith('@maxblagun') || mensagem.value.startsWith('@ramsesmiron')){
