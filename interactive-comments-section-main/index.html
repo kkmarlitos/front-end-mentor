@@ -132,9 +132,10 @@
 
 
           responder: Array.from(document.getElementsByClassName('responder')),
-          respondendo_div: Array.from(document.getElementsByClassName('todas_respostas')) ,
-          
+          respondendo_div: Array.from(document.getElementsByClassName('todas_respostas')),
 
+          contador_responder: null,
+        
           primeiros_numeros_like: [12, 5, 4, 2],
 
           likes: function(){
@@ -203,19 +204,29 @@
                           numbers_like_dinamico[c].innerHTML --
                         }})
                       })
-                      mensagem.value = ' '
+                      mensagem.value = ''
                     }
+        },
+          clicou_responder: function(){
+          for (let c = 0; c < criando_comentarios.responder.length; c ++){
+            this.responder[c].addEventListener('click', function(){
+              criando_comentarios.contador_responder = c
+              if (criando_comentarios.contador_responder === 0){
+                mensagem.value = '@amyrobson '
+              } else if (criando_comentarios.contador_responder === 1){
+                mensagem.value = '@maxblagun '
+              }else if (criando_comentarios.contador_responder === 2){
+                mensagem.value = '@ramsesmiron '
+              }
+              mensagem.focus()
+            })
+          }
         },
 
           criar_div_resposta: function(){
-            
-            for(let c = 0; c < this.responder.length; c ++){
-              this.responder[c].addEventListener('click', function(){
-                
-                
-                
+                  
               const div_resposta = document.createElement('div') 
-                div_resposta.classList.add('resposta')
+              div_resposta.classList.add('resposta')
 
                 div_resposta.innerHTML = ` <div class="header_coment">
                     <img src="images/avatars/image-juliusomo.webp" alt="avatar">
@@ -224,7 +235,7 @@
                     <span>2 days ago</span>
                   </div>
                   <div class="main_coment">
-                    <p><b>@ramsesmiron</b> ${mensagem.value}</p>
+                    <p>${mensagem.value}</p>
                   </div>
                   <div class="like_and_reply">
                     <div class="likes">
@@ -242,7 +253,7 @@
                       </div>
                   </div>`              
                   
-                criando_comentarios.respondendo_div[c].appendChild(div_resposta)
+                criando_comentarios.respondendo_div[this.contador_responder].appendChild(div_resposta)
 
                 let like_dinamico = Array.from(div_resposta.getElementsByClassName('like'))
                 let dislike_dinamico = Array.from(div_resposta.getElementsByClassName('dislike'))
@@ -261,18 +272,19 @@
                           numbers_like_dinamico[c].innerHTML --
                         }})
                       })
-                      mensagem.value = ' '
-                    }
-            })
+                      mensagem.value = ''
             }
+
           }
 
       }
       criando_comentarios.likes()
-      criando_comentarios.criar_div_resposta()
+      criando_comentarios.clicou_responder()
 
       function submetendo(){
-        criando_comentarios.criar_div_comentario()
+        if(mensagem.value.startsWith('@amyrobson') || mensagem.value.startsWith('@maxblagun') || mensagem.value.startsWith('@ramsesmiron')){
+          criando_comentarios.criar_div_resposta()
+        }else{criando_comentarios.criar_div_comentario()}
       }
       
     </script>
