@@ -27,7 +27,7 @@
                 <input type="text" name="name-card" id="card_name" required placeholder="e.g.Jane Appleseed">
                 <p class="erro"></p>
                 <label for="card_number">CARD NUMBER</label>
-                <input type="text" name="number-card" id="card_number" required placeholder="e.g.1234 5678 8123 0000" oninput="espaco_numeros()">
+                <input type="text" name="number-card" id="card_number" required placeholder="e.g.1234 5678 8123 0000" oninput="espaco_numeros()" maxlength="19">
                 <p class="erro"></p>
                     <div class="label">
                         <label for="mes">EXP. DATE (MM/YY)</label>
@@ -79,7 +79,7 @@
             mes_cartao.style.border = '1px solid black'
             ano_cartao.style.border = '1px solid black'
 
-            if (name == 0 || num == 0 || mes == 0 || ano == 0 || cvc == 0 || name.length > 25 || num.length > 16 || num.length < 16 || mes > 12 || cvc.length > 3 || cvc.length < 3){
+            if (name == 0 || num == 0 || mes == 0 || ano == 0 || cvc == 0 || name.length > 25 || num.length < 16 || mes > 12 || cvc.length > 3 || cvc.length < 3){
                 
                 switch(true){ //erro do nome
                     case name == 0:
@@ -95,10 +95,6 @@
                 switch(true){ //erro numero do cartao
                     case num == 0:
                         p_erro[2].innerText = 'Wrong format, numbers only'
-                        num_cartao.style.border = '2px solid red'
-                        break
-                    case num.length > 16: 
-                        p_erro[2].innerText = 'Wrong, only 16 numbers are accepted'
                         num_cartao.style.border = '2px solid red'
                         break
                     case num.length < 16:
@@ -149,7 +145,7 @@
         }
         function espaco_numeros(){
             const numero_valor = num_cartao.value.replace(/(\s)/g, '')
-            numero_formatado = numero_valor.replace(/(\d{3})(?=\d)/g, '$1 ')
+            numero_formatado = numero_valor.replace(/(\d{4})(?=\d)/g, '$1 ')
             num_cartao.value = numero_formatado
         }
     </script>
