@@ -27,7 +27,7 @@
                 <input type="text" name="name-card" id="card_name" required placeholder="e.g.Jane Appleseed">
                 <p class="erro"></p>
                 <label for="card_number">CARD NUMBER</label>
-                <input type="number" name="number-card" id="card_number" required placeholder="e.g.1234 5678 8123 0000">
+                <input type="text" name="number-card" id="card_number" required placeholder="e.g.1234 5678 8123 0000" oninput="espaco_numeros()">
                 <p class="erro"></p>
                     <div class="label">
                         <label for="mes">EXP. DATE (MM/YY)</label>
@@ -146,6 +146,11 @@
 
             main.innerHTML = '<img src="images/icon-complete.svg" class="img_complete"><h1 class="main_script">Thank You! <p class="main_script" style="padding-bottom:40px">We have added your card detail<p> <input type="button" value="Continue" id="confirmar" style="margin: auto;">'
             }
+        }
+        function espaco_numeros(){
+            const numero_valor = num_cartao.value.replace(/(\s)/g, '')
+            numero_formatado = numero_valor.replace(/(\d{3})(?=\d)/g, '$1 ')
+            num_cartao.value = numero_formatado
         }
     </script>
 </body>
