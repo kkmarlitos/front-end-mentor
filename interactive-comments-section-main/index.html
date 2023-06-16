@@ -113,8 +113,10 @@
         <div id="mensagem_deletar">
           <h1>Delete comment</h1>
           <p>Are you sure you want to delete this comment? This will remove the comment and can't be undone</p>
-          <p id="cancelar_delete">NO, CANCEL</p>
-          <p id="confimar_delete">YES, DELETE</p>
+          <div id="confirmar_cancelar">
+            <p id="cancelar_delete">NO, CANCEL</p>
+            <p id="confirmar_delete">YES, DELETE</p>
+          </div>
         </div>
         <div id="sua_mensagem">
           <input type="text" name="mensage" id="mensage" placeholder="add a coment...">
@@ -143,6 +145,10 @@
           contador_responder: null,
         
           primeiros_numeros_like: [12, 5, 4, 2],
+
+          mensagem_deletar: document.getElementById('mensagem_deletar'),
+          confirmar_delete: document.getElementById('confirmar_delete'),
+          cancelar_delete: document.getElementById('cancelar_delete'),
 
           likes: function(){
              for(let c = 0; c < this.primeiros_numeros_like.length; c++){ //add os numeros no documento (que ja existem)
@@ -212,6 +218,21 @@
                       })
                       mensagem.value = ''
                     }
+
+                  const botao_deletar_dinamico = div_comentario.getElementsByClassName('delete')
+                  for(let c = 0; c < botao_deletar_dinamico.length; c ++){
+                    botao_deletar_dinamico[c].addEventListener('click', function(){
+                      criando_comentarios.mensagem_deletar.style.display = 'block'
+                      criando_comentarios.confirmar_delete.addEventListener('click', () =>{
+                        criando_comentarios.mensagem_deletar.style.display = 'none'
+                        div_comentario.style.display = 'none'
+                      })
+                      criando_comentarios.cancelar_delete.addEventListener('click', ()=>{
+                        criando_comentarios.mensagem_deletar.style.display = 'none'
+                      })
+                    })
+                    
+                  }
         },
           clicou_responder: function(){
           for (let c = 0; c < criando_comentarios.responder.length; c ++){
@@ -277,24 +298,29 @@
                           contador_like --
                           numbers_like_dinamico[c].innerHTML --
                         }})
-                      })
+                      })   
                       mensagem.value = ''
             }
-          },
 
-          deletar_coment: function(){
-            const deletar_botao = document.getElementsByClassName('delete')
-            for(let c = 0; c < deletar_botao.length; c ++){
-              deletar_botao[c].addEventListener('click', function(){
-                
+            const botao_deletar_dinamico = div_resposta.getElementsByClassName('delete')
+            for(let c = 0; c < botao_deletar_dinamico.length; c ++){
+              botao_deletar_dinamico[c].addEventListener('click', () =>{
+                criando_comentarios.mensagem_deletar.style.display = 'block'
+                criando_comentarios.confirmar_delete.addEventListener('click', ()=>{
+                  criando_comentarios.mensagem_deletar.style.display = 'none'
+                  div_resposta.style.display = 'none'
+                })
+                criando_comentarios.cancelar_delete.addEventListener('click', ()=>{
+                  criando_comentarios.mensagem_deletar.style.display = 'none'
+                })
               })
             }
-          }
+          },
 
       }
       criando_comentarios.likes()
       criando_comentarios.clicou_responder()
-      criando_comentarios.deletar_coment()
+      
 
       function submetendo(){
         if(mensagem.value.startsWith('@amyrobson') || mensagem.value.startsWith('@maxblagun') || mensagem.value.startsWith('@ramsesmiron')){

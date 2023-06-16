@@ -181,10 +181,10 @@ section{
   color: white;
 }
 #confirmar_delete{
-  background-color:rgb(146, 146, 146);
   border-radius: 5px;
+  background-color: var(--vermelho);
 }
 #cancelar_delete{
-  background-color: var(--vermelho);
+  background-color: rgb(131, 129, 129);
   border-radius: 5px;
 }
