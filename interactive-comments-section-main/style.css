@@ -71,6 +71,7 @@ section{
   color: rgba(0, 0, 0, 0.616);
   text-align: justify;
   padding-bottom: 10px;
+  word-wrap: break-word;
 }
 .main_coment b{
   color: var(--azul);
@@ -187,4 +188,8 @@ section{
 #cancelar_delete{
   background-color: rgb(131, 129, 129);
   border-radius: 5px;
+}
+.editando_input{
+  height: 10vw;
+  width: 70vw;
 }
