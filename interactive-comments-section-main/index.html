@@ -5,7 +5,9 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Interactive comments</title>
+  <link rel="shortcut icon" href="images/favicon-32x32.png" type="image/x-icon">
   <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
     <section>
@@ -384,6 +386,29 @@
                 })
               })
             }
+            //Editar coments
+            const botao_editar_dinamico = div_resposta.getElementsByClassName('edit')
+            const ser_editado = div_resposta.querySelector('.main_coment p')
+            const editando = document.createElement('input')
+             editando.setAttribute('type', 'text')
+            contador_editar = 1
+            for(let c = 0; c < botao_editar_dinamico.length; c++){
+              botao_editar_dinamico[c].addEventListener('click', () =>{
+                contador_editar = contador_editar + 1
+                if (contador_editar % 2 === 0){
+                  botao_editar_dinamico[c].textContent = 'Update'
+                  editando.value = ser_editado.textContent
+                  ser_editado.parentNode.replaceChild(editando, ser_editado)
+                }
+                else{
+                  botao_editar_dinamico[c].textContent = 'Edit'
+                  ser_editado.textContent = editando.value
+                  editando.parentNode.replaceChild(ser_editado, editando)
+                }
+              })
+            }
+            
+
           },
 
       }
