@@ -76,10 +76,8 @@ section{
 .main_coment b{
   color: var(--azul);
 }
-.like_and_reply{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+.like_css{
+  display: inline-block;
 }
 .likes{
   background-color: hsl(0, 0%, 93%);
@@ -103,17 +101,31 @@ section{
   font-weight: 700;
   font-size: 6vw;
 }
+.comentario .responder{
+  display: inline-block;
+  padding-left: 40vw;
+  color: var(--azul);
+}
+.resposta .responder{
+  display: inline-block;
+  padding-left: 32vw;
+  color: var(--azul);
+}
 .numbers_like{
   padding: 0px 5px 0px 5px;
   color: var(--azul);
   font-size: 17px;
   padding-top: 0.7vw;
 }
-.like_and_reply p{
-  color: rgba(5, 5, 207, 0.726);
-  font-weight: 500;
+.delete_edit_css{
+  display: inline-block;
+}
+.delete_edit{
+  display: flex;
 }
 .delete{
+  padding-right: 8vw;
+  padding-left: 8vw;
   color: var(--vermelho);
   font-weight: 500;
 }

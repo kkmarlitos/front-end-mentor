@@ -74,7 +74,10 @@ const submit = document.getElementById('enviar_mensagem')
               editar.textContent = 'Update'
               }
               else{
-                editar.textContent = 'Edit'
+                editar.innerHTML = `
+                <img src="images/icon-edit.svg" alt="edit">
+                Edit
+                `
                 minha_resposta.textContent = editando.value
                 editando.parentNode.replaceChild(minha_resposta, editando)
               }
@@ -96,20 +99,26 @@ const submit = document.getElementById('enviar_mensagem')
                 <div class="main_coment">
                   <p>${mensagem.value}</p>
                 </div>
-                <div class="like_and_reply">
+                <div class="like_css">   
                   <div class="likes">
-                      <div class="like">+</div>
-                      <p class="numbers_like"> 0 </p>
-                      <div class="dislike">-</div>
-                    </div>
-                    <div>
+                    <div class="like">+</div>
+                    <p class="numbers_like"> 0 </p>
+                    <div class="dislike">-</div>
+                  </div>
+                </div>
+                  <div class="delete_edit_css">
+                    <div class="delete_edit">
+                      <span class="delete">
                       <img src="images/icon-delete.svg" alt="delete">
-                      <span class="delete">Delete</span>
-                    </div>
-                    <div>
+                      Delete
+                      </span>
+                      <span class="edit">
                       <img src="images/icon-edit.svg" alt="edit">
-                      <span class="edit">Edit</span>
-                    </div>`
+                      Edit
+                      </span>
+                    </div>
+                  </div>
+                    `
                     section_comentario.appendChild(div_comentario)
 
                     //likes e dislikes
@@ -164,7 +173,7 @@ const submit = document.getElementById('enviar_mensagem')
                      editando.value = ser_editado.textContent
                      ser_editado.parentNode.replaceChild(editando, ser_editado)
                   }else{
-                    botao_editar_dinamico[c].textContent = 'Edit'
+                    botao_editar_dinamico[c].innerHTML = ` <img src="images/icon-edit.svg" alt="edit"> Edit`
                     ser_editado.textContent = editando.value
                     editando.parentNode.replaceChild(ser_editado, editando)
                   }
@@ -202,21 +211,25 @@ const submit = document.getElementById('enviar_mensagem')
                   <div class="main_coment">
                     <p>${mensagem.value}</p>
                   </div>
-                  <div class="like_and_reply">
+                  <div class="like_css"> 
                     <div class="likes">
                         <div class="like">+</div>
                         <p class="numbers_like">0</p>
                         <div class="dislike">-</div>
                       </div>
-                      <div>
+                  </div>
+                  <div class="delete_edit_css">
+                    <div class="delete_edit">
+                        <span class="delete">
                         <img src="images/icon-delete.svg" alt="delete">
-                        <span class="delete">Delete</span>
-                      </div>
-                      <div>
-                        <img src="images/icon-edit.svg" alt="edit">
-                        <span class="edit">Edit</span>
-                      </div>
-                  </div>`              
+                        Delete
+                        </span>
+                        <span class="edit">
+                        <img src="images/icon-edit.svg" alt="edit">Edit
+                        </span>
+                    </div>
+                  </div>
+                  `              
                   
                 criando_comentarios.respondendo_div[this.contador_responder].appendChild(div_resposta)
 
@@ -270,7 +283,7 @@ const submit = document.getElementById('enviar_mensagem')
                   ser_editado.parentNode.replaceChild(editando, ser_editado)
                 }
                 else{
-                  botao_editar_dinamico[c].textContent = 'Edit'
+                  botao_editar_dinamico[c].innerHTML = ` <img src="images/icon-edit.svg" alt="edit"> Edit` 
                   ser_editado.textContent = editando.value
                   editando.parentNode.replaceChild(ser_editado, editando)
                 }
