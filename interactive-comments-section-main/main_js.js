@@ -143,16 +143,20 @@ const submit = document.getElementById('enviar_mensagem')
                     }
 
                   //deletar coments
+                  const embrulho_section = document.getElementById('embrulho_section')
                   const botao_deletar_dinamico = div_comentario.getElementsByClassName('delete')
                   for(let c = 0; c < botao_deletar_dinamico.length; c ++){
                     botao_deletar_dinamico[c].addEventListener('click', function(){
                       criando_comentarios.mensagem_deletar.style.display = 'block'
+                      embrulho_section.style.filter = 'blur(0.5px)';
                       criando_comentarios.confirmar_delete.addEventListener('click', () =>{
                         criando_comentarios.mensagem_deletar.style.display = 'none'
                         div_comentario.style.display = 'none'
+                        embrulho_section.style.filter = 'none'
                       })
                       criando_comentarios.cancelar_delete.addEventListener('click', ()=>{
                         criando_comentarios.mensagem_deletar.style.display = 'none'
+                        embrulho_section.style.filter = 'none'
                       })
                     })
                   }
@@ -255,16 +259,20 @@ const submit = document.getElementById('enviar_mensagem')
             }
 
             //deletar coments
+            const embrulho_section = document.getElementById('embrulho_section')
             const botao_deletar_dinamico = div_resposta.getElementsByClassName('delete')
             for(let c = 0; c < botao_deletar_dinamico.length; c ++){
               botao_deletar_dinamico[c].addEventListener('click', () =>{
+                embrulho_section.style.filter = 'blur(0.5px)';
                 criando_comentarios.mensagem_deletar.style.display = 'block'
                 criando_comentarios.confirmar_delete.addEventListener('click', ()=>{
                   criando_comentarios.mensagem_deletar.style.display = 'none'
                   div_resposta.style.display = 'none'
+                  embrulho_section.style.filter = 'none';
                 })
                 criando_comentarios.cancelar_delete.addEventListener('click', ()=>{
                   criando_comentarios.mensagem_deletar.style.display = 'none'
+                  embrulho_section.style.filter = 'none';
                 })
               })
             }
