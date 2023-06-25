@@ -5,7 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="stylecalc.css">
-  <script src="pgprincipal.js"></script>
+  <link rel="stylesheet" href="PCstyle.css" media="screen and (min-width: 1100px)">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/luxon/3.3.0/luxon.min.js"></script>
   <title>Age calculator</title>
   <style>
     
@@ -13,7 +14,7 @@
 </head>
 <body>
       <main>
-          <form action="">
+          <form>
             <fieldset>
               <legend>DAY</legend>
               <input type="number" name="dia" id="dia" required>
@@ -65,13 +66,9 @@
 
           function clicar(){
 
-
-            // calculo
-            
-            
-
-          if (dia_input.value == 0 || dia_input.value > 31 || mes_input.value == 0 || mes_input.value > 12 || ano_input.value == 0 || ano_input.value > ano_atual){
           //erro dia
+          if (dia_input.value == 0 || dia_input.value > 31 || mes_input.value == 0 ||mes_input.value > 12 || ano_input.value == 0 || ano_input.value > ano_atual) {
+          if (dia_input.value == 0 || dia_input.value > 31){
             switch(true){
               case dia_input.value == 0: 
                 erro_preenchimento1.innerHTML = 'this field is required'
@@ -83,8 +80,13 @@
                break
               default:
             }
+          }else{
+            erro_preenchimento1.innerText = ''
+            input_error1.style.border = '2px solid black'
+          }
 
           //erro mes
+          if (mes_input.value == 0 || mes_input.value > 12 ){
             switch(true){
               case mes_input.value == 0: 
                erro_preenchimento2.innerText = 'this field is required'
@@ -96,8 +98,13 @@
                break
               default:
             }
+          }else{
+              erro_preenchimento2.innerText = ''
+              input_error2.style.border = '2px solid black'
+          }
 
           //erro ano
+          if(ano_input.value == 0 || ano_input.value > ano_atual){
           switch(true){
             case ano_input.value == 0: 
               erro_preenchimento3.innerText = 'this field is required'
@@ -109,18 +116,20 @@
              break
             default:
           }
-          }else{
-            erro_preenchimento1.innerText = ''
-            erro_preenchimento2.innerText = ''
-            erro_preenchimento3.innerText = ''
-            input_error1.style.border = '2px solid black'
-            input_error2.style.border = '2px solid black'
-            input_error3.style.border = '2px solid black'
-            dias.innerHTML = ''
-            meses.innerHTML = ''
-            anos.innerHTML = ''
+        }else{
+          erro_preenchimento3.innerText = ''
+          input_error3.style.border = '2px solid black'
+              }
+            }
+          else{
+              //calculo
+              const data_atual_luxon = luxon.DateTime.now()
+              const diminuir_idade = data_atual_luxon.minus({ day: dia_input.value, year: ano_input.value, month: mes_input.value })
+            dias_strong.textContent = diminuir_idade.day
+            meses_strong.textContent = diminuir_idade.month
+            anos_strong.textContent = diminuir_idade.year
           }
-          } 
+          }
 
           </script>
       </main>
