@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Tourism</title>
+    <link rel="shortcut icon" href="starter-code/assets/favicon-32x32.png" type="image/x-icon">
+    <style>
+        *{
+            margin: 0px;
+        }
+        #embrulho{
+            width: 100vw;
+            height: 100vh;
+            background-image: url('./starter-code/assets/home/background-home-mobile.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        header{
+            font-family: monospace;
+            padding: 15px;
+            position: relative;
+            
+        }
+        #logo{
+            display: inline-block;
+            padding-right: 70vw;
+        }
+        #logo img{
+            width: 12vw;
+            padding-top: 5px;
+        }
+        nav{
+            font-size: 5vw;
+            width: 70vw;
+            height: 100vh;
+            position: fixed;
+            top: 0;
+            transform: translateX(600px);
+            transition: transform 0.5s;
+            padding-top: 20vw;
+            color: rgba(255, 255, 255, 0.774);
+            background-image: linear-gradient( #131522e1,#45556eef ,#45556eea,#131522e1);
+        }
+        nav p{
+            margin: 30px 10px 0px 20px;
+            padding: 10px;
+            border-bottom: 2px solid transparent;
+            transition: border 0.2s;
+        }
+        #open_close{
+            display: inline-block;
+            position: absolute;
+            top: 8vw;
+        }
+        #abre_menu{
+            width: 8vw;
+        }
+        #fecha_menu{
+            display: none;
+            width: 8vw;
+        }
+        main{
+            font-family: monospace;
+            margin-top: 8vw;
+            color: rgba(255, 255, 255, 0.897);
+            padding: 20px;
+        }
+        main h1{
+            text-align: center;
+            font-size: 18px;
+            font-weight: 500;
+        }
+        main h2{
+            text-align: center;
+            font-size: 40px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+        main p{
+            width: 70vw;
+            margin: auto;
+            font-size: 16px;
+            text-align: justify;
+        }
+        .arredondar{
+            margin: auto;
+            background-color: white;
+            width: 32vw;
+            height: 20vh;
+            border-radius: 50%;
+        }
+        .arredondar p{
+            text-align: center;
+            padding-top: 13vw;
+        }
+        
+    </style>
+</head>
+<body>
+    <div id="embrulho">
+        <header>
+            <div id="logo">
+                <img src="starter-code/assets/shared/logo.svg" alt="logo">
+            </div>
+            <nav>
+                <p id="p_home"><b>00</b> HOME</p>
+                <p id="p_destination"><b>01</b> DESTINATION</p>
+                <p id="p_crew"><b>02</b> CREW</p>
+                <p id="p_technology"><b>03</b> TECHNOLOGY</p>
+            </nav>
+            <div id="open_close">
+                <img src="starter-code/assets/shared/icon-hamburger.svg" alt="open_menu" id="abre_menu">
+                <img src="starter-code/assets/shared/icon-close.svg" alt="close_menu" id="fecha_menu">
+            </div>
+        </header>
+
+        <main>
+            <h1>SO, YOU WANT TO TRAVEL TO</h1>
+            <h2>SPACE</h2>
+            <p>let's face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we'll give you a truly out of this world experience!</p>
+        </main>
+        <footer>
+            <div class="arredondar">
+                <p>EXPLORE</p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const menu = {
+            open: document.getElementById('abre_menu'),
+            close: document.getElementById('fecha_menu'),
+            nav_header: document.getElementsByTagName('nav')[0],
+
+            p_home: document.getElementById('p_home'),
+            p_destination: document.getElementById('p_destination'),
+            p_crew: document.getElementById('p_crew'),
+            p_technology: document.getElementById('p_technology'),
+
+
+            menu_functions: function(){
+                this.open.addEventListener('click', () =>{
+                    this.open.style.display = 'none'
+                    this.nav_header.style.transform = 'translateX(100px)'
+                    this.close.style.display = 'block'
+                })
+                this.close.addEventListener('click', () =>{
+                    this.close.style.display = 'none'
+                    this.nav_header.style.transform = 'translateX(600px)'
+                    this.open.style.display = 'block'
+                })
+                //alterando as bordas da navegação
+                this.p_home.addEventListener('click', () =>{
+                    this.p_home.style = `border-color: rgba(255, 255, 255, 0.774)`
+                })
+
+                this.p_destination.addEventListener('click', () =>{
+                    this.p_destination.style = `border-color: rgba(255, 255, 255, 0.774);`
+                })
+                this.p_crew.addEventListener('click', () =>{
+                    this.p_crew.style = `border-color: rgba(255, 255, 255, 0.774);`
+                })
+                this.p_technology.addEventListener('click', () =>{
+                    this.p_technology.style = `border-color: rgba(255, 255, 255, 0.774);`
+                })
+            }
+        }
+
+        menu.menu_functions()
+
+
+    </script>
+</body>
+</html>
