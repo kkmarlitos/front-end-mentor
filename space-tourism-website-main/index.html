@@ -151,19 +151,21 @@
                     this.open.style.display = 'block'
                 })
                 //alterando as bordas da navegação
-                this.p_home.addEventListener('click', () =>{
-                    this.p_home.style = `border-color: rgba(255, 255, 255, 0.774)`
-                })
-
-                this.p_destination.addEventListener('click', () =>{
-                    this.p_destination.style = `border-color: rgba(255, 255, 255, 0.774);`
-                })
-                this.p_crew.addEventListener('click', () =>{
-                    this.p_crew.style = `border-color: rgba(255, 255, 255, 0.774);`
-                })
-                this.p_technology.addEventListener('click', () =>{
-                    this.p_technology.style = `border-color: rgba(255, 255, 255, 0.774);`
-                })
+                const menu_itens = [this.p_home, this.p_destination, this.p_crew, this.p_technology]
+                menu_itens[0].style = `border-color: white;`
+                let old_border = 0
+                for(let c = 0; c < menu_itens.length; c ++){
+                    menu_itens[c].addEventListener('click', () =>{
+                        if(old_border == c){
+                            menu_itens[old_border].style = `border-color: white;`
+                        }
+                        else{
+                           menu_itens[old_border].style = `border-color: transparent;`
+                           menu_itens[c].style = `border-color: white;`
+                        }
+                        old_border = c
+                    })
+                }
             }
         }
 
