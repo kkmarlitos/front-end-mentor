@@ -12,14 +12,13 @@
         #embrulho{
             width: 100vw;
             height: 100vh;
-            background-image: url('./starter-code/assets/home/background-home-mobile.jpg');
+            background-image: url('./starter-code/assets/destination/background-destination-mobile.jpg');
             background-repeat: no-repeat;
             background-size: cover;
         }
         header{
             font-family: monospace;
-            padding: 15px;
-            position: relative;
+            padding: 20px 20px 0px 20px;
             
         }
         #logo{
@@ -62,9 +61,8 @@
         }
         main{
             font-family: monospace;
-            margin-top: 8vw;
             color: rgba(255, 255, 255, 0.897);
-            padding: 20px;
+            padding: 15px 20px 20px 20px;
         }
         main h1{
             text-align: center;
@@ -95,25 +93,50 @@
             padding-top: 13vw;
         }
         #embrulho_destinos{
-            padding-top: 5vw;
             color: rgba(255, 255, 255, 0.788);
             text-align: center;
         }
-        #destinos{
-
+        #embrulho_destinos h3{
+            padding-bottom: 10px;
+            font-size: 17px;
+            color: rgba(255, 255, 255, 0.877);
+        }
+        #destinos p{
+            width: 90vw;
+            font-size: 15px;
+            padding-bottom: 10px;
+            margin: auto;
+            text-align: center;
         }
         #destinos img{
-            width: 10vw;
+            width: 36vw;
         }
         #escolha_destino{
             display: flex;
             justify-content: space-around;
-            padding: 10px 0px 10px 0px;
+            padding: 15px 0px 10px 0px;
+        }
+        #escolha_destino p{
+            padding: 0px;
         }
         #destinos h4{
             color: rgba(255, 255, 255, 0.884);
             font-size: 35px;
-            padding-bottom: 10px;
+            padding-bottom: 5px;
+        }
+        #distancia_tempo{
+            padding-top: 10px;
+            border-top: 1px solid;
+            border-image: linear-gradient(to right, rgba(255, 255, 255, 0.336),white ,white, white, rgba(255, 255, 255, 0.336)) 1;
+        }
+        fieldset{
+            border: 0px;
+        }
+        legend{
+            text-align: left;
+        }
+        #distancia_tempo p{
+            font-size: 25px;
         }
     </style>
 </head>
@@ -135,31 +158,43 @@
             </div>
         </header>
 
-        <!-- <main>
-            <h1>SO, YOU WANT TO TRAVEL TO</h1>
+        <main>
+            <!-- <h1>SO, YOU WANT TO TRAVEL TO</h1>
             <h2>SPACE</h2>
-            <p>let's face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we'll give you a truly out of this world experience!</p>
+            <p>let's face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we'll give you a truly out of this world experience!</p> -->
+
+            <section id="embrulho_destinos">
+                <h3><b>01 </b>PICK YOUR DESTINATION</h3>
+    
+                <div id="destinos">
+                    <img src="starter-code/assets/destination/image-mars.webp" alt="mars">
+                    <div id="escolha_destino">
+                        <p>MOON</p>
+                        <p>MARS</p>
+                        <p>EUROPA</p>
+                        <p>TITAN</p>
+                    </div>
+                    <h4>MARS</h4>
+                    <p>See our planet as you've never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you're there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.</p>
+                </div>
+                <div id="distancia_tempo">
+                    <fieldset>
+                        <legend>AVG. DISTANCE</legend>
+                        <p id="distancia">225 MIL. KM</p>
+                    </fieldset>
+                    <fieldset>
+                        <legend>EST. TRAVEL TIME</legend>
+                        <p id="tempo_estimado">9 MONTH</p>
+                    </fieldset>
+                </div>
+            </section>
         </main>
-        <footer>
+        <!-- <footer>
             <div class="arredondar">
                 <p>EXPLORE</p>
             </div>
-        </footer> -->
-        <section id="embrulho_destinos">
-            <h3><b>01 </b>PICK YOUR DESTINATION</h3>
-
-            <div id="destinos">
-                <img src="starter-code/assets/destination/image-mars.webp" alt="mars">
-                <div id="escolha_destino">
-                    <p>MOON</p>
-                    <p>MARS</p>
-                    <p>EUROPA</p>
-                    <p>TITAN</p>
-                </div>
-                <h4>MARS</h4>
-                <p>See our planet as you've never seen it before. A perfect relaxing trip away to help regain perspective and come back refreshed. While you're there, take in some history by visiting the Luna 2 and Apollo 11 landing sites.</p>
-            </div>
-        </section>
+        </footer>  --> 
+        
     </div>
 
 
