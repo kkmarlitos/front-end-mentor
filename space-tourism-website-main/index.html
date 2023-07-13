@@ -207,8 +207,14 @@
 
 
 
-
     <script>
+        function JSON_JS(){
+        fetch("starter-code/data.json").then(function(response){
+        response.json().then(function(dados){
+        console.log(dados.destinations)
+            })
+        })
+    }
         const menu = {
             open: document.getElementById('abre_menu'),
             close: document.getElementById('fecha_menu'),
@@ -250,9 +256,10 @@
                 }
             }
         }
+        
 
-       menu.menu_functions()
-
+        menu.menu_functions()
+        JSON_JS()
     </script>
 </body>
 </html>
