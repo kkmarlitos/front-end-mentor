@@ -95,6 +95,7 @@
             padding-top: 13vw;
         }
         #embrulho_destinos{
+            display: none;
             color: rgba(255, 255, 255, 0.788);
             text-align: center;
         }
@@ -162,13 +163,13 @@
         </header>
 
         <main>
-            <!-- <div id="home">
+            <section id="home">
                 <h1>SO, YOU WANT TO TRAVEL TO</h1>
                 <h2>SPACE</h2>
                 <p>let's face it; if you want to go to space, you might as well genuinely go to outer space and not hover kind of on the edge of it. Well sit back, and relax because we'll give you a truly out of this world experience!</p>
-            </div> -->
+            </section>
 
-            <!-- <section id="embrulho_destinos">
+            <section id="embrulho_destinos">
                 <h3><b>01 </b>PICK YOUR DESTINATION</h3>
     
                 <div id="destinos">
@@ -192,7 +193,7 @@
                         <p id="tempo_estimado">9 MONTH</p>
                     </fieldset>
                 </div>
-            </section> -->
+            </section>
         </main>
         <footer>
             <div class="arredondar">
@@ -254,42 +255,35 @@
             //DOM
             main_dom: document.getElementsByTagName('main')[0],
             footer_dom: document.getElementsByTagName('footer')[0],
-            section_main: document.createElement('section'),
+            home: document.getElementById('home'),
+            destination: document.getElementById('embrulho_destinos'),
 
             //dinamic
             modific_main: function(){
+                dinamic_main.footer_dom.style.display = 'none'
                 fetch("starter-code/data.json").then(function(response){
                     response.json().then(function(dados){
+                        let main_now = dinamic_main.home
+
                         //destination
                         menu.p_destination.addEventListener('click', function(){
-                            dinamic_main.footer_dom.style.display = 'none'
-                            dinamic_main.section_main.id = 'embrulho_destinos'
-                            dinamic_main.section_main.innerHTML =  `
-                            <h3><b>01 </b>PICK YOUR DESTINATION</h3>
-    
-                            <div id="destinos">
-                                <img src="${dados.destinations[0].images.webp}" alt="mars">
-                                <div id="escolha_destino">
-                                    <p id="moon">MOON</p>
-                                    <p id="mars">MARS</p>
-                                    <p id="europa">EUROPA</p>
-                                    <p id="titan">TITAN</p>
-                                </div>
-                                <h4>${dados.destinations[0].name}</h4>
-                                <p>${dados.destinations[0].description}</p>
-                            </div>
-                            <div id="distancia_tempo">
-                                <fieldset>
-                                    <legend>AVG. DISTANCE</legend>
-                                    <p id="distancia">${dados.destinations[0].distance}</p>
-                                </fieldset>
-                                <fieldset>
-                                    <legend>EST. TRAVEL TIME</legend>
-                                    <p id="tempo_estimado">${dados.destinations[0].travel}</p>
-                                </fieldset>
-                            </div>
-                            `
-                            dinamic_main.main_dom.appendChild(dinamic_main.section_main)
+                            main_now.style.display = 'none'
+                            main_now = dinamic_main.destination
+                            dinamic_main.destination.style.display = 'block'
+                            const planets = document.getElementsByClassName('planets')
+                            for(let c = 0; c < planets.length; c++){
+                                planets[c].addEventListener('click', () =>{
+                                    
+                                })
+                            }
+                            
+                        })
+
+                        //home
+                        menu.p_home.addEventListener('click', function(){
+                            main_now.style.display = 'none'
+                            main_now = dinamic_main.home
+                            dinamic_main.home.style.display = 'block'
                         })
                     })
                 })
