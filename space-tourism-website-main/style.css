@@ -1,0 +1,142 @@
+*{
+    margin: 0px;
+}
+body{
+    width: 100vw;
+    height: 100vh;
+}
+#embrulho{
+    width: 100vw;
+    height: 100vh;
+    background-image: url('./starter-code/assets/home/background-home-mobile.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+header{
+    font-family: monospace;
+    padding: 20px 20px 0px 20px;
+    
+}
+#logo{
+    display: inline-block;
+    padding-right: 70vw;
+}
+#logo img{
+    width: 10vw;
+    padding-top: 5px;
+}
+nav{
+    font-size: 5vw;
+    width: 70vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    transform: translateX(600px);
+    transition: transform 0.5s;
+    padding-top: 20vw;
+    color: rgba(255, 255, 255, 0.774);
+    background-image: linear-gradient( #131522e1,#45556eef ,#45556eea,#131522e1);
+}
+nav p{
+    margin: 30px 10px 0px 20px;
+    padding: 10px;
+    border-bottom: 2px solid transparent;
+    transition: border 0.4s;
+}
+#open_close{
+    display: inline-block;
+    position: absolute;
+    top: 8vw;
+}
+#abre_menu{
+    width: 8vw;
+}
+#fecha_menu{
+    display: none;
+    width: 8vw;
+}
+main{
+    font-family: monospace;
+    color: rgba(255, 255, 255, 0.897);
+    padding: 15px 20px 20px 20px;
+}
+#home h1{
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    padding-top: 5vw;
+}
+#home h2{
+    text-align: center;
+    font-size: 15vw;
+    padding-top: 3vw;
+    padding-bottom: 7vw;
+}
+#home p{
+    width: 80vw;
+    margin: auto;
+    font-size: 16px;
+    padding-bottom: 10vw;
+    text-align: center;
+}
+.arredondar{
+    margin: auto;
+    background-color: white;
+    width: 32vw;
+    height: 20vh;
+    border-radius: 50%;
+}
+#home .arredondar p{
+    width: 33vw;
+    margin: 0px;
+    color: black;
+    padding-top: 13vw;
+}
+#embrulho_destinos{
+    display: none;
+    color: rgba(255, 255, 255, 0.788);
+    text-align: center;
+}
+#embrulho_destinos h3{
+    padding-bottom: 10px;
+    font-size: 17px;
+    color: rgba(255, 255, 255, 0.877);
+}
+#destinos p{
+    width: 90vw;
+    font-size: 15px;
+    padding-bottom: 20px;
+    margin: auto;
+    text-align: center;
+}
+#destinos img{
+    width: 30vw;
+}
+#escolha_destino{
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0px 10px 0px;
+}
+#escolha_destino p{
+    padding: 0px;
+}
+#destinos h4{
+    color: rgba(255, 255, 255, 0.884);
+    font-size: 35px;
+    padding-bottom: 5px;
+}
+#distancia_tempo{
+    padding-top: 20px;
+    border-top: 1px solid;
+    border-image: linear-gradient(to right, rgba(255, 255, 255, 0.336),white ,white, white, rgba(255, 255, 255, 0.336)) 1;
+}
+fieldset{
+    border: 0px;
+}
+legend{
+    text-align: center;
+}
+#distancia_tempo p{
+    text-align: center;
+    font-size: 25px;
+}
