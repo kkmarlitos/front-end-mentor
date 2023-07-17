@@ -46,7 +46,55 @@ const dinamic_main = {
 
                 //crew
                 menu.p_crew.addEventListener('click', function(){
-                    window.alert('oi')
+                    const selecao1 = document.getElementById('selecao1')
+                    const selecao2 = document.getElementById('selecao2')
+                    const selecao3 = document.getElementById('selecao3')
+                    const selecoes = [selecao1, selecao2, selecao3]
+                    let contador = 0
+
+                    for(let c = 0; c < selecoes.length; c++){
+                        selecoes[c].addEventListener('click', () =>{
+                            if(c == 0){
+                                selecoes[1].style.backgroundColor = 'transparent'
+                                selecoes[2].style.backgroundColor = 'transparent'
+                                selecoes[0].style.backgroundColor = 'red'
+                                contador = 0
+                            }
+                            else if(c == 1){
+                                selecoes[0].style.backgroundColor = 'transparent'
+                                selecoes[2].style.backgroundColor = 'transparent'
+                                selecoes[1].style.backgroundColor = 'red'
+                                contador = 1
+                            }
+                            else if(c == 2){
+                                selecoes[0].style.backgroundColor = 'transparent'
+                                selecoes[1].style.backgroundColor = 'transparent'
+                                selecoes[2].style.backgroundColor = 'red'
+                                contador = 2
+                            }
+                        })
+                    }
+                        function mudando(){
+                            if(contador == 0){
+                                selecoes[1].style.backgroundColor = 'transparent'
+                                selecoes[2].style.backgroundColor = 'transparent'
+                                selecoes[0].style.backgroundColor = 'red'
+                            }else if(contador == 1){
+                                selecoes[0].style.backgroundColor = 'transparent'
+                                selecoes[2].style.backgroundColor = 'transparent'
+                                selecoes[1].style.backgroundColor = 'red'
+                            }else if(contador == 2){
+                                selecoes[0].style.backgroundColor = 'transparent'
+                                selecoes[1].style.backgroundColor = 'transparent'
+                                selecoes[2].style.backgroundColor = 'red'
+                            }
+
+                            contador++
+                            if(contador > 2){
+                                contador = 0
+                            }
+                        }
+                    setInterval(mudando, 5000)
                 })
             })
         })
