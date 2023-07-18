@@ -72,6 +72,14 @@ main{
     padding-top: 3vw;
     padding-bottom: 7vw;
 }
+.titulos{
+    color: rgba(255, 255, 255, 0.884);
+    font-size: 35px;
+    padding-bottom: 5px;
+}
+b{
+    color: rgba(255, 255, 255, 0.562);
+}
 #home p{
     width: 80vw;
     margin: auto;
@@ -120,11 +128,6 @@ main{
 #escolha_destino p{
     padding: 0px;
 }
-#destinos h4{
-    color: rgba(255, 255, 255, 0.884);
-    font-size: 35px;
-    padding-bottom: 5px;
-}
 #distancia_tempo{
     padding-top: 20px;
     border-top: 1px solid;
@@ -140,3 +143,39 @@ legend{
     text-align: center;
     font-size: 25px;
 }
+   #div_img_crew{
+    text-align: center;
+   }
+   #embrulho_crew img{
+    width: 35vw;
+    padding-top: 15px;
+   }
+   #bolinha_div{
+    display: flex;
+    width: 40vw;
+    margin: auto;
+    padding: 10px 0px 20px 0px;
+   }
+   .bolinha{
+    border: 1px solid black;
+    margin-right: 5vw;
+    border-radius: 10px;
+    width: 15px;
+    height: 15px;
+   }
+   #funcao_crew{
+    color: rgba(255, 255, 255, 0.692);
+    text-align: center;
+    font-size: 16px;
+   }
+   #nome_crew{
+    color: white;
+    text-align: center;
+    font-size: 20px;
+    padding-bottom: 10px;
+   }
+   #crew_bio{
+    color: rgba(255, 255, 255, 0.692);
+    text-align: center;
+    font-size: 15px;
+   }
