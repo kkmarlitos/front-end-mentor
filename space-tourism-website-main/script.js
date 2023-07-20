@@ -19,14 +19,14 @@ const dinamic_main = {
                 menu.p_home.addEventListener('click', function(){
                     main_now.style.display = 'none'
                     main_now = dinamic_main.home
-                    dinamic_main.home.style.display = 'block'
+                    main_now.style.display = 'block'
                 })
 
                 //destination
                 menu.p_destination.addEventListener('click', function(){
                     main_now.style.display = 'none'
                     main_now = dinamic_main.destination
-                    dinamic_main.destination.style.display = 'block'
+                    main_now.style.display = 'block'
                     const planets = document.getElementsByClassName('planets')
                     for(let c = 0; c < planets.length; c++){
                         planets[c].addEventListener('click', () =>{
@@ -47,6 +47,9 @@ const dinamic_main = {
 
                 //crew
                 menu.p_crew.addEventListener('click', function(){
+                    main_now.style.display = 'none'
+                    main_now = dinamic_main.crew
+                    main_now.style.display = 'block'
                     const img_crew = document.querySelector('#img_crew')
                     const bio_crew = document.getElementById('crew_bio')
                     const crew_role = document.getElementById('funcao_crew')
@@ -62,45 +65,49 @@ const dinamic_main = {
                     for(let c = 0; c < selecoes.length; c++){
                         selecoes[c].addEventListener('click', () =>{
                             if(c == 0){
-                                selecoes[1].style.backgroundColor = 'transparent'
-                                selecoes[2].style.backgroundColor = 'transparent'
-                                selecoes[3].style.backgroundColor = 'transparent'
-                                selecoes[0].style.backgroundColor = 'red'
+                                selecoes[1].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[2].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[3].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[0].style.backgroundColor = 'rgba(255, 255, 255)'
                                 contador = 0
                                 img_crew.src = dados.crew[0].images.webp
+                                img_crew.style.width = '25vw'
                                 bio_crew.textContent = dados.crew[0].bio
                                 crew_role.textContent = dados.crew[0].role
                                 name_crew.textContent = dados.crew[0].name
                             }
                             else if(c == 1){
-                                selecoes[0].style.backgroundColor = 'transparent'
-                                selecoes[2].style.backgroundColor = 'transparent'
-                                selecoes[3].style.backgroundColor = 'transparent'
-                                selecoes[1].style.backgroundColor = 'red'
+                                selecoes[0].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[2].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[3].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[1].style.backgroundColor = 'rgba(255, 255, 255)'
                                 contador = 1
                                 img_crew.src = dados.crew[1].images.webp
+                                img_crew.style.width = '25vw'
                                 bio_crew.textContent = dados.crew[1].bio
                                 crew_role.textContent = dados.crew[1].role
                                 name_crew.textContent = dados.crew[1].name
                             }
                             else if(c == 2){
-                                selecoes[0].style.backgroundColor = 'transparent'
-                                selecoes[1].style.backgroundColor = 'transparent'
-                                selecoes[3].style.backgroundColor = 'transparent'
-                                selecoes[2].style.backgroundColor = 'red'
+                                selecoes[0].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[1].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[3].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[2].style.backgroundColor = 'rgba(255, 255, 255)'
                                 contador = 2
                                 img_crew.src = dados.crew[2].images.webp
+                                img_crew.style.width = '30vw'
                                 bio_crew.textContent = dados.crew[2].bio
                                 crew_role.textContent = dados.crew[2].role
                                 name_crew.textContent = dados.crew[2].name
                             }
                             else if(c == 3){
-                                selecoes[0].style.backgroundColor = 'transparent'
-                                selecoes[1].style.backgroundColor = 'transparent'
-                                selecoes[2]
-                                selecoes[3].style.backgroundColor = 'red'
+                                selecoes[0].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[1].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[2].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[3].style.backgroundColor = 'rgba(255, 255, 255)'
                                 contador = 3
                                 img_crew.src = dados.crew[3].images.webp
+                                img_crew.style.width = '30vw'
                                 bio_crew.textContent = dados.crew[3].bio
                                 crew_role.textContent = dados.crew[3].role
                                 name_crew.textContent = dados.crew[3].name
@@ -109,39 +116,43 @@ const dinamic_main = {
                     }
                         function mudando(){
                             if(contador == 0){
-                                selecoes[1].style.backgroundColor = 'transparent'
-                                selecoes[2].style.backgroundColor = 'transparent'
-                                selecoes[3].style.backgroundColor = 'transparent'
-                                selecoes[0].style.backgroundColor = 'red'
+                                selecoes[1].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[2].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[3].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[0].style.backgroundColor = 'rgba(255, 255, 255)'
                                 img_crew.src = dados.crew[0].images.webp
+                                img_crew.style.width = '25vw'
                                 bio_crew.textContent = dados.crew[0].bio
                                 crew_role.textContent = dados.crew[0].role
                                 name_crew.textContent = dados.crew[0].name
                             }else if(contador == 1){
-                                selecoes[0].style.backgroundColor = 'transparent'
-                                selecoes[2].style.backgroundColor = 'transparent'
-                                selecoes[3].style.backgroundColor = 'transparent'
-                                selecoes[1].style.backgroundColor = 'red'
+                                selecoes[0].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[2].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[3].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[1].style.backgroundColor = 'rgba(255, 255, 255)'
                                 img_crew.src = dados.crew[1].images.webp
+                                img_crew.style.width = '25vw'
                                 bio_crew.textContent = dados.crew[1].bio
                                 crew_role.textContent = dados.crew[1].role
                                 name_crew.textContent = dados.crew[1].name
                             }else if(contador == 2){
-                                selecoes[0].style.backgroundColor = 'transparent'
-                                selecoes[1].style.backgroundColor = 'transparent'
-                                selecoes[3].style.backgroundColor = 'transparent'
-                                selecoes[2].style.backgroundColor = 'red'
+                                selecoes[0].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[1].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[3].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[2].style.backgroundColor = 'rgba(255, 255, 255)'
                                 img_crew.src = dados.crew[2].images.webp
+                                img_crew.style.width = '30vw'
                                 bio_crew.textContent = dados.crew[2].bio
                                 crew_role.textContent = dados.crew[2].role
                                 name_crew.textContent = dados.crew[2].name
                             }
                             else if(contador == 3){
-                                selecoes[0].style.backgroundColor = 'transparent'
-                                selecoes[1].style.backgroundColor = 'transparent'
-                                selecoes[2].style.backgroundColor = 'transparent'
-                                selecoes[3].style.backgroundColor = 'red'
+                                selecoes[0].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[1].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[2].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
+                                selecoes[3].style.backgroundColor = 'rgba(255, 255, 255)'
                                 img_crew.src = dados.crew[3].images.webp
+                                img_crew.style.width = '30vw'
                                 bio_crew.textContent = dados.crew[3].bio
                                 crew_role.textContent = dados.crew[3].role
                                 name_crew.textContent = dados.crew[3].name
@@ -150,9 +161,13 @@ const dinamic_main = {
                             if(contador > 3){
                                 contador = 0
                             }
+                            if(main_now != dinamic_main.crew){
+                                clearInterval(interval)
+                            }
                         }
-                    setInterval(mudando, 5000)
+                    const interval = setInterval(mudando, 5000)
                 })
+                
             })
         })
     }

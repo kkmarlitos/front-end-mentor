@@ -143,11 +143,15 @@ legend{
     text-align: center;
     font-size: 25px;
 }
+#embrulho_crew{
+    display: none;
+}
    #div_img_crew{
     text-align: center;
+    height: 25vh;
    }
    #embrulho_crew img{
-    width: 35vw;
+    width: 30vw;
     padding-top: 15px;
    }
    #bolinha_div{
@@ -157,7 +161,8 @@ legend{
     padding: 10px 0px 20px 0px;
    }
    .bolinha{
-    border: 1px solid black;
+    border: 1px solid transparent;
+    background-color: rgba(255, 255, 255, 0.089);
     margin-right: 5vw;
     border-radius: 10px;
     width: 15px;
@@ -176,6 +181,6 @@ legend{
    }
    #crew_bio{
     color: rgba(255, 255, 255, 0.692);
-    text-align: center;
+    text-align: justify;
     font-size: 15px;
    }
