@@ -8,6 +8,7 @@ const dinamic_main = {
     home: document.getElementById('home'),
     destination: document.getElementById('embrulho_destinos'),
     crew: document.getElementById('embrulho_crew'),
+    technology: document.getElementById('embrulho_technology'),
 
     //dinamic
     modific_main: function(){
@@ -168,6 +169,117 @@ const dinamic_main = {
                     const interval = setInterval(mudando, 5000)
                 })
                 
+                //technology
+                menu.p_technology.addEventListener('click', function(){
+                    main_now.style.display = 'none'
+                    main_now = dinamic_main.technology
+                    main_now.style.display = 'block'
+
+                    const bolinha_tech1 = document.getElementById('bolinha_tech1')
+                    const bolinha_tech2 = document.getElementById('bolinha_tech2')
+                    const bolinha_tech3 = document.getElementById('bolinha_tech3')
+                    const bolinhas_tech = [bolinha_tech1, bolinha_tech2, bolinha_tech3]
+                    const terminology = document.getElementById('terminology')
+                    const text_tech = document.getElementById('texts')[1]
+                    
+                    let contador = 0
+                    for(let c = 0; c < bolinhas_tech.length; c++){
+                        bolinhas_tech[c].addEventListener('click', () =>{
+                            contador = c
+                            if(contador == 0){
+                                bolinhas_tech[1].style = `
+                                background-color: trasparent;
+                                color: white;
+                                `
+                                bolinhas_tech[2].style = `
+                                background-color: trasparent;
+                                color: white;
+                                `
+                                bolinhas_tech[0].style = `
+                                background-color: white;
+                                color: black;
+                                `
+                            }else if(contador == 1){
+                                bolinhas_tech[0].style = `
+                                background-color: trasparent;
+                                color: white;
+                                `
+                                bolinhas_tech[2].style = `
+                                background-color: trasparent;
+                                color: white;
+                                `
+                                bolinhas_tech[1].style = `
+                                background-color: white;
+                                color: black;
+                                `
+                            }else if(contador == 2){
+                                bolinhas_tech[0].style = `
+                                background-color: trasparent;
+                                color: white;
+                                `
+                                bolinhas_tech[1].style = `
+                                background-color: trasparent;
+                                color: white;
+                                `
+                                bolinhas_tech[2].style = `
+                                background-color: white;
+                                color: black;
+                                `
+                            
+                            }
+                        })
+                    }
+                    function mudando_tech(){
+                        if(contador == 0){
+                            bolinhas_tech[1].style = `
+                            background-color: trasparent;
+                            color: white;
+                            `
+                            bolinhas_tech[2].style = `
+                            background-color: trasparent;
+                            color: white;
+                            `
+                            bolinhas_tech[0].style = `
+                            background-color: white;
+                            color: black;
+                            `
+                        }else if(contador == 1){
+                            bolinhas_tech[0].style = `
+                            background-color: trasparent;
+                            color: white;
+                            `
+                            bolinhas_tech[2].style = `
+                            background-color: trasparent;
+                            color: white;
+                            `
+                            bolinhas_tech[1].style = `
+                            background-color: white;
+                            color: black;
+                            `
+                        }else if(contador == 2){
+                            bolinhas_tech[0].style = `
+                            background-color: trasparent;
+                            color: white;
+                            `
+                            bolinhas_tech[1].style = `
+                            background-color: trasparent;
+                            color: white;
+                            `
+                            bolinhas_tech[2].style = `
+                            background-color: white;
+                            color: black;
+                            `
+                        }
+                        contador ++
+                        if(contador > 2){
+                            contador = 0
+                        }
+                        if(main_now != dinamic_main.technology){
+                            clearInterval(interval)
+                        }
+                    }
+                    let interval = setInterval(mudando_tech, 2000)
+                })
             })
         })
     }

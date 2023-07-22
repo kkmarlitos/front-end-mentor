@@ -184,7 +184,10 @@ legend{
     text-align: justify;
     font-size: 15px;
    }
-   #div_img_tech{
+#embrulho_technology{
+    display: none;
+}
+#div_img_tech{
     margin: auto;
 }
 #embrulho_technology img{
