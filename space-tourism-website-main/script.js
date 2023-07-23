@@ -180,7 +180,8 @@ const dinamic_main = {
                     const bolinha_tech3 = document.getElementById('bolinha_tech3')
                     const bolinhas_tech = [bolinha_tech1, bolinha_tech2, bolinha_tech3]
                     const terminology = document.getElementById('terminology')
-                    const text_tech = document.getElementById('texts')[1]
+                    const text_tech = document.getElementsByClassName('texts')[1]
+                    const img_tech = document.querySelector('#img_tech')
                     
                     let contador = 0
                     for(let c = 0; c < bolinhas_tech.length; c++){
@@ -199,6 +200,9 @@ const dinamic_main = {
                                 background-color: white;
                                 color: black;
                                 `
+                                img_tech.src = dados.technology[0].images.landscape
+                                text_tech.textContent = dados.technology[0].description
+                                terminology.textContent = dados.technology[0].name
                             }else if(contador == 1){
                                 bolinhas_tech[0].style = `
                                 background-color: trasparent;
@@ -212,6 +216,9 @@ const dinamic_main = {
                                 background-color: white;
                                 color: black;
                                 `
+                                img_tech.src = dados.technology[1].images.landscape
+                                text_tech.textContent = dados.technology[1].description
+                                terminology.textContent = dados.technology[1].name
                             }else if(contador == 2){
                                 bolinhas_tech[0].style = `
                                 background-color: trasparent;
@@ -225,7 +232,9 @@ const dinamic_main = {
                                 background-color: white;
                                 color: black;
                                 `
-                            
+                                img_tech.src = dados.technology[2].images.landscape
+                                text_tech.textContent = dados.technology[2].description
+                                terminology.textContent = dados.technology[2].name
                             }
                         })
                     }
@@ -243,6 +252,9 @@ const dinamic_main = {
                             background-color: white;
                             color: black;
                             `
+                            img_tech.src = dados.technology[0].images.landscape
+                            text_tech.textContent = dados.technology[0].description
+                            terminology.textContent = dados.technology[0].name
                         }else if(contador == 1){
                             bolinhas_tech[0].style = `
                             background-color: trasparent;
@@ -256,6 +268,9 @@ const dinamic_main = {
                             background-color: white;
                             color: black;
                             `
+                            img_tech.src = dados.technology[1].images.landscape
+                            text_tech.textContent = dados.technology[1].description
+                            terminology.textContent = dados.technology[1].name
                         }else if(contador == 2){
                             bolinhas_tech[0].style = `
                             background-color: trasparent;
@@ -269,6 +284,9 @@ const dinamic_main = {
                             background-color: white;
                             color: black;
                             `
+                            img_tech.src = dados.technology[2].images.landscape
+                            text_tech.textContent = dados.technology[2].description
+                            terminology.textContent = dados.technology[2].name
                         }
                         contador ++
                         if(contador > 2){
@@ -278,7 +296,7 @@ const dinamic_main = {
                             clearInterval(interval)
                         }
                     }
-                    let interval = setInterval(mudando_tech, 2000)
+                    let interval = setInterval(mudando_tech, 3000)
                 })
             })
         })
