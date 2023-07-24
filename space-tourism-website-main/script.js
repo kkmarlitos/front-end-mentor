@@ -56,59 +56,31 @@ const dinamic_main = {
                     const bio_crew = document.getElementById('crew_bio')
                     const crew_role = document.getElementById('funcao_crew')
                     const name_crew = document.getElementById('nome_crew')
+                    
 
                     const selections = document.getElementsByClassName('bolinha')
                     let contador = 0
                     for(let c = 0; c < selections.length; c++){
-                        selections[c].addEventListener('click', () =>{
-                            transform_balls(selections ,c)
+                        selections[c].addEventListener('click', () =>{    
+                            //alterando conteudo
+                            img_crew.src = dados.crew[c].images.webp
+                            //concertando tamanho
+                            if(c == 0 || c == 1){
+                                img_crew.style.width = '25vw'
+                            }else{
+                                img_crew.style.width = '30vw'
+                            }
+                            bio_crew.textContent = dados.crew[c].bio
+                            crew_role.textContent = dados.crew[c].role
+                            name_crew.textContent = dados.crew[c].name
+
+                            contador = c
+
+                            transform_balls(selections, c)
                         })
                     }
 
-                    for(let c = 0; c < selections.length; c++){
-                        selections[c].addEventListener('click', () =>{
-                            if(c == 0){
-                                
-                                
-                                contador = 0
-                                img_crew.src = dados.crew[0].images.webp
-                                img_crew.style.width = '25vw'
-                                bio_crew.textContent = dados.crew[0].bio
-                                crew_role.textContent = dados.crew[0].role
-                                name_crew.textContent = dados.crew[0].name
-                            }
-                            else if(c == 1){
-                                
-                                
-                                contador = 1
-                                img_crew.src = dados.crew[1].images.webp
-                                img_crew.style.width = '25vw'
-                                bio_crew.textContent = dados.crew[1].bio
-                                crew_role.textContent = dados.crew[1].role
-                                name_crew.textContent = dados.crew[1].name
-                            }
-                            else if(c == 2){
-                                
-                                
-                                contador = 2
-                                img_crew.src = dados.crew[2].images.webp
-                                img_crew.style.width = '30vw'
-                                bio_crew.textContent = dados.crew[2].bio
-                                crew_role.textContent = dados.crew[2].role
-                                name_crew.textContent = dados.crew[2].name
-                            }
-                            else if(c == 3){
-                                
-                               
-                                contador = 3
-                                img_crew.src = dados.crew[3].images.webp
-                                img_crew.style.width = '30vw'
-                                bio_crew.textContent = dados.crew[3].bio
-                                crew_role.textContent = dados.crew[3].role
-                                name_crew.textContent = dados.crew[3].name
-                            }
-                        })
-                    }
+                    
                         function mudando(){
                             if(contador == 0){
                                 selections[1].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
@@ -169,129 +141,103 @@ const dinamic_main = {
                     main_now = dinamic_main.technology
                     main_now.style.display = 'block'
 
-                    const bolinha_tech1 = document.getElementById('bolinha_tech1')
-                    const bolinha_tech2 = document.getElementById('bolinha_tech2')
-                    const bolinha_tech3 = document.getElementById('bolinha_tech3')
-                    const bolinhas_tech = [bolinha_tech1, bolinha_tech2, bolinha_tech3]
                     const terminology = document.getElementById('terminology')
                     const text_tech = document.getElementsByClassName('texts')[1]
                     const img_tech = document.querySelector('#img_tech')
-                    
-                    
-                    let contador = 0
+
+                    const bolinhas_tech = document.getElementsByClassName('bolinha_tech')
                     for(let c = 0; c < bolinhas_tech.length; c++){
                         bolinhas_tech[c].addEventListener('click', () =>{
-                            contador = c
-                            if(contador == 0){
-                                bolinhas_tech[1].style = `
-                                background-color: trasparent;
-                                color: white;
-                                `
-                                bolinhas_tech[2].style = `
-                                background-color: trasparent;
-                                color: white;
-                                `
-                                bolinhas_tech[0].style = `
-                                background-color: white;
-                                color: black;
-                                `
-                                img_tech.src = dados.technology[0].images.landscape
-                                text_tech.textContent = dados.technology[0].description
-                                terminology.textContent = dados.technology[0].name
-                            }else if(contador == 1){
-                                bolinhas_tech[0].style = `
-                                background-color: trasparent;
-                                color: white;
-                                `
-                                bolinhas_tech[2].style = `
-                                background-color: trasparent;
-                                color: white;
-                                `
-                                bolinhas_tech[1].style = `
-                                background-color: white;
-                                color: black;
-                                `
-                                img_tech.src = dados.technology[1].images.landscape
-                                text_tech.textContent = dados.technology[1].description
-                                terminology.textContent = dados.technology[1].name
-                            }else if(contador == 2){
-                                bolinhas_tech[0].style = `
-                                background-color: trasparent;
-                                color: white;
-                                `
-                                bolinhas_tech[1].style = `
-                                background-color: trasparent;
-                                color: white;
-                                `
-                                bolinhas_tech[2].style = `
-                                background-color: white;
-                                color: black;
-                                `
-                                img_tech.src = dados.technology[2].images.landscape
-                                text_tech.textContent = dados.technology[2].description
-                                terminology.textContent = dados.technology[2].name
-                            }
+                            //alterando conteudo
+                            terminology.textContent = dados.technology[c].name
+                            text_tech.textContent = dados.technology[c].description
+                            img_tech.src = dados.technology[c].images.landscape
+
+                            transform_balls(bolinhas_tech, c)
                         })
                     }
-                    function mudando_tech(){
-                        if(contador == 0){
-                            bolinhas_tech[1].style = `
-                            background-color: trasparent;
-                            color: white;
-                            `
-                            bolinhas_tech[2].style = `
-                            background-color: trasparent;
-                            color: white;
-                            `
-                            bolinhas_tech[0].style = `
-                            background-color: white;
-                            color: black;
-                            `
-                            img_tech.src = dados.technology[0].images.landscape
-                            text_tech.textContent = dados.technology[0].description
-                            terminology.textContent = dados.technology[0].name
-                        }else if(contador == 1){
-                            bolinhas_tech[0].style = `
-                            background-color: trasparent;
-                            color: white;
-                            `
-                            bolinhas_tech[2].style = `
-                            background-color: trasparent;
-                            color: white;
-                            `
-                            bolinhas_tech[1].style = `
-                            background-color: white;
-                            color: black;
-                            `
-                            img_tech.src = dados.technology[1].images.landscape
-                            text_tech.textContent = dados.technology[1].description
-                            terminology.textContent = dados.technology[1].name
-                        }else if(contador == 2){
-                            bolinhas_tech[0].style = `
-                            background-color: trasparent;
-                            color: white;
-                            `
-                            bolinhas_tech[1].style = `
-                            background-color: trasparent;
-                            color: white;
-                            `
-                            bolinhas_tech[2].style = `
-                            background-color: white;
-                            color: black;
-                            `
-                            img_tech.src = dados.technology[2].images.landscape
-                            text_tech.textContent = dados.technology[2].description
-                            terminology.textContent = dados.technology[2].name
-                        }
-                        contador ++
-                        if(contador > 2){
-                            contador = 0
-                        }
-                        if(main_now != dinamic_main.technology){
-                            clearInterval(interval)
-                        }
-                    }
-                    let interval = setInterval(mudando_tech, 3000)
+                    
+                    // let contador = 0
+                    // for(let c = 0; c < bolinhas_tech.length; c++){
+                    //     bolinhas_tech[c].addEventListener('click', () =>{
+                    //         contador = c
+                    //         if(contador == 0){
+                                
+                    //             img_tech.src = dados.technology[0].images.landscape
+                    //             text_tech.textContent = dados.technology[0].description
+                    //             terminology.textContent = dados.technology[0].name
+                    //         }else if(contador == 1){
+                                
+                    //             img_tech.src = dados.technology[1].images.landscape
+                    //             text_tech.textContent = dados.technology[1].description
+                    //             terminology.textContent = dados.technology[1].name
+                    //         }else if(contador == 2){
+                                
+                    //             img_tech.src = dados.technology[2].images.landscape
+                    //             text_tech.textContent = dados.technology[2].description
+                    //             terminology.textContent = dados.technology[2].name
+                    //         }
+                    //     })
+                    // }
+                    // function mudando_tech(){
+                    //     if(contador == 0){
+                    //         bolinhas_tech[1].style = `
+                    //         background-color: trasparent;
+                    //         color: white;
+                    //         `
+                    //         bolinhas_tech[2].style = `
+                    //         background-color: trasparent;
+                    //         color: white;
+                    //         `
+                    //         bolinhas_tech[0].style = `
+                    //         background-color: white;
+                    //         color: black;
+                    //         `
+                    //         img_tech.src = dados.technology[0].images.landscape
+                    //         text_tech.textContent = dados.technology[0].description
+                    //         terminology.textContent = dados.technology[0].name
+                    //     }else if(contador == 1){
+                    //         bolinhas_tech[0].style = `
+                    //         background-color: trasparent;
+                    //         color: white;
+                    //         `
+                    //         bolinhas_tech[2].style = `
+                    //         background-color: trasparent;
+                    //         color: white;
+                    //         `
+                    //         bolinhas_tech[1].style = `
+                    //         background-color: white;
+                    //         color: black;
+                    //         `
+                    //         img_tech.src = dados.technology[1].images.landscape
+                    //         text_tech.textContent = dados.technology[1].description
+                    //         terminology.textContent = dados.technology[1].name
+                    //     }else if(contador == 2){
+                    //         bolinhas_tech[0].style = `
+                    //         background-color: trasparent;
+                    //         color: white;
+                    //         `
+                    //         bolinhas_tech[1].style = `
+                    //         background-color: trasparent;
+                    //         color: white;
+                    //         `
+                    //         bolinhas_tech[2].style = `
+                    //         background-color: white;
+                    //         color: black;
+                    //         `
+                    //         img_tech.src = dados.technology[2].images.landscape
+                    //         text_tech.textContent = dados.technology[2].description
+                    //         terminology.textContent = dados.technology[2].name
+                    //     }
+                    //     contador ++
+                    //     if(contador > 2){
+                    //         contador = 0
+                    //     }
+                    //     if(main_now != dinamic_main.technology){
+                    //         clearInterval(interval)
+                    //     }
+                    // }
+                    // let interval = setInterval(mudando_tech, 3000)
                 })
             })
         })
