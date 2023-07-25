@@ -1,5 +1,5 @@
 import {menu} from './menu.js'
-import { transform_balls } from './teste.js'
+import { transform_balls, transform_balls_timer } from './teste.js'
 
 menu.menu_functions()
 
@@ -59,7 +59,7 @@ const dinamic_main = {
                     
 
                     const selections = document.getElementsByClassName('bolinha')
-                    let contador = 0
+                    let counter = 0
                     for(let c = 0; c < selections.length; c++){
                         selections[c].addEventListener('click', () =>{    
                             //alterando conteudo
@@ -74,65 +74,30 @@ const dinamic_main = {
                             crew_role.textContent = dados.crew[c].role
                             name_crew.textContent = dados.crew[c].name
 
-                            contador = c
+                            counter = c
 
                             transform_balls(selections, c)
                         })
                     }
-
-                    
-                        function mudando(){
-                            if(contador == 0){
-                                selections[1].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
-                                selections[2].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
-                                selections[3].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
-                                selections[0].style.backgroundColor = 'rgba(255, 255, 255)'
-                                img_crew.src = dados.crew[0].images.webp
-                                img_crew.style.width = '25vw'
-                                bio_crew.textContent = dados.crew[0].bio
-                                crew_role.textContent = dados.crew[0].role
-                                name_crew.textContent = dados.crew[0].name
-                            }else if(contador == 1){
-                                selections[0].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
-                                selections[2].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
-                                selections[3].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
-                                selections[1].style.backgroundColor = 'rgba(255, 255, 255)'
-                                img_crew.src = dados.crew[1].images.webp
-                                img_crew.style.width = '25vw'
-                                bio_crew.textContent = dados.crew[1].bio
-                                crew_role.textContent = dados.crew[1].role
-                                name_crew.textContent = dados.crew[1].name
-                            }else if(contador == 2){
-                                selections[0].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
-                                selections[1].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
-                                selections[3].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
-                                selections[2].style.backgroundColor = 'rgba(255, 255, 255)'
-                                img_crew.src = dados.crew[2].images.webp
-                                img_crew.style.width = '30vw'
-                                bio_crew.textContent = dados.crew[2].bio
-                                crew_role.textContent = dados.crew[2].role
-                                name_crew.textContent = dados.crew[2].name
-                            }
-                            else if(contador == 3){
-                                selections[0].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
-                                selections[1].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
-                                selections[2].style.backgroundColor = 'rgba(255, 255, 255, 0.089)'
-                                selections[3].style.backgroundColor = 'rgba(255, 255, 255)'
-                                img_crew.src = dados.crew[3].images.webp
-                                img_crew.style.width = '30vw'
-                                bio_crew.textContent = dados.crew[3].bio
-                                crew_role.textContent = dados.crew[3].role
-                                name_crew.textContent = dados.crew[3].name
-                            }
-                            contador++
-                            if(contador > 3){
-                                contador = 0
-                            }
-                            if(main_now != dinamic_main.crew){
-                                clearInterval(interval)
-                            }
+                    const interval = setInterval(() =>{
+                        //concertando tamanho
+                        if(counter == 0 || counter == 1){
+                            img_crew.style.width = '25vw'
+                        }else{
+                            img_crew.style.width = '30vw'
                         }
-                    const interval = setInterval(mudando, 5000)
+
+                        img_crew.src = dados.crew[counter].images.webp
+                        bio_crew.textContent = dados.crew[counter].bio
+                        crew_role.textContent = dados.crew[counter].role
+                        name_crew.textContent = dados.crew[counter].name
+
+                        transform_balls_timer(counter, selections, main_now, dinamic_main.crew, interval)
+                        counter++
+                        if(counter > 3){
+                            counter = 0
+                        }    
+                    }, 5000)
                 })
                 
                 //technology
@@ -145,6 +110,8 @@ const dinamic_main = {
                     const text_tech = document.getElementsByClassName('texts')[1]
                     const img_tech = document.querySelector('#img_tech')
 
+                    let counter = 0
+
                     const bolinhas_tech = document.getElementsByClassName('bolinha_tech')
                     for(let c = 0; c < bolinhas_tech.length; c++){
                         bolinhas_tech[c].addEventListener('click', () =>{
@@ -153,91 +120,24 @@ const dinamic_main = {
                             text_tech.textContent = dados.technology[c].description
                             img_tech.src = dados.technology[c].images.landscape
 
+                            counter = c
+
                             transform_balls(bolinhas_tech, c)
                         })
                     }
+                    const interval = setInterval(() =>{
+                        transform_balls_timer(counter, bolinhas_tech, main_now, dinamic_main.technology, interval)
+
+                        img_tech.src = dados.technology[counter].images.landscape
+                        text_tech.textContent = dados.technology[counter].description
+                        terminology.textContent = dados.technology[counter].name
+
+                        counter++
+                        if(counter > 2){
+                            counter = 0
+                        }
+                    }, 3000)
                     
-                    // let contador = 0
-                    // for(let c = 0; c < bolinhas_tech.length; c++){
-                    //     bolinhas_tech[c].addEventListener('click', () =>{
-                    //         contador = c
-                    //         if(contador == 0){
-                                
-                    //             img_tech.src = dados.technology[0].images.landscape
-                    //             text_tech.textContent = dados.technology[0].description
-                    //             terminology.textContent = dados.technology[0].name
-                    //         }else if(contador == 1){
-                                
-                    //             img_tech.src = dados.technology[1].images.landscape
-                    //             text_tech.textContent = dados.technology[1].description
-                    //             terminology.textContent = dados.technology[1].name
-                    //         }else if(contador == 2){
-                                
-                    //             img_tech.src = dados.technology[2].images.landscape
-                    //             text_tech.textContent = dados.technology[2].description
-                    //             terminology.textContent = dados.technology[2].name
-                    //         }
-                    //     })
-                    // }
-                    // function mudando_tech(){
-                    //     if(contador == 0){
-                    //         bolinhas_tech[1].style = `
-                    //         background-color: trasparent;
-                    //         color: white;
-                    //         `
-                    //         bolinhas_tech[2].style = `
-                    //         background-color: trasparent;
-                    //         color: white;
-                    //         `
-                    //         bolinhas_tech[0].style = `
-                    //         background-color: white;
-                    //         color: black;
-                    //         `
-                    //         img_tech.src = dados.technology[0].images.landscape
-                    //         text_tech.textContent = dados.technology[0].description
-                    //         terminology.textContent = dados.technology[0].name
-                    //     }else if(contador == 1){
-                    //         bolinhas_tech[0].style = `
-                    //         background-color: trasparent;
-                    //         color: white;
-                    //         `
-                    //         bolinhas_tech[2].style = `
-                    //         background-color: trasparent;
-                    //         color: white;
-                    //         `
-                    //         bolinhas_tech[1].style = `
-                    //         background-color: white;
-                    //         color: black;
-                    //         `
-                    //         img_tech.src = dados.technology[1].images.landscape
-                    //         text_tech.textContent = dados.technology[1].description
-                    //         terminology.textContent = dados.technology[1].name
-                    //     }else if(contador == 2){
-                    //         bolinhas_tech[0].style = `
-                    //         background-color: trasparent;
-                    //         color: white;
-                    //         `
-                    //         bolinhas_tech[1].style = `
-                    //         background-color: trasparent;
-                    //         color: white;
-                    //         `
-                    //         bolinhas_tech[2].style = `
-                    //         background-color: white;
-                    //         color: black;
-                    //         `
-                    //         img_tech.src = dados.technology[2].images.landscape
-                    //         text_tech.textContent = dados.technology[2].description
-                    //         terminology.textContent = dados.technology[2].name
-                    //     }
-                    //     contador ++
-                    //     if(contador > 2){
-                    //         contador = 0
-                    //     }
-                    //     if(main_now != dinamic_main.technology){
-                    //         clearInterval(interval)
-                    //     }
-                    // }
-                    // let interval = setInterval(mudando_tech, 3000)
                 })
             })
         })
