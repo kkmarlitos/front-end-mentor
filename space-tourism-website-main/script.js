@@ -5,6 +5,7 @@ menu.menu_functions()
 
 const dinamic_main = {
     //DOM
+    body: document.getElementsByTagName('body')[0],
     main_dom: document.getElementsByTagName('main')[0],
     home: document.getElementById('home'),
     destination: document.getElementById('embrulho_destinos'),
@@ -19,6 +20,7 @@ const dinamic_main = {
 
                 //home
                 menu.p_home.addEventListener('click', function(){
+
                     menu.close.style.display = 'none'
                     menu.nav_header.style.transform = 'translateX(600px)'
                     menu.open.style.display = 'block'
@@ -30,6 +32,7 @@ const dinamic_main = {
 
                 //destination
                 menu.p_destination.addEventListener('click', function(){
+
                     menu.close.style.display = 'none'
                     menu.nav_header.style.transform = 'translateX(600px)'
                     menu.open.style.display = 'block'
@@ -57,6 +60,7 @@ const dinamic_main = {
 
                 //crew
                 menu.p_crew.addEventListener('click', function(){
+
                     menu.close.style.display = 'none'
                     menu.nav_header.style.transform = 'translateX(600px)'
                     menu.open.style.display = 'block'
@@ -92,8 +96,10 @@ const dinamic_main = {
                         })
                     }
                     const interval = setInterval(() =>{
+                        if(counter > 3){
+                            counter = 0
+                        }
                         selections[counter].style = `background-color:rgba(255, 255, 255, 0.800);`
-                        console.log(counter)
                         if(main_now != dinamic_main.crew){
                             clearInterval(interval)
                         }
@@ -112,7 +118,7 @@ const dinamic_main = {
                         img_crew.src = dados.crew[counter].images.webp
                         bio_crew.textContent = dados.crew[counter].bio
                         crew_role.textContent = dados.crew[counter].role
-                        name_crew.textContent = dados.crew[counter].name
+                        name_crew.textContent = dados.crew[counter].name    
 
                         counter++
                         if(counter > 3){
@@ -123,6 +129,7 @@ const dinamic_main = {
                 
                 //technology
                 menu.p_technology.addEventListener('click', function(){
+
                     menu.close.style.display = 'none'
                     menu.nav_header.style.transform = 'translateX(600px)'
                     menu.open.style.display = 'block'
@@ -151,8 +158,10 @@ const dinamic_main = {
                         })
                     }
                     const interval = setInterval(() =>{
+                        if(counter > 2){
+                            counter = 0
+                        }
                         bolinhas_tech[counter].style = `background-color:rgba(255, 255, 255, 0.800);`
-                        console.log(counter)
                         if(main_now != dinamic_main.technology){
                             clearInterval(interval)
                         }
@@ -167,9 +176,6 @@ const dinamic_main = {
                         terminology.textContent = dados.technology[counter].name
 
                         counter++
-                        if(counter > 2){
-                            counter = 0
-                        }
                     }, 3000)
                     
                 })

@@ -4,13 +4,13 @@
 body{
     width: 100vw;
     height: 100vh;
+    background-image: url('./starter-code/assets/home/background-home-mobile.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 #embrulho{
     width: 100vw;
     height: 100vh;
-    background-image: url('./starter-code/assets/home/background-home-mobile.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 header{
     font-family: monospace;
@@ -112,13 +112,13 @@ b{
 }
 #destinos p{
     width: 90vw;
-    font-size: 15px;
+    font-size: 13px;
     padding-bottom: 20px;
     margin: auto;
     text-align: center;
 }
 #destinos img{
-    width: 30vw;
+    width: 25vw;
 }
 #escolha_destino{
     display: flex;
@@ -141,7 +141,7 @@ legend{
 }
 #distancia_tempo p{
     text-align: center;
-    font-size: 25px;
+    font-size: 20px;
 }
 #embrulho_crew{
     display: none;
