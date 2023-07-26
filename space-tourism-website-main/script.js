@@ -1,5 +1,5 @@
 import {menu} from './menu.js'
-import { transform_balls, transform_balls_timer } from './teste.js'
+import { transform_balls } from './circles_func.js'
 
 menu.menu_functions()
 
@@ -19,6 +19,10 @@ const dinamic_main = {
 
                 //home
                 menu.p_home.addEventListener('click', function(){
+                    menu.close.style.display = 'none'
+                    menu.nav_header.style.transform = 'translateX(600px)'
+                    menu.open.style.display = 'block'
+
                     main_now.style.display = 'none'
                     main_now = dinamic_main.home
                     main_now.style.display = 'block'
@@ -26,6 +30,10 @@ const dinamic_main = {
 
                 //destination
                 menu.p_destination.addEventListener('click', function(){
+                    menu.close.style.display = 'none'
+                    menu.nav_header.style.transform = 'translateX(600px)'
+                    menu.open.style.display = 'block'
+
                     main_now.style.display = 'none'
                     main_now = dinamic_main.destination
                     main_now.style.display = 'block'
@@ -49,6 +57,10 @@ const dinamic_main = {
 
                 //crew
                 menu.p_crew.addEventListener('click', function(){
+                    menu.close.style.display = 'none'
+                    menu.nav_header.style.transform = 'translateX(600px)'
+                    menu.open.style.display = 'block'
+
                     main_now.style.display = 'none'
                     main_now = dinamic_main.crew
                     main_now.style.display = 'block'
@@ -80,6 +92,16 @@ const dinamic_main = {
                         })
                     }
                     const interval = setInterval(() =>{
+                        selections[counter].style = `background-color:rgba(255, 255, 255, 0.800);`
+                        console.log(counter)
+                        if(main_now != dinamic_main.crew){
+                            clearInterval(interval)
+                        }
+                        for(let c = 0; c < selections.length; c++){
+                            if(c != counter){
+                                selections[c].style.backgroundColor = "rgba(255, 255, 255, 0.05)"
+                            }
+                        }
                         //concertando tamanho
                         if(counter == 0 || counter == 1){
                             img_crew.style.width = '25vw'
@@ -92,7 +114,6 @@ const dinamic_main = {
                         crew_role.textContent = dados.crew[counter].role
                         name_crew.textContent = dados.crew[counter].name
 
-                        transform_balls_timer(counter, selections, main_now, dinamic_main.crew, interval)
                         counter++
                         if(counter > 3){
                             counter = 0
@@ -102,6 +123,10 @@ const dinamic_main = {
                 
                 //technology
                 menu.p_technology.addEventListener('click', function(){
+                    menu.close.style.display = 'none'
+                    menu.nav_header.style.transform = 'translateX(600px)'
+                    menu.open.style.display = 'block'
+
                     main_now.style.display = 'none'
                     main_now = dinamic_main.technology
                     main_now.style.display = 'block'
@@ -126,7 +151,16 @@ const dinamic_main = {
                         })
                     }
                     const interval = setInterval(() =>{
-                        transform_balls_timer(counter, bolinhas_tech, main_now, dinamic_main.technology, interval)
+                        bolinhas_tech[counter].style = `background-color:rgba(255, 255, 255, 0.800);`
+                        console.log(counter)
+                        if(main_now != dinamic_main.technology){
+                            clearInterval(interval)
+                        }
+                        for(let c = 0; c < bolinhas_tech.length; c++){
+                            if(c != counter){
+                                bolinhas_tech[c].style.backgroundColor = "rgba(255, 255, 255, 0.05)"
+                            }
+                        }
 
                         img_tech.src = dados.technology[counter].images.landscape
                         text_tech.textContent = dados.technology[counter].description
