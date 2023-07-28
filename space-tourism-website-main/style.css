@@ -74,8 +74,9 @@ main{
 }
 .titulos{
     color: rgba(255, 255, 255, 0.884);
-    font-size: 30px;
-    padding-bottom: 5px;
+    text-align: center;
+    font-size: 20px;
+    padding-bottom: 5vw;
 }
 b{
     color: rgba(255, 255, 255, 0.562);
@@ -109,15 +110,18 @@ b{
     font-size: 17px;
     color: rgba(255, 255, 255, 0.877);
 }
+h4{
+    font-size: 20px;
+}
 #destinos p{
     width: 90vw;
-    font-size: 13px;
+    font-size: 15px;
     padding-bottom: 20px;
     margin: auto;
     text-align: center;
 }
 #destinos img{
-    width: 25vw;
+    width: 28vw;
 }
 #escolha_destino{
     display: flex;
@@ -157,7 +161,7 @@ legend{
     display: flex;
     width: 40vw;
     margin: auto;
-    padding: 10px 0px 20px 0px;
+    padding: 4vw 0px 5vw 0px;
    }
    .bolinha{
     border: 1px solid transparent;

@@ -12,12 +12,12 @@ export const menu = {
     menu_functions: function(){
         this.open.addEventListener('click', () =>{
             this.open.style.display = 'none'
-            this.nav_header.style.transform = 'translateX(100px)'
+            this.nav_header.style.transform = 'translateX(30vw)'
             this.close.style.display = 'block'
         })
         this.close.addEventListener('click', () =>{
             this.close.style.display = 'none'
-            this.nav_header.style.transform = 'translateX(600px)'
+            this.nav_header.style.transform = 'translateX(100vw)'
             this.open.style.display = 'block'
         })
 
