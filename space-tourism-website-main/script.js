@@ -1,11 +1,10 @@
 import {menu} from './menu.js'
-import { transform_balls } from './circles_func.js'
+import { transform_balls } from './functions.js'
 
 menu.menu_functions()
 
 const dinamic_main = {
     //DOM
-    body: document.getElementsByTagName('body')[0],
     main_dom: document.getElementsByTagName('main')[0],
     home: document.getElementById('home'),
     destination: document.getElementById('embrulho_destinos'),
