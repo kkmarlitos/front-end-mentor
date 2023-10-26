@@ -37,9 +37,11 @@
         }
         .form-container{
             background-color: rgb(255, 255, 255);
-            width: 95vw;
+            width: 90vw;
+            height: 65vh;
             padding: 5vw;
             transform: translateY(-14vw);
+            box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.514);
             border-radius: 10px;
         }
         #h1_info{
@@ -52,6 +54,11 @@
             color: rgba(0, 0, 0, 0.438);
         }
         label{
-            font-size: 5vw;
+            font-size: 4vw;
             font-weight: 400;
         }
+    .botao{
+        transform: translateY(20vw);
+        margin-left: 55vw;
+        background-color: var(--Marine-blue);
+    }
