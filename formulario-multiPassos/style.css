@@ -10,6 +10,7 @@
         }
         body{
             background-color: var(--Light-blue);
+            margin: 0px;
         }
         main.container{
             font-family: 'Ubuntu', sans-serif;
@@ -23,6 +24,9 @@
         }
         .circles{
             padding-top: 10vw;
+        }
+        .fixing-flex > p{
+            display: none;
         }
         .rounded-circle{
             width: 10vw;
@@ -58,7 +62,7 @@
             font-weight: 400;
         }
     .botao{
-        transform: translateY(20vw);
+        transform: translateY(12vw);
         margin-left: 55vw;
         background-color: var(--Marine-blue);
     }
